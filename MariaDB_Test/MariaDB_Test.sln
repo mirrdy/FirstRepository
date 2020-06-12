@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariaDB_Test", "MariaDB_Test\MariaDB_Test.csproj", "{93B087E4-5DE9-496F-BFEF-459B7306DCC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93B087E4-5DE9-496F-BFEF-459B7306DCC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93B087E4-5DE9-496F-BFEF-459B7306DCC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93B087E4-5DE9-496F-BFEF-459B7306DCC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93B087E4-5DE9-496F-BFEF-459B7306DCC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65BAF19F-2F87-4DBE-A8B6-B385F993272B}
+	EndGlobalSection
+EndGlobal
