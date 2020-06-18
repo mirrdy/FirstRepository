@@ -1,0 +1,13 @@
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\bin\Debug\ReportProgram.exe.config
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\bin\Debug\ReportProgram.exe
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\bin\Debug\ReportProgram.pdb
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csprojAssemblyReference.cache
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.Properties.Resources.resources
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.GenerateResource.cache
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.CoreCompileInputs.cache
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.exe
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.pdb
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_Main.resources
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_Monitor.resources
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_DataManage.resources
+C:\Users\oldma\source\repos\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_Set.resources
