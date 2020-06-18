@@ -20,9 +20,6 @@ namespace ReportProgram
     {
         private string ConString = "dsn=MariaDB";
         private bool TmrFlg = false;
-        private List<int> goodCount = new List<int>();
-        private List<int> badCount = new List<int>();
-        private List<string> tmp_Date = new List<string>();
         private bool isFirstShow = true;
         private int modelCount = 0;
         private List<string> model_Name = new List<string>();
@@ -34,17 +31,35 @@ namespace ReportProgram
         public frm_Monitor()
         {
             InitializeComponent();
+        }
+
+        private void frm_Monitor_Load(object sender, EventArgs e)
+        {
             CreateGrid(ConString);
-            timer1.Enabled = true;
+            loadDailyTarget();
+
+            chart1.Series[0].XValueType = ChartValueType.DateTime;
+            chart1.ChartAreas[0].AxisX.LabelStyle.Format = "yyyy-MM-dd";
+            chart1.ChartAreas[0].AxisX.Interval = 1;
+            chart1.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Days;
+            chart1.ChartAreas[0].AxisX.IntervalOffset = 1;
+
+            ShowChart(ConString);
+            ShowGrid(ConString);
+
+            tmr_Monitor.Enabled = true;
         }
 
         private void ShowChart(string connectionString)
         {
             string queryString;
+            List<int> tmpOKCount = new List<int>();
+            List<int> tmpNGCount = new List<int>();
+            List<DateTime> tmpDate = new List<DateTime>();
 
-            goodCount.Clear();
-            badCount.Clear();
-            tmp_Date.Clear();
+            tmpOKCount.Clear();
+            tmpNGCount.Clear();
+            tmpDate.Clear();
 
             queryString = "select * from Test_Data order by Start_time asc;";
             OdbcCommand command = new OdbcCommand(queryString);
@@ -55,48 +70,57 @@ namespace ReportProgram
                 OdbcDataReader dr = command.ExecuteReader();
                 while(dr.Read())
                 {
-                    if(tmp_Date.Count==0)
+                    int tmpIndex = -1;
+                    for (int i = 0; i < tmpDate.Count; i++)
                     {
-                        goodCount.Add(0);
-                        badCount.Add(0);
-                        tmp_Date.Add(dr["Start_time"].ToString().Substring(0, 8));
+                        DateTime GetDate = Convert.ToDateTime(dr["Start_time"].ToString().Substring(0, 10));
+                        if(tmpDate[i] == GetDate)
+                        {
+                            tmpIndex = i;
+                        }
                     }
-                    if(!(tmp_Date[tmp_Date.Count-1].Equals(dr["Start_time"].ToString().Substring(0,8))))
+
+                    if(tmpIndex == -1)
                     {
-                        goodCount.Add(0);
-                        badCount.Add(0);
-                        tmp_Date.Add(dr["Start_time"].ToString().Substring(0, 8));
+                        tmpDate.Add(Convert.ToDateTime(dr["Start_time"].ToString().Substring(0, 10)));
+                        tmpOKCount.Add(0);
+                        tmpNGCount.Add(0);
+                        tmpIndex = tmpDate.Count - 1;
                     }
+
                     if (dr["Total_result"].ToString().Equals("양품"))
-                        goodCount[goodCount.Count - 1]++;
+                        tmpOKCount[tmpIndex]++;
                     else
-                        badCount[badCount.Count - 1]++;
+                        tmpNGCount[tmpIndex]++;
                 }
 
-                chart1.ChartAreas[0].AxisX.Minimum = Convert.ToInt64("20200601");
+                // chart1.ChartAreas[0].AxisX.Minimum = Convert.ToDateTime("20200531");
             }
+
+            // Chart Display
             if (isFirstShow)
             {
-                for (int i = 0; i < tmp_Date.Count; i++)
+                for (int i = 0; i < tmpDate.Count; i++)
                 {
-                    chart1.Series["Fail"].Points.AddXY(Convert.ToInt64(tmp_Date[i]), badCount[i]);
-                    chart1.Series["Pass"].Points.AddXY(Convert.ToInt64(tmp_Date[i]), goodCount[i]);
-                    chart1.Series["Yield"].Points.AddXY(Convert.ToInt64(tmp_Date[i]), (goodCount[i] / (double)(goodCount[i] + badCount[i]) * 100));
+                    chart1.Series["Pass"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), tmpOKCount[i]);
+                    chart1.Series["Fail"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), tmpNGCount[i]);
+                    chart1.Series["Yield"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), (tmpOKCount[i] / (double)(tmpOKCount[i] + tmpNGCount[i]) * 100));
                 }
                 isFirstShow = false;
             }
-            
             else
             {
-                for (int i = 0; i < tmp_Date.Count; i++)
+                for (int i = 0; i < tmpDate.Count; i++)
                 {
-                    chart1.Series["Fail"].Points.ElementAt(i).SetValueXY(Convert.ToInt64(tmp_Date[i]), badCount[i]);
-                    chart1.Series["Pass"].Points.ElementAt(i).SetValueXY(Convert.ToInt64(tmp_Date[i]), goodCount[i]);
-                    chart1.Series["Yield"].Points.ElementAt(i).SetValueXY(Convert.ToInt64(tmp_Date[i]), (goodCount[i] / (double)(goodCount[i] + badCount[i]) * 100));
+                    chart1.Series["Pass"].Points.ElementAt(i).SetValueXY(tmpDate[i].ToString("yyyy-MM-dd"), tmpOKCount[i]);
+                    chart1.Series["Fail"].Points.ElementAt(i).SetValueXY(tmpDate[i].ToString("yyyy-MM-dd"), tmpNGCount[i]);
+                    chart1.Series["Yield"].Points.ElementAt(i).SetValueXY(tmpDate[i].ToString("yyyy-MM-dd"), (tmpOKCount[i] / (double)(tmpOKCount[i] + tmpNGCount[i]) * 100));
                 }
             }
+
             //MessageBox.Show(chart1.Series["Fail"].Points[0].ToString());
 
+            /*
             chart_Test.Series[0].Points.Clear();
             chart_Test.Series[0].IsVisibleInLegend = false;
             chart_Test.Series[0].IsValueShownAsLabel = false;
@@ -109,6 +133,7 @@ namespace ReportProgram
             displayNowGoal.Text = (goodCount.Sum() / (double)targetCount) < 1 ? Math.Round((goodCount.Sum() / (double)targetCount * 100), 2).ToString()+"%" : "100%";
             chart_Test.Annotations.Add(displayNowGoal);
             chart_Test.Annotations.Add(displayDayTarget);
+            */
         }
 
         private void ShowGrid(string connectionString)
@@ -184,17 +209,6 @@ namespace ReportProgram
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (TmrFlg == false)
-            {
-                TmrFlg = true;
-                ShowChart(ConString);
-                ShowGrid(ConString);
-
-                TmrFlg = false;
-            }
-        }
         private void chart2_PrePaint(object sender, ChartPaintEventArgs e)
         {
             if (e.ChartElement is ChartArea)
@@ -216,20 +230,38 @@ namespace ReportProgram
                 displayDayTarget.Font = new Font("Ms Sans Serif", 24, FontStyle.Bold);
             }
         }
-        private void frm_Monitor_Load(object sender, EventArgs e)
-        {
-            loadDailyTarget();
-        }
         private void loadDailyTarget()
         {
             string path = "D:\\targetSaveFolder\\" + DateTime.Now.ToString("yyyyMMdd")+".txt";
-            StreamReader loadFile = new StreamReader(new FileStream(path, FileMode.Open));
 
-            while (loadFile.EndOfStream == false)
+            if (File.Exists(path) == true)
             {
-                targetCount = Convert.ToInt32(loadFile.ReadLine());
+                using (StreamReader loadFile = new StreamReader(new FileStream(path, FileMode.Open)))
+                {
+                    while (loadFile.EndOfStream == false)
+                    {
+                        targetCount = Convert.ToInt32(loadFile.ReadLine());
+                    }
+                }
+            }
+            else
+            {
+                targetCount = 0;
             }
             displayDayTarget.Text = "금일 목표수량: " + targetCount.ToString();
+        }
+
+        private void tmr_Monitor_Tick(object sender, EventArgs e)
+        {
+            if (TmrFlg == false)
+            {
+                TmrFlg = true;
+
+                ShowChart(ConString);
+                ShowGrid(ConString);
+
+                TmrFlg = false;
+            }
         }
     }
 }
