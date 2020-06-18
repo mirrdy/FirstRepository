@@ -51,11 +51,11 @@ namespace ReportProgram
 
             if (selectModelCB.SelectedItem != null)
                 modelCheck = selectModelCB.SelectedItem.ToString();
-            else
+            /*else
             {
                 MessageBox.Show("모델을 선택해주세요.");
                 return;
-            }
+            }*/
 
             if (targetInputBox.Text.Equals(""))
             {
@@ -75,12 +75,12 @@ namespace ReportProgram
             MessageBox.Show(targetQuantity.ToString());
 
 
-            if(Directory.Exists("d:\\targetSaveFolder\\" + targetDate.ToString(dateFormat)) == false)
+            if(Directory.Exists("d:\\targetSaveFolder") == false)
             {
-                Directory.CreateDirectory("d:\\targetSaveFolder\\" + targetDate.ToString(dateFormat));
+                Directory.CreateDirectory("d:\\targetSaveFolder");
             }
 
-            StreamWriter saveFile = new StreamWriter(new FileStream("d:\\targetSaveFolder\\"+targetDate.ToString(dateFormat)+"\\"+selectModelCB.SelectedItem.ToString()+".txt", FileMode.Create));
+            StreamWriter saveFile = new StreamWriter(new FileStream("d:\\targetSaveFolder\\"+targetDate.ToString(dateFormat)+".txt", FileMode.Create));
 
             saveFile.WriteLine(targetInputBox.Text);
 

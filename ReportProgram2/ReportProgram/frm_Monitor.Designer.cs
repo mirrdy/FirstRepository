@@ -55,6 +55,7 @@ namespace ReportProgram
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Test)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -143,7 +144,7 @@ namespace ReportProgram
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Target";
+            series1.Name = "Fail";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Pass";
@@ -188,7 +189,6 @@ namespace ReportProgram
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 583);
-            //this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_Monitor";

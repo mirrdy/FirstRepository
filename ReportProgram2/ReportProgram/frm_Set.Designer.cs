@@ -49,20 +49,20 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            /*this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 274);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 12);
             this.label1.TabIndex = 4;
-            this.label1.Text = "모델 선택";
+            this.label1.Text = "모델 선택";*/
             // 
             // selectModelCB
             // 
-            this.selectModelCB.FormattingEnabled = true;
+            /*this.selectModelCB.FormattingEnabled = true;
             this.selectModelCB.Location = new System.Drawing.Point(18, 289);
             this.selectModelCB.Name = "selectModelCB";
             this.selectModelCB.Size = new System.Drawing.Size(105, 20);
-            this.selectModelCB.TabIndex = 5;
+            this.selectModelCB.TabIndex = 5;*/
             // 
             // button1
             // 
@@ -87,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(136, 273);
+            this.label2.Location = new System.Drawing.Point(16, 322);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 12);
             this.label2.TabIndex = 8;
@@ -95,7 +95,7 @@
             // 
             // targetInputBox
             // 
-            this.targetInputBox.Location = new System.Drawing.Point(138, 288);
+            this.targetInputBox.Location = new System.Drawing.Point(18, 337);
             this.targetInputBox.Name = "targetInputBox";
             this.targetInputBox.Size = new System.Drawing.Size(100, 21);
             this.targetInputBox.TabIndex = 9;
