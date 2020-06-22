@@ -33,29 +33,38 @@
             this.데이터조회ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.데이터수정ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.dtp_StartDate = new System.Windows.Forms.DateTimePicker();
+            this.btn_CancleSelect = new System.Windows.Forms.Button();
+            this.btn_ConfirmSelect = new System.Windows.Forms.Button();
+            this.btn_InputBarcode = new System.Windows.Forms.Button();
+            this.cbx_SelModel = new System.Windows.Forms.ComboBox();
+            this.rdb_SelNg = new System.Windows.Forms.RadioButton();
+            this.rdb_SelOk = new System.Windows.Forms.RadioButton();
+            this.rdb_NoSel = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_CancleModify = new System.Windows.Forms.Button();
+            this.btn_ConfirmModify = new System.Windows.Forms.Button();
+            this.txtbox_InputSerialNum = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btn_ExportToExcel = new System.Windows.Forms.Button();
+            this.btn_ImportToExcel = new System.Windows.Forms.Button();
+            this.selectedDataView = new System.Windows.Forms.DataGridView();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tester = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.End_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total_result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedDataView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -64,7 +73,7 @@
             this.데이터ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -91,16 +100,16 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dtp_EndDate);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.dtp_StartDate);
+            this.groupBox1.Controls.Add(this.btn_CancleSelect);
+            this.groupBox1.Controls.Add(this.btn_ConfirmSelect);
+            this.groupBox1.Controls.Add(this.btn_InputBarcode);
+            this.groupBox1.Controls.Add(this.cbx_SelModel);
+            this.groupBox1.Controls.Add(this.rdb_SelNg);
+            this.groupBox1.Controls.Add(this.rdb_SelOk);
+            this.groupBox1.Controls.Add(this.rdb_NoSel);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -111,12 +120,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "데이터 조회";
             // 
-            // dateTimePicker2
+            // dtp_EndDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(328, 34);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker2.TabIndex = 12;
+            this.dtp_EndDate.Location = new System.Drawing.Point(328, 34);
+            this.dtp_EndDate.Name = "dtp_EndDate";
+            this.dtp_EndDate.Size = new System.Drawing.Size(200, 21);
+            this.dtp_EndDate.TabIndex = 12;
             // 
             // label4
             // 
@@ -127,80 +136,80 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "~";
             // 
-            // dateTimePicker1
+            // dtp_StartDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(102, 34);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtp_StartDate.Location = new System.Drawing.Point(102, 34);
+            this.dtp_StartDate.Name = "dtp_StartDate";
+            this.dtp_StartDate.Size = new System.Drawing.Size(200, 21);
+            this.dtp_StartDate.TabIndex = 10;
             // 
-            // button3
+            // btn_CancleSelect
             // 
-            this.button3.Location = new System.Drawing.Point(518, 184);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "취소";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_CancleSelect.Location = new System.Drawing.Point(518, 184);
+            this.btn_CancleSelect.Name = "btn_CancleSelect";
+            this.btn_CancleSelect.Size = new System.Drawing.Size(75, 23);
+            this.btn_CancleSelect.TabIndex = 9;
+            this.btn_CancleSelect.Text = "취소";
+            this.btn_CancleSelect.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_ConfirmSelect
             // 
-            this.button2.Location = new System.Drawing.Point(442, 184);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "확인";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_ConfirmSelect.Location = new System.Drawing.Point(442, 184);
+            this.btn_ConfirmSelect.Name = "btn_ConfirmSelect";
+            this.btn_ConfirmSelect.Size = new System.Drawing.Size(75, 23);
+            this.btn_ConfirmSelect.TabIndex = 8;
+            this.btn_ConfirmSelect.Text = "확인";
+            this.btn_ConfirmSelect.UseVisualStyleBackColor = true;
+            this.btn_ConfirmSelect.Click += new System.EventHandler(this.btn_ConfirmSelect_Click);
             // 
-            // button1
+            // btn_InputBarcode
             // 
-            this.button1.Location = new System.Drawing.Point(28, 172);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "바코드 입력";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_InputBarcode.Location = new System.Drawing.Point(28, 172);
+            this.btn_InputBarcode.Name = "btn_InputBarcode";
+            this.btn_InputBarcode.Size = new System.Drawing.Size(86, 23);
+            this.btn_InputBarcode.TabIndex = 7;
+            this.btn_InputBarcode.Text = "바코드 입력";
+            this.btn_InputBarcode.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbx_SelModel
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 131);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 6;
+            this.cbx_SelModel.FormattingEnabled = true;
+            this.cbx_SelModel.Location = new System.Drawing.Point(127, 131);
+            this.cbx_SelModel.Name = "cbx_SelModel";
+            this.cbx_SelModel.Size = new System.Drawing.Size(121, 20);
+            this.cbx_SelModel.TabIndex = 6;
             // 
-            // radioButton3
+            // rdb_SelNg
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(442, 82);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(47, 16);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.Text = "불량";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdb_SelNg.AutoSize = true;
+            this.rdb_SelNg.Location = new System.Drawing.Point(442, 82);
+            this.rdb_SelNg.Name = "rdb_SelNg";
+            this.rdb_SelNg.Size = new System.Drawing.Size(47, 16);
+            this.rdb_SelNg.TabIndex = 5;
+            this.rdb_SelNg.Text = "불량";
+            this.rdb_SelNg.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdb_SelOk
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(289, 82);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 16);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.Text = "양품";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdb_SelOk.AutoSize = true;
+            this.rdb_SelOk.Location = new System.Drawing.Point(289, 82);
+            this.rdb_SelOk.Name = "rdb_SelOk";
+            this.rdb_SelOk.Size = new System.Drawing.Size(47, 16);
+            this.rdb_SelOk.TabIndex = 4;
+            this.rdb_SelOk.Text = "양품";
+            this.rdb_SelOk.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdb_NoSel
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(145, 82);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(71, 16);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "선택안함";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdb_NoSel.AutoSize = true;
+            this.rdb_NoSel.Checked = true;
+            this.rdb_NoSel.Location = new System.Drawing.Point(145, 82);
+            this.rdb_NoSel.Name = "rdb_NoSel";
+            this.rdb_NoSel.Size = new System.Drawing.Size(71, 16);
+            this.rdb_NoSel.TabIndex = 3;
+            this.rdb_NoSel.TabStop = true;
+            this.rdb_NoSel.Text = "선택안함";
+            this.rdb_NoSel.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -234,9 +243,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.btn_CancleModify);
+            this.groupBox2.Controls.Add(this.btn_ConfirmModify);
+            this.groupBox2.Controls.Add(this.txtbox_InputSerialNum);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(12, 367);
             this.groupBox2.Name = "groupBox2";
@@ -245,31 +254,31 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "데이터 수정";
             // 
-            // button5
+            // btn_CancleModify
             // 
-            this.button5.Location = new System.Drawing.Point(433, 135);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "취소";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_CancleModify.Location = new System.Drawing.Point(433, 135);
+            this.btn_CancleModify.Name = "btn_CancleModify";
+            this.btn_CancleModify.Size = new System.Drawing.Size(75, 23);
+            this.btn_CancleModify.TabIndex = 10;
+            this.btn_CancleModify.Text = "취소";
+            this.btn_CancleModify.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_ConfirmModify
             // 
-            this.button4.Location = new System.Drawing.Point(352, 135);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "확인";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_ConfirmModify.Location = new System.Drawing.Point(352, 135);
+            this.btn_ConfirmModify.Name = "btn_ConfirmModify";
+            this.btn_ConfirmModify.Size = new System.Drawing.Size(75, 23);
+            this.btn_ConfirmModify.TabIndex = 9;
+            this.btn_ConfirmModify.Text = "확인";
+            this.btn_ConfirmModify.UseVisualStyleBackColor = true;
+            this.btn_ConfirmModify.Click += new System.EventHandler(this.btn_ConfirmModify_Click);
             // 
-            // textBox1
+            // txtbox_InputSerialNum
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtbox_InputSerialNum.Location = new System.Drawing.Point(130, 75);
+            this.txtbox_InputSerialNum.Name = "txtbox_InputSerialNum";
+            this.txtbox_InputSerialNum.Size = new System.Drawing.Size(274, 21);
+            this.txtbox_InputSerialNum.TabIndex = 1;
             // 
             // label5
             // 
@@ -280,32 +289,87 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "시리얼 번호";
             // 
-            // button6
+            // btn_ExportToExcel
             // 
-            this.button6.Location = new System.Drawing.Point(655, 86);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(146, 34);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "엑셀로 내보내기";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btn_ExportToExcel.Location = new System.Drawing.Point(763, 86);
+            this.btn_ExportToExcel.Name = "btn_ExportToExcel";
+            this.btn_ExportToExcel.Size = new System.Drawing.Size(146, 34);
+            this.btn_ExportToExcel.TabIndex = 5;
+            this.btn_ExportToExcel.Text = "엑셀로 내보내기";
+            this.btn_ExportToExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportToExcel.Click += new System.EventHandler(this.btn_ExportToExcel_Click);
             // 
-            // button7
+            // btn_ImportToExcel
             // 
-            this.button7.Location = new System.Drawing.Point(655, 126);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(146, 34);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "엑셀에서 가져오기";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btn_ImportToExcel.Location = new System.Drawing.Point(611, 86);
+            this.btn_ImportToExcel.Name = "btn_ImportToExcel";
+            this.btn_ImportToExcel.Size = new System.Drawing.Size(146, 34);
+            this.btn_ImportToExcel.TabIndex = 6;
+            this.btn_ImportToExcel.Text = "엑셀에서 가져오기";
+            this.btn_ImportToExcel.UseVisualStyleBackColor = true;
+            this.btn_ImportToExcel.Click += new System.EventHandler(this.btn_ImportToExcel_Click);
+            // 
+            // selectedDataView
+            // 
+            this.selectedDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectedDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Model,
+            this.Tester,
+            this.Start_time,
+            this.End_time,
+            this.Serial_number,
+            this.Barcode,
+            this.Total_result});
+            this.selectedDataView.Location = new System.Drawing.Point(611, 143);
+            this.selectedDataView.Name = "selectedDataView";
+            this.selectedDataView.RowTemplate.Height = 23;
+            this.selectedDataView.Size = new System.Drawing.Size(567, 382);
+            this.selectedDataView.TabIndex = 7;
+            // 
+            // Model
+            // 
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
+            // 
+            // Tester
+            // 
+            this.Tester.HeaderText = "Tester";
+            this.Tester.Name = "Tester";
+            // 
+            // Start_time
+            // 
+            this.Start_time.HeaderText = "Start_time";
+            this.Start_time.Name = "Start_time";
+            // 
+            // End_time
+            // 
+            this.End_time.HeaderText = "End_time";
+            this.End_time.Name = "End_time";
+            // 
+            // Serial_number
+            // 
+            this.Serial_number.HeaderText = "Serial_number";
+            this.Serial_number.Name = "Serial_number";
+            // 
+            // Barcode
+            // 
+            this.Barcode.HeaderText = "Barcode";
+            this.Barcode.Name = "Barcode";
+            // 
+            // Total_result
+            // 
+            this.Total_result.HeaderText = "Total_result";
+            this.Total_result.Name = "Total_result";
             // 
             // frm_DataManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(967, 543);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.ClientSize = new System.Drawing.Size(1184, 543);
+            this.Controls.Add(this.selectedDataView);
+            this.Controls.Add(this.btn_ImportToExcel);
+            this.Controls.Add(this.btn_ExportToExcel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -320,6 +384,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedDataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,25 +397,33 @@
         private System.Windows.Forms.ToolStripMenuItem 데이터조회ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 데이터수정ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtp_EndDate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.DateTimePicker dtp_StartDate;
+        private System.Windows.Forms.Button btn_CancleSelect;
+        private System.Windows.Forms.Button btn_ConfirmSelect;
+        private System.Windows.Forms.Button btn_InputBarcode;
+        private System.Windows.Forms.ComboBox cbx_SelModel;
+        private System.Windows.Forms.RadioButton rdb_SelNg;
+        private System.Windows.Forms.RadioButton rdb_SelOk;
+        private System.Windows.Forms.RadioButton rdb_NoSel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btn_CancleModify;
+        private System.Windows.Forms.Button btn_ConfirmModify;
+        private System.Windows.Forms.TextBox txtbox_InputSerialNum;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btn_ExportToExcel;
+        private System.Windows.Forms.Button btn_ImportToExcel;
+        private System.Windows.Forms.DataGridView selectedDataView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tester;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Start_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn End_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serial_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total_result;
     }
 }

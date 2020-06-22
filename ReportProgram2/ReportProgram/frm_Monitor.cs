@@ -206,7 +206,6 @@ namespace ReportProgram
                 displayNowGoal.Y = e.Position.Y;
                 displayNowGoal.ForeColor = Color.White;
                 displayNowGoal.Font = new Font("Ms Sans Serif", 24, FontStyle.Bold);
-
                 
                 displayDayTarget.Width = e.Position.Width;
                 displayDayTarget.Height = e.Position.Height;
