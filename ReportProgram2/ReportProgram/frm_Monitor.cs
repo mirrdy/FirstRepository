@@ -120,20 +120,28 @@ namespace ReportProgram
 
             //MessageBox.Show(chart1.Series["Fail"].Points[0].ToString());
 
-            /*
+            // 원형차트 디스플레이
+            // 원형차트는 금일 생산수량(양품수량)을 표시
+            int TodayOKCount = 0;
             chart_Test.Series[0].Points.Clear();
             chart_Test.Series[0].IsVisibleInLegend = false;
             chart_Test.Series[0].IsValueShownAsLabel = false;
-            // chart2.Series[0].LabelFormat = "0EA";
-            chart_Test.Series[0].Points.AddXY("금일 잔여 목표생산량("+ ((targetCount - goodCount.Sum()) < 0 ? 0 : targetCount - goodCount.Sum()) + ")", (targetCount-goodCount.Sum())<0 ? 0 : targetCount-goodCount.Sum());
-            chart_Test.Series[0].Points[0].Color = Color.LimeGreen;
-            chart_Test.Series[0].Points.AddXY("금일 총 생산량("+goodCount.Sum()+")", goodCount.Sum());
-            chart_Test.Series[0].Points[1].Color = Color.DarkGreen;
+            for(int i = 0; i < tmpDate.Count; i++)
+            {
+                if(tmpDate[i] == DateTime.Now)
+                {
+                    TodayOKCount = tmpOKCount[i];
+                    break;
+                }
+            }
+            chart_Test.Series[0].Points.AddXY("금일 잔여 목표생산량("+ (targetCount - TodayOKCount).ToString() + ")", targetCount - TodayOKCount);
+            chart_Test.Series[0].Points[0].Color = Color.DarkGreen;
+            chart_Test.Series[0].Points.AddXY("금일 총 생산량("+ TodayOKCount.ToString() + ")", TodayOKCount);
+            chart_Test.Series[0].Points[1].Color = Color.LimeGreen;
             chart_Test.Annotations.Clear();
-            displayNowGoal.Text = (goodCount.Sum() / (double)targetCount) < 1 ? Math.Round((goodCount.Sum() / (double)targetCount * 100), 2).ToString()+"%" : "100%";
+            displayNowGoal.Text = ((double)TodayOKCount / (double)targetCount) < 1 ? Math.Round(((double)TodayOKCount / (double)targetCount * 100), 2).ToString()+"%" : "100%";
             chart_Test.Annotations.Add(displayNowGoal);
             chart_Test.Annotations.Add(displayDayTarget);
-            */
         }
 
         private void ShowGrid(string connectionString)
@@ -230,6 +238,7 @@ namespace ReportProgram
                 displayDayTarget.Font = new Font("Ms Sans Serif", 24, FontStyle.Bold);
             }
         }
+
         private void loadDailyTarget()
         {
             string path = "D:\\targetSaveFolder\\" + DateTime.Now.ToString("yyyyMMdd")+".txt";
@@ -246,9 +255,8 @@ namespace ReportProgram
             }
             else
             {
-                targetCount = 0;
+                targetCount = 1000;
             }
-            displayDayTarget.Text = "금일 목표수량: " + targetCount.ToString();
         }
 
         private void tmr_Monitor_Tick(object sender, EventArgs e)
