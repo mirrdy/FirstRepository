@@ -25,6 +25,11 @@ namespace ReportProgram
             
         }
 
+        private void frm_Main_Load(object sender, EventArgs e)
+        {
+            btn_Monitor.PerformClick();
+        }
+
         private void btn_Monitor_Click(object sender, EventArgs e)
         {
             if (child_Monitor != null)
@@ -121,6 +126,5 @@ namespace ReportProgram
                 child_Set.Size = pnl_Center.Size;
             }
         }
-
     }
 }

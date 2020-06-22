@@ -103,7 +103,8 @@
             this.Controls.Add(this.pnl_Center);
             this.Controls.Add(this.panel1);
             this.Name = "frm_Main";
-            this.Text = "Form1";
+            this.Text = "Inno Report - by innocontact";
+            this.Load += new System.EventHandler(this.frm_Main_Load);
             this.Resize += new System.EventHandler(this.frm_Main_Resize);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
