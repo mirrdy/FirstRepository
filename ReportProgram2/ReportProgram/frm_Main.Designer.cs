@@ -41,10 +41,9 @@
             // 
             this.btn_DataManage.Image = ((System.Drawing.Image)(resources.GetObject("btn_DataManage.Image")));
             this.btn_DataManage.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_DataManage.Location = new System.Drawing.Point(114, 4);
-            this.btn_DataManage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_DataManage.Location = new System.Drawing.Point(114, 3);
             this.btn_DataManage.Name = "btn_DataManage";
-            this.btn_DataManage.Size = new System.Drawing.Size(105, 82);
+            this.btn_DataManage.Size = new System.Drawing.Size(105, 66);
             this.btn_DataManage.TabIndex = 2;
             this.btn_DataManage.Text = "검사 데이터 관리";
             this.btn_DataManage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -55,10 +54,9 @@
             // 
             this.btn_Monitor.Image = ((System.Drawing.Image)(resources.GetObject("btn_Monitor.Image")));
             this.btn_Monitor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Monitor.Location = new System.Drawing.Point(3, 4);
-            this.btn_Monitor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Monitor.Location = new System.Drawing.Point(3, 3);
             this.btn_Monitor.Name = "btn_Monitor";
-            this.btn_Monitor.Size = new System.Drawing.Size(105, 82);
+            this.btn_Monitor.Size = new System.Drawing.Size(105, 66);
             this.btn_Monitor.TabIndex = 3;
             this.btn_Monitor.Text = "공정 모니터링";
             this.btn_Monitor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -69,10 +67,9 @@
             // 
             this.btn_Set.Image = ((System.Drawing.Image)(resources.GetObject("btn_Set.Image")));
             this.btn_Set.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Set.Location = new System.Drawing.Point(225, 4);
-            this.btn_Set.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Set.Location = new System.Drawing.Point(225, 3);
             this.btn_Set.Name = "btn_Set";
-            this.btn_Set.Size = new System.Drawing.Size(105, 82);
+            this.btn_Set.Size = new System.Drawing.Size(105, 66);
             this.btn_Set.TabIndex = 4;
             this.btn_Set.Text = "환경설정";
             this.btn_Set.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -86,29 +83,25 @@
             this.panel1.Controls.Add(this.btn_DataManage);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1227, 90);
+            this.panel1.Size = new System.Drawing.Size(1227, 72);
             this.panel1.TabIndex = 5;
             // 
             // pnl_Center
             // 
             this.pnl_Center.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_Center.Location = new System.Drawing.Point(0, 90);
-            this.pnl_Center.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnl_Center.Location = new System.Drawing.Point(0, 72);
             this.pnl_Center.Name = "pnl_Center";
-            this.pnl_Center.Size = new System.Drawing.Size(1227, 696);
+            this.pnl_Center.Size = new System.Drawing.Size(1227, 557);
             this.pnl_Center.TabIndex = 6;
             // 
             // frm_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1227, 786);
+            this.ClientSize = new System.Drawing.Size(1227, 629);
             this.Controls.Add(this.pnl_Center);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_Main";
             this.Text = "Inno Report - by innocontact";
             this.Load += new System.EventHandler(this.frm_Main_Load);
