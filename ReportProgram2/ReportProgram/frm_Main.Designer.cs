@@ -110,7 +110,8 @@
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_Main";
-            this.Text = "Form1";
+            this.Text = "Inno Report - by innocontact";
+            this.Load += new System.EventHandler(this.frm_Main_Load);
             this.Resize += new System.EventHandler(this.frm_Main_Resize);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
