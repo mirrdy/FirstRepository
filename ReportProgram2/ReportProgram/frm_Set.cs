@@ -15,6 +15,8 @@ namespace ReportProgram
 {
     public partial class frm_Set : Form
     {
+        private xml_Setting mySetting = new xml_Setting();
+
         private string Constring = "dsn=MariaDB";
         public frm_Set()
         {
@@ -44,47 +46,55 @@ namespace ReportProgram
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string modelCheck;
-            int targetQuantity;
             DateTime targetDate = targetCalendar.SelectionStart;
             string dateFormat = "yyyyMMdd";
+            #region textSaveSetting
+            /*string modelCheck;
+                int targetQuantity;
+                DateTime targetDate = targetCalendar.SelectionStart;
+                string dateFormat = "yyyyMMdd";
 
-            if (selectModelCB.SelectedItem != null)
-                modelCheck = selectModelCB.SelectedItem.ToString();
-            /*else
-            {
-                MessageBox.Show("모델을 선택해주세요.");
-                return;
-            }*/
+                if (selectModelCB.SelectedItem != null)
+                    modelCheck = selectModelCB.SelectedItem.ToString();
+                *//*else
+                {
+                    MessageBox.Show("모델을 선택해주세요.");
+                    return;
+                }*//*
 
-            if (targetInputBox.Text.Equals(""))
-            {
-                MessageBox.Show("목표수량을 입력해주세요.");
-                return;
-            }
-            else if (!int.TryParse(targetInputBox.Text, out _))
-            {
-                MessageBox.Show("목표 수량에는 정수만 입력해야 합니다.");
-                return;
-            }
-            else
-            {
-                targetQuantity = Convert.ToInt32(targetInputBox.Text);
-            }
+                if (targetInputBox.Text.Equals(""))
+                {
+                    MessageBox.Show("목표수량을 입력해주세요.");
+                    return;
+                }
+                else if (!int.TryParse(targetInputBox.Text, out _))
+                {
+                    MessageBox.Show("목표 수량에는 정수만 입력해야 합니다.");
+                    return;
+                }
+                else
+                {
+                    targetQuantity = Convert.ToInt32(targetInputBox.Text);
+                }
 
-            MessageBox.Show(targetQuantity.ToString());
+                MessageBox.Show(targetQuantity.ToString());
 
 
-            if(Directory.Exists("d:\\targetSaveFolder") == false)
-            {
-                Directory.CreateDirectory("d:\\targetSaveFolder");
-            }
+                if(Directory.Exists("d:\\targetSaveFolder") == false)
+                {
+                    Directory.CreateDirectory("d:\\targetSaveFolder");
+                }
 
-            StreamWriter saveFile = new StreamWriter(new FileStream("d:\\targetSaveFolder\\"+targetDate.ToString(dateFormat)+".txt", FileMode.Create));
+                StreamWriter saveFile = new StreamWriter(new FileStream("d:\\targetSaveFolder\\"+targetDate.ToString(dateFormat)+".txt", FileMode.Create));
 
-            saveFile.WriteLine(targetInputBox.Text);
+                saveFile.WriteLine(targetInputBox.Text);
 
-            saveFile.Close();
+                saveFile.Close();*/
+            #endregion
+            mySetting.Target_Count = Convert.ToInt32(targetInputBox.Text);
+
+            mySetting.SettingSaveXml("d:\\targetSaveFolder\\Setting.sys");
+            MessageBox.Show("저장 완료!");
         }
 
         private void button2_Click(object sender, EventArgs e)
