@@ -57,9 +57,12 @@ namespace MariaDB_Test
             //label1.Text = DateTime.ParseExact(start_time, "yyMMddHHmmss", System.Globalization.CultureInfo.InvariantCulture).ToString();
 
             DateTime tmpDate = DateTime.Now;
-            string dateFormat = "yyyyMMdd-HH:mm:ss";
+            string dateFormat = "yyyy-MM-dd HH:mm:ss";
             string tmpStr = tmpDate.ToString(dateFormat);
             string tmpStr1 = tmpDate.AddDays(1).ToString(dateFormat);
+
+            start_time = tmpStr;
+            end_time = tmpStr;
 
 
             queryString = "INSERT INTO Test_Data (Model_name, Test_user, Start_time, End_time, Serial_number, Barcode, Total_result, Test_Data) " +

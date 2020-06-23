@@ -99,7 +99,8 @@ namespace ReportProgram
                 command.Connection = connection;
                 connection.Open();
                 OdbcDataReader dr = command.ExecuteReader();
-                while(dr.Read())
+
+                while (dr.Read())
                 {
                     string[] row = {dr["Model_name"].ToString(), dr["Test_user"].ToString(), dr["Start_time"].ToString(), dr["End_time"].ToString(),
                     dr["Serial_number"].ToString(), dr["Barcode"].ToString(), dr["Total_result"].ToString()};
@@ -153,16 +154,6 @@ namespace ReportProgram
         {
             string serialNum = txtbox_InputSerialNum.Text;
             modifyData(Constring, serialNum);
-        }
-
-        private void btn_ImportToExcel_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btn_ExportToExcel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -37,30 +37,31 @@ namespace ReportProgram
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tmr_Monitor = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.dgv_Data = new System.Windows.Forms.DataGridView();
+            this.chart_Test = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lbl_Title = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.chart_Test = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lbl_Title = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Test)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmr_Monitor
@@ -72,7 +73,6 @@ namespace ReportProgram
             // 
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.SystemColors.Info;
-            this.panel2.Controls.Add(this.dgv_Data);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -81,68 +81,16 @@ namespace ReportProgram
             this.panel2.Size = new System.Drawing.Size(1203, 729);
             this.panel2.TabIndex = 8;
             // 
-            // dgv_Data
-            // 
-            this.dgv_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            this.dgv_Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Data.Location = new System.Drawing.Point(0, 413);
-            this.dgv_Data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgv_Data.Name = "dgv_Data";
-            this.dgv_Data.RowTemplate.Height = 23;
-            this.dgv_Data.Size = new System.Drawing.Size(1203, 316);
-            this.dgv_Data.TabIndex = 9;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Model";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Target";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Pass";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Fail";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Yield";
-            this.Column5.Name = "Column5";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.chart1);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1203, 413);
-            this.panel1.TabIndex = 8;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.chart_Test);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(416, 413);
-            this.panel3.TabIndex = 12;
+            this.panel1.Size = new System.Drawing.Size(1203, 729);
+            this.panel1.TabIndex = 10;
             // 
             // chart1
             // 
@@ -187,13 +135,16 @@ namespace ReportProgram
             legend1.Name = "Legend1";
             legend1.TitleFont = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(416, 0);
+            this.chart1.Location = new System.Drawing.Point(467, 0);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chart1.Name = "chart1";
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
             series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.LimeGreen;
+            series1.Color = System.Drawing.Color.Lime;
+            series1.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.LimeGreen;
             series1.Legend = "Legend1";
             series1.LegendText = "양품";
             series1.Name = "Pass";
@@ -201,13 +152,19 @@ namespace ReportProgram
             series2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             series2.ChartArea = "ChartArea1";
             series2.Color = System.Drawing.Color.IndianRed;
+            series2.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.IndianRed;
             series2.Legend = "Legend1";
             series2.LegendText = "불량";
             series2.Name = "Fail";
+            series2.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
             series3.BorderWidth = 3;
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series3.Color = System.Drawing.Color.Aquamarine;
+            series3.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.LabelForeColor = System.Drawing.Color.Aquamarine;
             series3.Legend = "Legend1";
             series3.LegendText = "양품율(%)";
             series3.Name = "Yield";
@@ -215,9 +172,80 @@ namespace ReportProgram
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(787, 413);
+            this.chart1.Size = new System.Drawing.Size(736, 729);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgv_Data);
+            this.panel3.Controls.Add(this.chart_Test);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(467, 729);
+            this.panel3.TabIndex = 12;
+            // 
+            // dgv_Data
+            // 
+            this.dgv_Data.AllowUserToAddRows = false;
+            this.dgv_Data.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dgv_Data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Data.Location = new System.Drawing.Point(0, 385);
+            this.dgv_Data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgv_Data.Name = "dgv_Data";
+            this.dgv_Data.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Data.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_Data.RowTemplate.Height = 23;
+            this.dgv_Data.Size = new System.Drawing.Size(467, 344);
+            this.dgv_Data.TabIndex = 15;
+            // 
+            // chart_Test
+            // 
+            this.chart_Test.BackColor = System.Drawing.Color.LightGray;
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.BackColor = System.Drawing.Color.LightGray;
+            chartArea2.BorderColor = System.Drawing.Color.LightGray;
+            chartArea2.Name = "ChartArea1";
+            this.chart_Test.ChartAreas.Add(chartArea2);
+            this.chart_Test.Dock = System.Windows.Forms.DockStyle.Top;
+            legend2.Name = "Legend1";
+            this.chart_Test.Legends.Add(legend2);
+            this.chart_Test.Location = new System.Drawing.Point(0, 46);
+            this.chart_Test.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chart_Test.Name = "chart_Test";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart_Test.Series.Add(series4);
+            this.chart_Test.Size = new System.Drawing.Size(467, 339);
+            this.chart_Test.TabIndex = 14;
+            this.chart_Test.Text = "cht_TodayProduct";
+            this.chart_Test.PrePaint += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs>(this.chart_Test_PrePaint);
             // 
             // panel4
             // 
@@ -226,40 +254,47 @@ namespace ReportProgram
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(416, 55);
+            this.panel4.Size = new System.Drawing.Size(467, 46);
             this.panel4.TabIndex = 11;
-            // 
-            // chart_Test
-            // 
-            this.chart_Test.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            chartArea2.Area3DStyle.Enable3D = true;
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            chartArea2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            chartArea2.Name = "ChartArea1";
-            this.chart_Test.ChartAreas.Add(chartArea2);
-            this.chart_Test.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chart_Test.Legends.Add(legend2);
-            this.chart_Test.Location = new System.Drawing.Point(0, 55);
-            this.chart_Test.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chart_Test.Name = "chart_Test";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart_Test.Series.Add(series4);
-            this.chart_Test.Size = new System.Drawing.Size(416, 358);
-            this.chart_Test.TabIndex = 12;
-            this.chart_Test.Text = "cht_TodayProduct";
             // 
             // lbl_Title
             // 
-            this.lbl_Title.AutoSize = true;
-            this.lbl_Title.Location = new System.Drawing.Point(12, 18);
+            this.lbl_Title.BackColor = System.Drawing.Color.LightGray;
+            this.lbl_Title.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Title.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lbl_Title.Location = new System.Drawing.Point(0, 0);
             this.lbl_Title.Name = "lbl_Title";
-            this.lbl_Title.Size = new System.Drawing.Size(39, 15);
+            this.lbl_Title.Size = new System.Drawing.Size(467, 46);
             this.lbl_Title.TabIndex = 0;
-            this.lbl_Title.Text = "label1";
+            this.lbl_Title.Text = "금일 생산 수량";
+            this.lbl_Title.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "모델";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "양품수량";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "불량수량";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "양품률";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 80;
             // 
             // frm_Monitor
             // 
@@ -275,13 +310,12 @@ namespace ReportProgram
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.frm_Monitor_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Test)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,17 +325,16 @@ namespace ReportProgram
         private System.Windows.Forms.Timer tmr_Monitor;
         private List<CheckBox> myCheckBoxes = new List<CheckBox>();
         private Panel panel2;
-        private DataGridView dgv_Data;
         private Panel panel1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Panel panel3;
+        private Panel panel4;
+        private Label lbl_Title;
+        private DataGridView dgv_Data;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_Test;
         private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private Panel panel3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_Test;
-        private Panel panel4;
-        private Label lbl_Title;
     }
 }

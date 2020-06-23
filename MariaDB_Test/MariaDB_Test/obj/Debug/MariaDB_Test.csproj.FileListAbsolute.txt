@@ -17,3 +17,12 @@ C:\Users\oldma\Downloads\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.csproj
 C:\Users\oldma\Downloads\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.csproj.CoreCompileInputs.cache
 C:\Users\oldma\Downloads\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.exe
 C:\Users\oldma\Downloads\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.pdb
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\bin\Debug\MariaDB_Test.exe.config
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\bin\Debug\MariaDB_Test.exe
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\bin\Debug\MariaDB_Test.pdb
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.csprojAssemblyReference.cache
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.Form1.resources
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.Properties.Resources.resources
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.csproj.GenerateResource.cache
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.exe
+D:\FirstRepository\MariaDB_Test\MariaDB_Test\obj\Debug\MariaDB_Test.pdb
