@@ -38,6 +38,7 @@
             this.dtp_StartDate = new System.Windows.Forms.DateTimePicker();
             this.btn_CancleSelect = new System.Windows.Forms.Button();
             this.btn_ConfirmSelect = new System.Windows.Forms.Button();
+            this.btn_InputBarcode = new System.Windows.Forms.Button();
             this.cbx_SelModel = new System.Windows.Forms.ComboBox();
             this.rdb_SelNg = new System.Windows.Forms.RadioButton();
             this.rdb_SelOk = new System.Windows.Forms.RadioButton();
@@ -45,12 +46,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_InputBarcode = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_CancleModify = new System.Windows.Forms.Button();
-            this.btn_ConfirmModify = new System.Windows.Forms.Button();
+            this.btn_DeleteData = new System.Windows.Forms.Button();
+            this.txtbox_InputBarcode = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btn_CancleSearch = new System.Windows.Forms.Button();
+            this.btn_SearchData = new System.Windows.Forms.Button();
             this.txtbox_InputSerialNum = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.searchedDataView = new System.Windows.Forms.DataGridView();
             this.btn_ExportToExcel = new System.Windows.Forms.Button();
             this.btn_ImportToExcel = new System.Windows.Forms.Button();
             this.selectedDataView = new System.Windows.Forms.DataGridView();
@@ -61,23 +65,11 @@
             this.Serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total_result = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchedDataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedDataView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,7 +78,7 @@
             this.데이터ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1257, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -118,6 +110,7 @@
             this.groupBox1.Controls.Add(this.dtp_StartDate);
             this.groupBox1.Controls.Add(this.btn_CancleSelect);
             this.groupBox1.Controls.Add(this.btn_ConfirmSelect);
+            this.groupBox1.Controls.Add(this.btn_InputBarcode);
             this.groupBox1.Controls.Add(this.cbx_SelModel);
             this.groupBox1.Controls.Add(this.rdb_SelNg);
             this.groupBox1.Controls.Add(this.rdb_SelOk);
@@ -125,7 +118,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 86);
+            this.groupBox1.Location = new System.Drawing.Point(12, 143);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(593, 213);
             this.groupBox1.TabIndex = 3;
@@ -173,6 +166,15 @@
             this.btn_ConfirmSelect.Text = "확인";
             this.btn_ConfirmSelect.UseVisualStyleBackColor = true;
             this.btn_ConfirmSelect.Click += new System.EventHandler(this.btn_ConfirmSelect_Click);
+            // 
+            // btn_InputBarcode
+            // 
+            this.btn_InputBarcode.Location = new System.Drawing.Point(28, 172);
+            this.btn_InputBarcode.Name = "btn_InputBarcode";
+            this.btn_InputBarcode.Size = new System.Drawing.Size(86, 23);
+            this.btn_InputBarcode.TabIndex = 7;
+            this.btn_InputBarcode.Text = "바코드 입력";
+            this.btn_InputBarcode.UseVisualStyleBackColor = true;
             // 
             // cbx_SelModel
             // 
@@ -244,50 +246,70 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "기간";
             // 
-            // btn_InputBarcode
-            // 
-            this.btn_InputBarcode.Location = new System.Drawing.Point(301, 471);
-            this.btn_InputBarcode.Name = "btn_InputBarcode";
-            this.btn_InputBarcode.Size = new System.Drawing.Size(86, 23);
-            this.btn_InputBarcode.TabIndex = 7;
-            this.btn_InputBarcode.Text = "바코드 검색";
-            this.btn_InputBarcode.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btn_CancleModify);
-            this.groupBox2.Controls.Add(this.btn_ConfirmModify);
+            this.groupBox2.Controls.Add(this.btn_DeleteData);
+            this.groupBox2.Controls.Add(this.txtbox_InputBarcode);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.btn_CancleSearch);
+            this.groupBox2.Controls.Add(this.btn_SearchData);
             this.groupBox2.Controls.Add(this.txtbox_InputSerialNum);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(12, 305);
+            this.groupBox2.Location = new System.Drawing.Point(12, 434);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(508, 100);
+            this.groupBox2.Size = new System.Drawing.Size(593, 165);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "데이터 수정";
             // 
-            // btn_CancleModify
+            // btn_DeleteData
             // 
-            this.btn_CancleModify.Location = new System.Drawing.Point(344, 57);
-            this.btn_CancleModify.Name = "btn_CancleModify";
-            this.btn_CancleModify.Size = new System.Drawing.Size(75, 23);
-            this.btn_CancleModify.TabIndex = 10;
-            this.btn_CancleModify.Text = "취소";
-            this.btn_CancleModify.UseVisualStyleBackColor = true;
+            this.btn_DeleteData.Location = new System.Drawing.Point(437, 135);
+            this.btn_DeleteData.Name = "btn_DeleteData";
+            this.btn_DeleteData.Size = new System.Drawing.Size(75, 23);
+            this.btn_DeleteData.TabIndex = 13;
+            this.btn_DeleteData.Text = "삭제";
+            this.btn_DeleteData.UseVisualStyleBackColor = true;
+            this.btn_DeleteData.Click += new System.EventHandler(this.btn_DeleteData_Click);
             // 
-            // btn_ConfirmModify
+            // txtbox_InputBarcode
             // 
-            this.btn_ConfirmModify.Location = new System.Drawing.Point(263, 57);
-            this.btn_ConfirmModify.Name = "btn_ConfirmModify";
-            this.btn_ConfirmModify.Size = new System.Drawing.Size(75, 23);
-            this.btn_ConfirmModify.TabIndex = 9;
-            this.btn_ConfirmModify.Text = "확인";
-            this.btn_ConfirmModify.UseVisualStyleBackColor = true;
-            this.btn_ConfirmModify.Click += new System.EventHandler(this.btn_ConfirmModify_Click);
+            this.txtbox_InputBarcode.Location = new System.Drawing.Point(127, 77);
+            this.txtbox_InputBarcode.Name = "txtbox_InputBarcode";
+            this.txtbox_InputBarcode.Size = new System.Drawing.Size(274, 21);
+            this.txtbox_InputBarcode.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 86);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "바코드";
+            // 
+            // btn_CancleSearch
+            // 
+            this.btn_CancleSearch.Location = new System.Drawing.Point(518, 135);
+            this.btn_CancleSearch.Name = "btn_CancleSearch";
+            this.btn_CancleSearch.Size = new System.Drawing.Size(75, 23);
+            this.btn_CancleSearch.TabIndex = 10;
+            this.btn_CancleSearch.Text = "취소";
+            this.btn_CancleSearch.UseVisualStyleBackColor = true;
+            // 
+            // btn_SearchData
+            // 
+            this.btn_SearchData.Location = new System.Drawing.Point(356, 135);
+            this.btn_SearchData.Name = "btn_SearchData";
+            this.btn_SearchData.Size = new System.Drawing.Size(75, 23);
+            this.btn_SearchData.TabIndex = 9;
+            this.btn_SearchData.Text = "검색";
+            this.btn_SearchData.UseVisualStyleBackColor = true;
+            this.btn_SearchData.Click += new System.EventHandler(this.btn_SearchData_Click);
             // 
             // txtbox_InputSerialNum
             // 
-            this.txtbox_InputSerialNum.Location = new System.Drawing.Point(136, 30);
+            this.txtbox_InputSerialNum.Location = new System.Drawing.Point(127, 32);
             this.txtbox_InputSerialNum.Name = "txtbox_InputSerialNum";
             this.txtbox_InputSerialNum.Size = new System.Drawing.Size(274, 21);
             this.txtbox_InputSerialNum.TabIndex = 1;
@@ -295,11 +317,21 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 33);
+            this.label5.Location = new System.Drawing.Point(17, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 12);
             this.label5.TabIndex = 0;
             this.label5.Text = "시리얼 번호";
+            // 
+            // searchedDataView
+            // 
+            this.searchedDataView.AllowUserToAddRows = false;
+            this.searchedDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.searchedDataView.Location = new System.Drawing.Point(611, 434);
+            this.searchedDataView.Name = "searchedDataView";
+            this.searchedDataView.RowTemplate.Height = 23;
+            this.searchedDataView.Size = new System.Drawing.Size(567, 165);
+            this.searchedDataView.TabIndex = 13;
             // 
             // btn_ExportToExcel
             // 
@@ -309,6 +341,7 @@
             this.btn_ExportToExcel.TabIndex = 5;
             this.btn_ExportToExcel.Text = "엑셀로 내보내기";
             this.btn_ExportToExcel.UseVisualStyleBackColor = true;
+            this.btn_ExportToExcel.Click += new System.EventHandler(this.btn_ExportToExcel_Click);
             // 
             // btn_ImportToExcel
             // 
@@ -318,9 +351,11 @@
             this.btn_ImportToExcel.TabIndex = 6;
             this.btn_ImportToExcel.Text = "엑셀에서 가져오기";
             this.btn_ImportToExcel.UseVisualStyleBackColor = true;
+            this.btn_ImportToExcel.Click += new System.EventHandler(this.btn_ImportToExcel_Click);
             // 
             // selectedDataView
             // 
+            this.selectedDataView.AllowUserToAddRows = false;
             this.selectedDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.selectedDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Model,
@@ -333,7 +368,7 @@
             this.selectedDataView.Location = new System.Drawing.Point(611, 143);
             this.selectedDataView.Name = "selectedDataView";
             this.selectedDataView.RowTemplate.Height = 23;
-            this.selectedDataView.Size = new System.Drawing.Size(567, 260);
+            this.selectedDataView.Size = new System.Drawing.Size(567, 278);
             this.selectedDataView.TabIndex = 7;
             // 
             // Model
@@ -371,106 +406,18 @@
             this.Total_result.HeaderText = "Total_result";
             this.Total_result.Name = "Total_result";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(21, 473);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 21);
-            this.textBox1.TabIndex = 8;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Location = new System.Drawing.Point(1, 431);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1176, 10);
-            this.panel1.TabIndex = 9;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
-            this.dataGridView1.Location = new System.Drawing.Point(610, 447);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(567, 102);
-            this.dataGridView1.TabIndex = 10;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Model";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tester";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Start_time";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "End_time";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Serial_number";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Barcode";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Total_result";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(21, 502);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(274, 21);
-            this.textBox2.TabIndex = 12;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(301, 500);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "시리얼번호 검색";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frm_DataManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1184, 570);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1257, 628);
+            this.Controls.Add(this.searchedDataView);
             this.Controls.Add(this.selectedDataView);
             this.Controls.Add(this.btn_ImportToExcel);
             this.Controls.Add(this.btn_ExportToExcel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btn_InputBarcode);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frm_DataManage";
@@ -483,8 +430,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchedDataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedDataView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,8 +458,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btn_CancleModify;
-        private System.Windows.Forms.Button btn_ConfirmModify;
+        private System.Windows.Forms.Button btn_CancleSearch;
+        private System.Windows.Forms.Button btn_SearchData;
         private System.Windows.Forms.TextBox txtbox_InputSerialNum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_ExportToExcel;
@@ -525,17 +472,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Serial_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_result;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView searchedDataView;
+        private System.Windows.Forms.TextBox txtbox_InputBarcode;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_DeleteData;
     }
 }
