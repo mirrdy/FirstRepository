@@ -84,7 +84,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1227, 72);
+            this.panel1.Size = new System.Drawing.Size(1305, 72);
             this.panel1.TabIndex = 5;
             // 
             // pnl_Center
@@ -92,14 +92,14 @@
             this.pnl_Center.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Center.Location = new System.Drawing.Point(0, 72);
             this.pnl_Center.Name = "pnl_Center";
-            this.pnl_Center.Size = new System.Drawing.Size(1227, 557);
+            this.pnl_Center.Size = new System.Drawing.Size(1305, 634);
             this.pnl_Center.TabIndex = 6;
             // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1227, 629);
+            this.ClientSize = new System.Drawing.Size(1305, 706);
             this.Controls.Add(this.pnl_Center);
             this.Controls.Add(this.panel1);
             this.Name = "frm_Main";
