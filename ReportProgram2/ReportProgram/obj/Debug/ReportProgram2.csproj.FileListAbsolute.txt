@@ -27,7 +27,6 @@ C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\obj\Debug\ReportProgram.
 D:\FirstRepository\ReportProgram2\ReportProgram\bin\Debug\ReportProgram.exe.config
 D:\FirstRepository\ReportProgram2\ReportProgram\bin\Debug\ReportProgram.exe
 D:\FirstRepository\ReportProgram2\ReportProgram\bin\Debug\ReportProgram.pdb
-D:\FirstRepository\ReportProgram2\ReportProgram\obj\Debug\ReportProgram2.csprojAssemblyReference.cache
 D:\FirstRepository\ReportProgram2\ReportProgram\obj\Debug\ReportProgram.frm_DataManage.resources
 D:\FirstRepository\ReportProgram2\ReportProgram\obj\Debug\ReportProgram.frm_Main.resources
 D:\FirstRepository\ReportProgram2\ReportProgram\obj\Debug\ReportProgram.frm_Monitor.resources

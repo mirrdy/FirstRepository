@@ -35,6 +35,7 @@
             this.btn_Monitor = new System.Windows.Forms.Button();
             this.btn_Set = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnl_Center = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -111,15 +112,26 @@
             this.panel1.Size = new System.Drawing.Size(1227, 68);
             this.panel1.TabIndex = 5;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 68);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1227, 2);
+            this.panel2.TabIndex = 7;
+            // 
             // pnl_Center
             // 
             this.pnl_Center.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnl_Center.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_Center.Location = new System.Drawing.Point(0, 68);
+            this.pnl_Center.Location = new System.Drawing.Point(0, 70);
             this.pnl_Center.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Center.Name = "pnl_Center";
-            this.pnl_Center.Size = new System.Drawing.Size(1227, 718);
-            this.pnl_Center.TabIndex = 6;
+            this.pnl_Center.Size = new System.Drawing.Size(1227, 716);
+            this.pnl_Center.TabIndex = 8;
             // 
             // frm_Main
             // 
@@ -127,6 +139,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1227, 786);
             this.Controls.Add(this.pnl_Center);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -145,8 +158,9 @@
         private System.Windows.Forms.Button btn_Monitor;
         private System.Windows.Forms.Button btn_Set;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel pnl_Center;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnl_Center;
     }
 }
 
