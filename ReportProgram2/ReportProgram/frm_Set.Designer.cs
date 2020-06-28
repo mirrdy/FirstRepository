@@ -38,6 +38,8 @@
             this.fdbr = new System.Windows.Forms.FolderBrowserDialog();
             this.loadPathTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.infoDBConInputBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // targetCalendar
@@ -49,24 +51,21 @@
             // 
             // label1
             // 
-            /*this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 274);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 12);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "모델 선택";*/
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 13;
             // 
             // selectModelCB
             // 
-            /*this.selectModelCB.FormattingEnabled = true;
-            this.selectModelCB.Location = new System.Drawing.Point(18, 289);
+            this.selectModelCB.Location = new System.Drawing.Point(0, 0);
             this.selectModelCB.Name = "selectModelCB";
-            this.selectModelCB.Size = new System.Drawing.Size(105, 20);
-            this.selectModelCB.TabIndex = 5;*/
+            this.selectModelCB.Size = new System.Drawing.Size(121, 20);
+            this.selectModelCB.TabIndex = 12;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(18, 396);
+            this.button1.Location = new System.Drawing.Point(18, 452);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -76,7 +75,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(18, 425);
+            this.button2.Location = new System.Drawing.Point(18, 481);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -102,7 +101,7 @@
             // 
             // loadPathTextBox
             // 
-            this.loadPathTextBox.Location = new System.Drawing.Point(18, 465);
+            this.loadPathTextBox.Location = new System.Drawing.Point(18, 510);
             this.loadPathTextBox.Name = "loadPathTextBox";
             this.loadPathTextBox.Size = new System.Drawing.Size(220, 21);
             this.loadPathTextBox.TabIndex = 10;
@@ -116,11 +115,29 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "날짜 선택";
             // 
+            // infoDBConInputBox
+            // 
+            this.infoDBConInputBox.Location = new System.Drawing.Point(18, 393);
+            this.infoDBConInputBox.Name = "infoDBConInputBox";
+            this.infoDBConInputBox.Size = new System.Drawing.Size(100, 21);
+            this.infoDBConInputBox.TabIndex = 14;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 378);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "DB 연결 정보";
+            // 
             // frm_Set
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 591);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.infoDBConInputBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.loadPathTextBox);
             this.Controls.Add(this.targetInputBox);
@@ -151,5 +168,7 @@
         private System.Windows.Forms.FolderBrowserDialog fdbr;
         private System.Windows.Forms.TextBox loadPathTextBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox infoDBConInputBox;
+        private System.Windows.Forms.Label label4;
     }
 }
