@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReportProgram.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,10 +19,12 @@ namespace ReportProgram
         private xml_Setting mySetting = new xml_Setting();
 
         private string Constring = "dsn=MariaDB";
+        private string settingSavePath = "d:\\SettingSaveFolder\\";
         public frm_Set()
         {
             InitializeComponent();
             addComboBox(Constring);
+            loadMySetting();
         }
 
         private void addComboBox(string ConnectionString)
@@ -40,8 +43,15 @@ namespace ReportProgram
                     selectModelCB.Items.Add(dr["name"]);
                 }
             }
-            //MessageBox.Show(selectModelCB.Items[3].ToString());
-            
+            //MessageBox.Show(selectModelCB.Items[3].ToString());            
+        }
+
+        private void loadMySetting()
+        {
+            mySetting.Setting_Load_Xml(settingSavePath);
+
+            targetInputBox.Text = mySetting.Target_Count.ToString();
+            infoDBConInputBox.Text = mySetting.Info_DBConnection;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -92,8 +102,9 @@ namespace ReportProgram
                 saveFile.Close();*/
             #endregion
             mySetting.Target_Count = Convert.ToInt32(targetInputBox.Text);
+            mySetting.Info_DBConnection = infoDBConInputBox.Text;
 
-            mySetting.SettingSaveXml("d:\\targetSaveFolder\\Setting.sys");
+            mySetting.Setting_Save_Xml(settingSavePath);
             MessageBox.Show("저장 완료!");
         }
 

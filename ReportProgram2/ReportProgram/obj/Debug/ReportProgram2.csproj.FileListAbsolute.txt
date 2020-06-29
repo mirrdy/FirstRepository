@@ -35,3 +35,14 @@ D:\FirstRepository\ReportProgram2\ReportProgram\obj\Debug\ReportProgram.Properti
 D:\FirstRepository\ReportProgram2\ReportProgram\obj\Debug\ReportProgram2.csproj.GenerateResource.cache
 D:\FirstRepository\ReportProgram2\ReportProgram\obj\Debug\ReportProgram.exe
 D:\FirstRepository\ReportProgram2\ReportProgram\obj\Debug\ReportProgram.pdb
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\NPOI.dll
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\NPOI.OOXML.dll
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\obj\Debug\ReportProgram2.csproj.CopyComplete
+C:\Users\oldma\Desktop\dev\ReportProgram2\ReportProgram\obj\Debug\ReportProgram2.csproj.ResolveComReference.cache

@@ -56,7 +56,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.searchedDataView = new System.Windows.Forms.DataGridView();
             this.btn_ExportToExcel = new System.Windows.Forms.Button();
-            this.btn_ImportToExcel = new System.Windows.Forms.Button();
             this.selectedDataView = new System.Windows.Forms.DataGridView();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tester = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,7 +117,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 143);
+            this.groupBox1.Location = new System.Drawing.Point(12, 78);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(593, 213);
             this.groupBox1.TabIndex = 3;
@@ -255,7 +254,7 @@
             this.groupBox2.Controls.Add(this.btn_SearchData);
             this.groupBox2.Controls.Add(this.txtbox_InputSerialNum);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(12, 434);
+            this.groupBox2.Location = new System.Drawing.Point(12, 367);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(593, 165);
             this.groupBox2.TabIndex = 4;
@@ -327,7 +326,7 @@
             // 
             this.searchedDataView.AllowUserToAddRows = false;
             this.searchedDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchedDataView.Location = new System.Drawing.Point(611, 434);
+            this.searchedDataView.Location = new System.Drawing.Point(611, 367);
             this.searchedDataView.Name = "searchedDataView";
             this.searchedDataView.RowTemplate.Height = 23;
             this.searchedDataView.Size = new System.Drawing.Size(567, 165);
@@ -335,23 +334,13 @@
             // 
             // btn_ExportToExcel
             // 
-            this.btn_ExportToExcel.Location = new System.Drawing.Point(763, 86);
+            this.btn_ExportToExcel.Location = new System.Drawing.Point(611, 27);
             this.btn_ExportToExcel.Name = "btn_ExportToExcel";
             this.btn_ExportToExcel.Size = new System.Drawing.Size(146, 34);
             this.btn_ExportToExcel.TabIndex = 5;
             this.btn_ExportToExcel.Text = "엑셀로 내보내기";
             this.btn_ExportToExcel.UseVisualStyleBackColor = true;
             this.btn_ExportToExcel.Click += new System.EventHandler(this.btn_ExportToExcel_Click);
-            // 
-            // btn_ImportToExcel
-            // 
-            this.btn_ImportToExcel.Location = new System.Drawing.Point(611, 86);
-            this.btn_ImportToExcel.Name = "btn_ImportToExcel";
-            this.btn_ImportToExcel.Size = new System.Drawing.Size(146, 34);
-            this.btn_ImportToExcel.TabIndex = 6;
-            this.btn_ImportToExcel.Text = "엑셀에서 가져오기";
-            this.btn_ImportToExcel.UseVisualStyleBackColor = true;
-            this.btn_ImportToExcel.Click += new System.EventHandler(this.btn_ImportToExcel_Click);
             // 
             // selectedDataView
             // 
@@ -365,7 +354,7 @@
             this.Serial_number,
             this.Barcode,
             this.Total_result});
-            this.selectedDataView.Location = new System.Drawing.Point(611, 143);
+            this.selectedDataView.Location = new System.Drawing.Point(611, 78);
             this.selectedDataView.Name = "selectedDataView";
             this.selectedDataView.RowTemplate.Height = 23;
             this.selectedDataView.Size = new System.Drawing.Size(567, 278);
@@ -411,10 +400,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1257, 628);
+            this.ClientSize = new System.Drawing.Size(1257, 748);
             this.Controls.Add(this.searchedDataView);
             this.Controls.Add(this.selectedDataView);
-            this.Controls.Add(this.btn_ImportToExcel);
             this.Controls.Add(this.btn_ExportToExcel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -463,7 +451,6 @@
         private System.Windows.Forms.TextBox txtbox_InputSerialNum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_ExportToExcel;
-        private System.Windows.Forms.Button btn_ImportToExcel;
         private System.Windows.Forms.DataGridView selectedDataView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tester;
