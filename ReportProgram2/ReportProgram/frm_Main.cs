@@ -22,7 +22,6 @@ namespace ReportProgram
         public frm_Main()
         {
             InitializeComponent();
-            
         }
 
         private void frm_Main_Load(object sender, EventArgs e)

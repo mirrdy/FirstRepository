@@ -39,6 +39,16 @@
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.dll</HintPath>
     </Reference>
@@ -79,11 +89,23 @@
     <Compile Include="frm_Main.Designer.cs">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_ModifyData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ModifyData.Designer.cs">
+      <DependentUpon>frm_ModifyData.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Monitor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_Monitor.Designer.cs">
       <DependentUpon>frm_Monitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_SelectData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_SelectData.Designer.cs">
+      <DependentUpon>frm_SelectData.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Set.cs">
       <SubType>Form</SubType>
@@ -100,8 +122,14 @@
     <EmbeddedResource Include="frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_ModifyData.resx">
+      <DependentUpon>frm_ModifyData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Monitor.resx">
       <DependentUpon>frm_Monitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_SelectData.resx">
+      <DependentUpon>frm_SelectData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Set.resx">
       <DependentUpon>frm_Set.cs</DependentUpon>
@@ -157,6 +185,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MetroFramework.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,28 +13,37 @@ using System.Net.Sockets;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.ComponentModel.Design;
 using System.IO;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace ReportProgram
 {
     public partial class frm_Monitor : Form
     {
-        private string ConString = "dsn=MariaDB";
+        private xml_Setting mySetting = new xml_Setting();
+        private string conString;
+        private string settingSavePath = "D:\\SettingSaveFolder\\";
         private bool TmrFlg = false;
         private int modelCount = 0;
         private List<string> model_Name = new List<string>();
-        public int targetCount = 1000;
+        public int targetCount = 123;
 
         TextAnnotation displayNowGoal = new TextAnnotation();
 
         public frm_Monitor()
         {
             InitializeComponent();
+            loadMySetting();
+        }
+        private void loadMySetting()
+        {
+            mySetting.Setting_Load_Xml(settingSavePath);
+            targetCount = mySetting.Target_Count;
+            conString = mySetting.Info_DBConnection;
         }
 
         private void frm_Monitor_Load(object sender, EventArgs e)
         {
-            CreateGrid(ConString);
-            loadDailyTarget();
+            CreateGrid(conString);
 
             chart1.Series[0].XValueType = ChartValueType.DateTime;
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "yyyy-MM-dd";
@@ -42,8 +51,8 @@ namespace ReportProgram
             chart1.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Days;
             chart1.ChartAreas[0].AxisX.IntervalOffset = 1;
 
-            ShowChart(ConString);
-            ShowGrid(ConString);
+            ShowChart(conString);
+            ShowGrid(conString);
 
             tmr_Monitor.Enabled = true;
         }
@@ -220,34 +229,14 @@ namespace ReportProgram
             }
         }
 
-        private void loadDailyTarget()
-        {
-            string path = "D:\\targetSaveFolder\\" + DateTime.Now.ToString("yyyyMMdd")+".txt";
-
-            if (File.Exists(path) == true)
-            {
-                using (StreamReader loadFile = new StreamReader(new FileStream(path, FileMode.Open)))
-                {
-                    while (loadFile.EndOfStream == false)
-                    {
-                        targetCount = Convert.ToInt32(loadFile.ReadLine());
-                    }
-                }
-            }
-            else
-            {
-                targetCount = 1000;
-            }
-        }
-
         private void tmr_Monitor_Tick(object sender, EventArgs e)
         {
             if (TmrFlg == false)
             {
                 TmrFlg = true;
 
-                ShowChart(ConString);
-                ShowGrid(ConString);
+                ShowChart(conString);
+                ShowGrid(conString);
 
                 TmrFlg = false;
             }

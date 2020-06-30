@@ -28,26 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.targetCalendar = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
-            this.selectModelCB = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.targetInputBox = new System.Windows.Forms.TextBox();
             this.fdbr = new System.Windows.Forms.FolderBrowserDialog();
-            this.loadPathTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.infoDBConInputBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.loadPathTextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // targetCalendar
-            // 
-            this.targetCalendar.Location = new System.Drawing.Point(18, 92);
-            this.targetCalendar.MaxSelectionCount = 1;
-            this.targetCalendar.Name = "targetCalendar";
-            this.targetCalendar.TabIndex = 3;
             // 
             // label1
             // 
@@ -55,13 +45,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 13;
-            // 
-            // selectModelCB
-            // 
-            this.selectModelCB.Location = new System.Drawing.Point(0, 0);
-            this.selectModelCB.Name = "selectModelCB";
-            this.selectModelCB.Size = new System.Drawing.Size(121, 20);
-            this.selectModelCB.TabIndex = 12;
             // 
             // button1
             // 
@@ -72,16 +55,6 @@
             this.button1.Text = "저장";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(18, 481);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "불러오기";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -99,22 +72,6 @@
             this.targetInputBox.Size = new System.Drawing.Size(100, 21);
             this.targetInputBox.TabIndex = 9;
             // 
-            // loadPathTextBox
-            // 
-            this.loadPathTextBox.Location = new System.Drawing.Point(18, 510);
-            this.loadPathTextBox.Name = "loadPathTextBox";
-            this.loadPathTextBox.Size = new System.Drawing.Size(220, 21);
-            this.loadPathTextBox.TabIndex = 10;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 12);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "날짜 선택";
-            // 
             // infoDBConInputBox
             // 
             this.infoDBConInputBox.Location = new System.Drawing.Point(18, 393);
@@ -131,24 +88,40 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "DB 연결 정보";
             // 
+            // loadPathTextBox
+            // 
+            this.loadPathTextBox.Location = new System.Drawing.Point(18, 510);
+            this.loadPathTextBox.Name = "loadPathTextBox";
+            this.loadPathTextBox.Size = new System.Drawing.Size(220, 21);
+            this.loadPathTextBox.TabIndex = 10;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(18, 481);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "불러오기";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frm_Set
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 591);
+            this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.infoDBConInputBox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.loadPathTextBox);
             this.Controls.Add(this.targetInputBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.selectModelCB);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.targetCalendar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Movable = false;
             this.Name = "frm_Set";
+            this.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.None;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frm_Set";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -158,17 +131,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.MonthCalendar targetCalendar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox selectModelCB;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox targetInputBox;
         private System.Windows.Forms.FolderBrowserDialog fdbr;
-        private System.Windows.Forms.TextBox loadPathTextBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox infoDBConInputBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox loadPathTextBox;
+        private System.Windows.Forms.Button button2;
     }
 }

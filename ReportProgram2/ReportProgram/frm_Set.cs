@@ -1,4 +1,5 @@
-﻿using ReportProgram.Properties;
+﻿using MetroFramework.Forms;
+using ReportProgram.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,20 +15,20 @@ using System.Windows.Forms;
 
 namespace ReportProgram
 {
-    public partial class frm_Set : Form
+    public partial class frm_Set : MetroForm
     {
         private xml_Setting mySetting = new xml_Setting();
 
-        private string Constring = "dsn=MariaDB";
+        private string conString;
         private string settingSavePath = "d:\\SettingSaveFolder\\";
         public frm_Set()
         {
             InitializeComponent();
-            addComboBox(Constring);
             loadMySetting();
+            //addComboBox(conString);
         }
 
-        private void addComboBox(string ConnectionString)
+        /*private void addComboBox(string ConnectionString)
         {
             string querystring = "select * from model order by name asc";
             OdbcCommand command = new OdbcCommand(querystring);
@@ -44,20 +45,21 @@ namespace ReportProgram
                 }
             }
             //MessageBox.Show(selectModelCB.Items[3].ToString());            
-        }
+        }*/
 
         private void loadMySetting()
         {
             mySetting.Setting_Load_Xml(settingSavePath);
 
             targetInputBox.Text = mySetting.Target_Count.ToString();
-            infoDBConInputBox.Text = mySetting.Info_DBConnection;
+            infoDBConInputBox.Text = mySetting.Info_DBConnection.Substring(4);
+            conString = mySetting.Info_DBConnection;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime targetDate = targetCalendar.SelectionStart;
-            string dateFormat = "yyyyMMdd";
+            /*DateTime targetDate = targetCalendar.SelectionStart;
+            string dateFormat = "yyyyMMdd";*/
             #region textSaveSetting
             /*string modelCheck;
                 int targetQuantity;
@@ -102,7 +104,7 @@ namespace ReportProgram
                 saveFile.Close();*/
             #endregion
             mySetting.Target_Count = Convert.ToInt32(targetInputBox.Text);
-            mySetting.Info_DBConnection = infoDBConInputBox.Text;
+            mySetting.Info_DBConnection = "dsn="+infoDBConInputBox.Text;
 
             mySetting.Setting_Save_Xml(settingSavePath);
             MessageBox.Show("저장 완료!");
