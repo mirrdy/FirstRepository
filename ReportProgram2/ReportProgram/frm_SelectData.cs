@@ -1,5 +1,4 @@
-﻿using MetroFramework.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ReportProgram
 {
-    public partial class frm_SelectData : MetroForm
+    public partial class frm_SelectData : Form
     {
         private string conString = "";
         private xml_Setting mySetting = new xml_Setting();

@@ -199,7 +199,6 @@ namespace ReportProgram
             this.ClientSize = new System.Drawing.Size(672, 308);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_SelectData";
-            this.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.None;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

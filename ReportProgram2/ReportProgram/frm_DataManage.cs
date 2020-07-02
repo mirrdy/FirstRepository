@@ -25,8 +25,6 @@ namespace ReportProgram
         frm_ModifyData frmModifyData = new frm_ModifyData();
         private ConvertFunc myConvert = new ConvertFunc();
         private xml_Setting mySetting = new xml_Setting(); 
-        private string settingSavePath = "D:\\SettingSaveFolder\\";
-        private string conString;
 
         public frm_DataManage()
         {
@@ -38,19 +36,19 @@ namespace ReportProgram
 
         private void loadMySetting()
         {
-            mySetting.Setting_Load_Xml(settingSavePath);
-
-            conString = mySetting.Info_DBConnection;
+            selectedDataView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("맑은 고딕", 10, FontStyle.Bold);
+            mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
         }
 
         private void display_SelectedData(string queryString, string selModel)
-        { 
+        {
+            string tmpDSN = "dsn=" + mySetting.Info_DBConnection;
             OdbcCommand command = new OdbcCommand(queryString);
 
             selectedDataView.Columns.Clear();
             selectedDataView.Rows.Clear();
-            create_SelectedDgv(conString, selModel);
-            using (OdbcConnection connection = new OdbcConnection(conString))
+            create_SelectedDgv(tmpDSN, selModel);
+            using (OdbcConnection connection = new OdbcConnection(tmpDSN))
             {
                 command.Connection = connection;
                 connection.Open();
@@ -83,6 +81,7 @@ namespace ReportProgram
                         selectedDataView.Rows.Add(readRow.ToArray());
                 }
             }
+            selectedDataView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("맑은 고딕", 10, FontStyle.Bold);
 
             // 행번호 붙이기
             int rowNumber = 1;
@@ -98,13 +97,21 @@ namespace ReportProgram
 
         private void create_SelectedDgv(string ConnectionString, string model_name)
         {
-            selectedDataView.Columns.Add("Model", "Model");
-            selectedDataView.Columns.Add("Tester", "Tester");
-            selectedDataView.Columns.Add("Start_time", "Start_time");
-            selectedDataView.Columns.Add("End_time", "End_time");
-            selectedDataView.Columns.Add("Serial_number", "Serial_number");
-            selectedDataView.Columns.Add("Barcode", "Barcode");
-            selectedDataView.Columns.Add("Total_result", "Total_result");
+            selectedDataView.Columns.Add("Model", "모델");
+            selectedDataView.Columns.Add("Tester", "작업자");
+            selectedDataView.Columns.Add("Start_time", "시작시간");
+            selectedDataView.Columns.Add("End_time", "종료시간");
+            selectedDataView.Columns.Add("Serial_number", "시리얼 번호");
+            selectedDataView.Columns.Add("Barcode", "바코드");
+            selectedDataView.Columns.Add("Total_result", "최종 결과");
+
+            selectedDataView.Columns[0].Width = 100;
+            selectedDataView.Columns[1].Width = 80;
+            selectedDataView.Columns[2].Width = 130;
+            selectedDataView.Columns[3].Width = 130;
+            selectedDataView.Columns[4].Width = 110;
+            selectedDataView.Columns[5].Width = 100;
+            selectedDataView.Columns[6].Width = 100;
 
             string queryString = "Select * from model";
             List<string> parsingData = new List<string>();

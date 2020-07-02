@@ -16,8 +16,7 @@ namespace ReportProgram
         private frm_Monitor child_Monitor = null;
         private frm_DataManage child_DataManage = null;
         private frm_Set child_Set = null;
-
-        private string ConString = "dsn=MariaDB";
+        private xml_Setting mySetting = new xml_Setting();
 
         public frm_Main()
         {
@@ -26,7 +25,11 @@ namespace ReportProgram
 
         private void frm_Main_Load(object sender, EventArgs e)
         {
-            btn_Monitor.PerformClick();
+            mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
+
+            if (mySetting.StartViewIndex == Const.FORM_MONITOR) btn_Monitor.PerformClick();
+            else if(mySetting.StartViewIndex == Const.FORM_DATAMANAGE) btn_DataManage.PerformClick();
+            else btn_Monitor.PerformClick();
         }
 
         private void btn_Monitor_Click(object sender, EventArgs e)
@@ -103,8 +106,6 @@ namespace ReportProgram
             child_Set = new frm_Set();
             child_Set.TopLevel = false;
             child_Set.TopMost = true;
-            child_Set.WindowState = FormWindowState.Maximized;
-            child_Set.StartPosition = FormStartPosition.CenterParent;
             child_Set.Parent = pnl_Center;
             child_Set.Show();
             child_Set.Size = pnl_Center.Size;

@@ -1,5 +1,4 @@
-﻿using MetroFramework.Forms;
-using ReportProgram.Properties;
+﻿using ReportProgram.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,51 +14,30 @@ using System.Windows.Forms;
 
 namespace ReportProgram
 {
-    public partial class frm_Set : MetroForm
+    public partial class frm_Set : Form
     {
         private xml_Setting mySetting = new xml_Setting();
 
         private string conString;
-        private string settingSavePath = "d:\\SettingSaveFolder\\";
+
         public frm_Set()
         {
             InitializeComponent();
             loadMySetting();
-            //addComboBox(conString);
         }
-
-        /*private void addComboBox(string ConnectionString)
-        {
-            string querystring = "select * from model order by name asc";
-            OdbcCommand command = new OdbcCommand(querystring);
-
-            using (OdbcConnection connection = new OdbcConnection(ConnectionString))
-            {
-                command.Connection = connection;
-                connection.Open();
-                OdbcDataReader dr = command.ExecuteReader();
-
-                while(dr.Read())
-                {
-                    selectModelCB.Items.Add(dr["name"]);
-                }
-            }
-            //MessageBox.Show(selectModelCB.Items[3].ToString());            
-        }*/
 
         private void loadMySetting()
         {
-            mySetting.Setting_Load_Xml(settingSavePath);
+            mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
 
             targetInputBox.Text = mySetting.Target_Count.ToString();
             infoDBConInputBox.Text = mySetting.Info_DBConnection.Substring(4);
+            cbb_StartViewIndex.SelectedIndex = mySetting.StartViewIndex;
             conString = mySetting.Info_DBConnection;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_Apply_Click(object sender, EventArgs e)
         {
-            /*DateTime targetDate = targetCalendar.SelectionStart;
-            string dateFormat = "yyyyMMdd";*/
             #region textSaveSetting
             /*string modelCheck;
                 int targetQuantity;
@@ -104,18 +82,11 @@ namespace ReportProgram
                 saveFile.Close();*/
             #endregion
             mySetting.Target_Count = Convert.ToInt32(targetInputBox.Text);
-            mySetting.Info_DBConnection = "dsn="+infoDBConInputBox.Text;
+            mySetting.Info_DBConnection = infoDBConInputBox.Text;
+            mySetting.StartViewIndex = cbb_StartViewIndex.SelectedIndex;
 
-            mySetting.Setting_Save_Xml(settingSavePath);
+            mySetting.Setting_Save_Xml(Const.SYSTEM_PATH);
             MessageBox.Show("저장 완료!");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if(fdbr.ShowDialog() == DialogResult.OK)
-            {
-                loadPathTextBox.Text = fdbr.SelectedPath;
-            }
         }
     }
 }

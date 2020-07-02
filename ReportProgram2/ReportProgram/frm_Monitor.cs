@@ -20,8 +20,6 @@ namespace ReportProgram
     public partial class frm_Monitor : Form
     {
         private xml_Setting mySetting = new xml_Setting();
-        private string conString;
-        private string settingSavePath = "D:\\SettingSaveFolder\\";
         private bool TmrFlg = false;
         private int modelCount = 0;
         private List<string> model_Name = new List<string>();
@@ -36,14 +34,15 @@ namespace ReportProgram
         }
         private void loadMySetting()
         {
-            mySetting.Setting_Load_Xml(settingSavePath);
+            mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
             targetCount = mySetting.Target_Count;
-            conString = mySetting.Info_DBConnection;
         }
 
         private void frm_Monitor_Load(object sender, EventArgs e)
         {
-            CreateGrid(conString);
+            string tmpDSN = "dsn=" + mySetting.Info_DBConnection;
+
+            CreateGrid(tmpDSN);
 
             chart1.Series[0].XValueType = ChartValueType.DateTime;
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "yyyy-MM-dd";
@@ -51,8 +50,8 @@ namespace ReportProgram
             chart1.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Days;
             chart1.ChartAreas[0].AxisX.IntervalOffset = 1;
 
-            ShowChart(conString);
-            ShowGrid(conString);
+            ShowChart(tmpDSN);
+            ShowGrid(tmpDSN);
 
             tmr_Monitor.Enabled = true;
         }
@@ -235,8 +234,8 @@ namespace ReportProgram
             {
                 TmrFlg = true;
 
-                ShowChart(conString);
-                ShowGrid(conString);
+                ShowChart("dsn=" + mySetting.Info_DBConnection);
+                ShowGrid("dsn=" + mySetting.Info_DBConnection);
 
                 TmrFlg = false;
             }
