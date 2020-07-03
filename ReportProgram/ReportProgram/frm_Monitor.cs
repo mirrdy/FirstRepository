@@ -26,6 +26,7 @@ namespace ReportProgram
         public int targetCount = 123;
 
         TextAnnotation displayNowGoal = new TextAnnotation();
+        private bool DBOpenFlg = true;
 
         public frm_Monitor()
         {
@@ -67,89 +68,97 @@ namespace ReportProgram
             tmpNGCount.Clear();
             tmpDate.Clear();
 
-            queryString = "select * from Test_Data order by Start_time asc;";
-            OdbcCommand command = new OdbcCommand(queryString);
-            using (OdbcConnection connection = new OdbcConnection(connectionString))
+            try
             {
-                command.Connection = connection;
-                connection.Open();
-                OdbcDataReader dr = command.ExecuteReader();
-                while(dr.Read())
+                queryString = "select * from Test_Data order by Start_time asc;";
+                OdbcCommand command = new OdbcCommand(queryString);
+                using (OdbcConnection connection = new OdbcConnection(connectionString))
                 {
-                    int tmpIndex = -1;
-                    for (int i = 0; i < tmpDate.Count; i++)
+                    command.Connection = connection;
+                    connection.Open();
+                    OdbcDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
                     {
-                        DateTime GetDate = Convert.ToDateTime(dr["Start_time"].ToString().Substring(0, 10));
-                        if(tmpDate[i] == GetDate)
+                        int tmpIndex = -1;
+                        for (int i = 0; i < tmpDate.Count; i++)
                         {
-                            tmpIndex = i;
+                            DateTime GetDate = Convert.ToDateTime(dr["Start_time"].ToString().Substring(0, 10));
+                            if (tmpDate[i] == GetDate)
+                            {
+                                tmpIndex = i;
+                            }
                         }
+
+                        if (tmpIndex == -1)
+                        {
+                            tmpDate.Add(Convert.ToDateTime(dr["Start_time"].ToString().Substring(0, 10)));
+                            tmpOKCount.Add(0);
+                            tmpNGCount.Add(0);
+                            tmpIndex = tmpDate.Count - 1;
+                        }
+
+                        if (dr["Total_result"].ToString().Equals("양품"))
+                            tmpOKCount[tmpIndex]++;
+                        else
+                            tmpNGCount[tmpIndex]++;
                     }
 
-                    if(tmpIndex == -1)
+                    // chart1.ChartAreas[0].AxisX.Minimum = Convert.ToDateTime("20200531");
+                }
+
+                // Chart Display : 최근 14개만 표시
+                int tmpStartIndex = 0;
+                if (tmpDate.Count > 14) tmpStartIndex = tmpDate.Count - 14;
+
+                chart1.Series["Pass"].Points.Clear();
+                chart1.Series["Fail"].Points.Clear();
+                chart1.Series["Yield"].Points.Clear();
+                for (int i = tmpStartIndex; i < tmpDate.Count; i++)
+                {
+                    chart1.Series["Pass"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), tmpOKCount[i]);
+                    chart1.Series["Fail"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), tmpNGCount[i]);
+                    chart1.Series["Yield"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), (tmpOKCount[i] / (double)(tmpOKCount[i] + tmpNGCount[i]) * 100));
+                }
+
+                // 원형차트 디스플레이
+                // 원형차트는 금일 생산수량(양품수량)을 표시
+                int TodayOKCount = 0;
+                for (int i = 0; i < tmpDate.Count; i++)
+                {
+                    if (tmpDate[i].Date == DateTime.Now.Date)
                     {
-                        tmpDate.Add(Convert.ToDateTime(dr["Start_time"].ToString().Substring(0, 10)));
-                        tmpOKCount.Add(0);
-                        tmpNGCount.Add(0);
-                        tmpIndex = tmpDate.Count - 1;
+                        TodayOKCount = tmpOKCount[i];
+                        break;
                     }
-
-                    if (dr["Total_result"].ToString().Equals("양품"))
-                        tmpOKCount[tmpIndex]++;
-                    else
-                        tmpNGCount[tmpIndex]++;
                 }
 
-                // chart1.ChartAreas[0].AxisX.Minimum = Convert.ToDateTime("20200531");
-            }
-
-            // Chart Display : 최근 14개만 표시
-            int tmpStartIndex = 0;
-            if (tmpDate.Count > 14) tmpStartIndex = tmpDate.Count - 14;
-
-            chart1.Series["Pass"].Points.Clear();
-            chart1.Series["Fail"].Points.Clear();
-            chart1.Series["Yield"].Points.Clear();
-            for (int i = tmpStartIndex; i < tmpDate.Count; i++)
-            {
-                chart1.Series["Pass"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), tmpOKCount[i]);
-                chart1.Series["Fail"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), tmpNGCount[i]);
-                chart1.Series["Yield"].Points.AddXY(tmpDate[i].ToString("yyyy-MM-dd"), (tmpOKCount[i] / (double)(tmpOKCount[i] + tmpNGCount[i]) * 100));
-            }
-
-            // 원형차트 디스플레이
-            // 원형차트는 금일 생산수량(양품수량)을 표시
-            int TodayOKCount = 0;
-            for(int i = 0; i < tmpDate.Count; i++)
-            {
-                if(tmpDate[i].Date == DateTime.Now.Date)
+                chart_Test.Series[0].Points.Clear();
+                chart_Test.Series[0].IsVisibleInLegend = false;
+                chart_Test.Series[0].IsValueShownAsLabel = false;
+                for (int i = 0; i < tmpDate.Count; i++)
                 {
-                    TodayOKCount = tmpOKCount[i];
-                    break;
+                    if (tmpDate[i] == DateTime.Now)
+                    {
+                        TodayOKCount = tmpOKCount[i];
+                        break;
+                    }
                 }
-            }
+                chart_Test.Series[0].Points.AddXY("잔여수량 (" + (targetCount - TodayOKCount).ToString() + "EA)", targetCount - TodayOKCount);
+                chart_Test.Series[0].Points[0].Color = Color.Gray;
+                chart_Test.Series[0].Points[0].LabelForeColor = Color.Black;
+                chart_Test.Series[0].Points.AddXY("총 생산량 (" + TodayOKCount.ToString() + "EA)", TodayOKCount);
+                chart_Test.Series[0].Points[1].Color = Color.LimeGreen;
+                chart_Test.Series[0].Points[1].LabelForeColor = Color.Black;
+                chart_Test.Annotations.Clear();
+                displayNowGoal.Text = ((double)TodayOKCount / (double)targetCount) < 1 ? Math.Round(((double)TodayOKCount / (double)targetCount * 100), 2).ToString() + "%" : "100%";
 
-            chart_Test.Series[0].Points.Clear();
-            chart_Test.Series[0].IsVisibleInLegend = false;
-            chart_Test.Series[0].IsValueShownAsLabel = false;
-            for(int i = 0; i < tmpDate.Count; i++)
+                chart_Test.Annotations.Add(displayNowGoal);
+            }
+            catch(Exception ex)
             {
-                if(tmpDate[i] == DateTime.Now)
-                {
-                    TodayOKCount = tmpOKCount[i];
-                    break;
-                }
+                DBOpenFlg = false;
+                MessageBox.Show(ex.Message);
             }
-            chart_Test.Series[0].Points.AddXY("잔여수량 ("+ (targetCount - TodayOKCount).ToString() + "EA)", targetCount - TodayOKCount);
-            chart_Test.Series[0].Points[0].Color = Color.Gray;
-            chart_Test.Series[0].Points[0].LabelForeColor = Color.Black;
-            chart_Test.Series[0].Points.AddXY("총 생산량 ("+ TodayOKCount.ToString() + "EA)", TodayOKCount);
-            chart_Test.Series[0].Points[1].Color = Color.LimeGreen;
-            chart_Test.Series[0].Points[1].LabelForeColor = Color.Black;
-            chart_Test.Annotations.Clear();
-            displayNowGoal.Text = ((double)TodayOKCount / (double)targetCount) < 1 ? Math.Round(((double)TodayOKCount / (double)targetCount * 100), 2).ToString()+"%" : "100%";
-
-            chart_Test.Annotations.Add(displayNowGoal);
         }
 
         private void ShowGrid(string connectionString)
@@ -159,72 +168,90 @@ namespace ReportProgram
             string selected_Date = DateTime.Now.ToString("yyyy-MM-dd");
             string queryString = "select * from Test_Data where Start_time like '" + selected_Date + "%'"; //selected_Date 날짜의 데이터 선택
 
-            OdbcCommand command = new OdbcCommand(queryString);
-
-            using (OdbcConnection connection = new OdbcConnection(connectionString))
+            try
             {
-                command.Connection = connection;
-                connection.Open();
+                OdbcCommand command = new OdbcCommand(queryString);
 
-                OdbcDataReader dr = command.ExecuteReader();
-
-                while (dr.Read())
+                using (OdbcConnection connection = new OdbcConnection(connectionString))
                 {
-                    for (int i = 0; i < modelCount; i++)
+                    command.Connection = connection;
+                    connection.Open();
+
+                    OdbcDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
                     {
-                        if (model_Name[i].Equals(dr["Model_name"]))
+                        for (int i = 0; i < modelCount; i++)
                         {
-                            if (dr["Total_result"].ToString().Equals("양품"))
+                            if (model_Name[i].Equals(dr["Model_name"]))
                             {
-                                goodCount[i]++;
+                                if (dr["Total_result"].ToString().Equals("양품"))
+                                {
+                                    goodCount[i]++;
+                                }
+                                else
+                                {
+                                    badCount[i]++;
+                                }
                             }
-                            else
-                            {
-                                badCount[i]++;
-                            }
+                            // ModelCount 값 참조해서 양품/불량 카운트 배열 개수 정해놓고 인덱스별로 양/불 판별해 카운트
                         }
-                        // ModelCount 값 참조해서 양품/불량 카운트 배열 개수 정해놓고 인덱스별로 양/불 판별해 카운트
                     }
                 }
-            }
 
-            double tmpPercent = 0;
-            for(int i = 0; i < modelCount; i++)
+                double tmpPercent = 0;
+                for (int i = 0; i < modelCount; i++)
+                {
+                    dgv_Data[0, i].Value = model_Name[i];
+                    dgv_Data[1, i].Value = goodCount[i];
+                    dgv_Data[2, i].Value = badCount[i];
+                    tmpPercent = goodCount[i] / (double)(goodCount[i] + badCount[i]);
+                    if (double.IsNaN(tmpPercent) == true) dgv_Data[3, i].Value = "---.--%";
+                    else dgv_Data[3, i].Value = tmpPercent.ToString("0.00%");
+                }
+            }
+            catch(Exception ex)
             {
-                dgv_Data[0, i].Value = model_Name[i];
-                dgv_Data[1, i].Value = goodCount[i];
-                dgv_Data[2, i].Value = badCount[i];
-                tmpPercent = goodCount[i] / (double)(goodCount[i] + badCount[i]);
-                if(double.IsNaN(tmpPercent) == true) dgv_Data[3, i].Value = "---.--%";
-                else dgv_Data[3, i].Value = tmpPercent.ToString("0.00%");
+                DBOpenFlg = false;
+                MessageBox.Show(ex.Message);
             }
         }
         private void CreateGrid(string connectionString)
         {
+            if (mySetting.Info_DBConnection.Length <= 0) return;
+
             string queryString = "select * from model";
 
             OdbcCommand command = new OdbcCommand(queryString);
 
-            using (OdbcConnection connection = new OdbcConnection(connectionString))
+            try
             {
-                command.Connection = connection;
-                connection.Open();
-
-                OdbcDataReader dr = command.ExecuteReader();
-
-                while(dr.Read())
+                using (OdbcConnection connection = new OdbcConnection(connectionString))
                 {
-                    model_Name.Add(dr["name"].ToString());
+                    command.Connection = connection;
+                    connection.Open();
+
+                    OdbcDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        model_Name.Add(dr["name"].ToString());
+                    }
+
+                    modelCount = model_Name.Count;
+
+                    string[] tmpRow = { "", "", "", "", "" };
+
+                    for (int i = 0; i < modelCount; i++)
+                    {
+                        dgv_Data.Rows.Add(tmpRow);
+                    }
                 }
-
-                modelCount = model_Name.Count;
-
-                string[] tmpRow = { "", "", "", "", "" };
-
-                for (int i = 0; i < modelCount; i++)
-                {
-                    dgv_Data.Rows.Add(tmpRow);
-                }
+            }
+            catch(Exception ex)
+            {
+                DBOpenFlg = false;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -234,8 +261,11 @@ namespace ReportProgram
             {
                 TmrFlg = true;
 
-                ShowChart("dsn=" + mySetting.Info_DBConnection);
-                ShowGrid("dsn=" + mySetting.Info_DBConnection);
+                if(DBOpenFlg == true)
+                {
+                    ShowChart("dsn=" + mySetting.Info_DBConnection);
+                    ShowGrid("dsn=" + mySetting.Info_DBConnection);
+                }
 
                 TmrFlg = false;
             }

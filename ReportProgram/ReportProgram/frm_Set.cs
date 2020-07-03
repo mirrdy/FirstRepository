@@ -31,7 +31,7 @@ namespace ReportProgram
             mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
 
             targetInputBox.Text = mySetting.Target_Count.ToString();
-            infoDBConInputBox.Text = mySetting.Info_DBConnection.Substring(4);
+            infoDBConInputBox.Text = mySetting.Info_DBConnection;
             cbb_StartViewIndex.SelectedIndex = mySetting.StartViewIndex;
             conString = mySetting.Info_DBConnection;
         }

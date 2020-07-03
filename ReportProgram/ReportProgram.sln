@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportProgram", "ReportProg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoDB_DLL", "InnoDB_DLL\InnoDB_DLL.csproj", "{B61E2E6E-81A8-42DC-8E02-5BC35EB0331E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDLL", "TestDLL\TestDLL.csproj", "{B5A4436A-9987-4D6A-A6F7-51E8CB468690}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B61E2E6E-81A8-42DC-8E02-5BC35EB0331E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B61E2E6E-81A8-42DC-8E02-5BC35EB0331E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B61E2E6E-81A8-42DC-8E02-5BC35EB0331E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5A4436A-9987-4D6A-A6F7-51E8CB468690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A4436A-9987-4D6A-A6F7-51E8CB468690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A4436A-9987-4D6A-A6F7-51E8CB468690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A4436A-9987-4D6A-A6F7-51E8CB468690}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

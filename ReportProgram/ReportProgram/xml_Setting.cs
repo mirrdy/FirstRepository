@@ -27,7 +27,7 @@ namespace ReportProgram
         public void Setting_Init()
         {
             Target_Count = 0;
-            Info_DBConnection = "dsn=MariaDB";
+            Info_DBConnection = "MariaDB";
 
             StartViewIndex = 0;
         }

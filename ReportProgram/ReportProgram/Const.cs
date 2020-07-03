@@ -11,8 +11,8 @@ using System.IO.Ports;
 static class Const
 {
     // Path
-    public const String MAIN_PATH = @"D:\FirstRepository\ReportProgram2";
-    public const String SYSTEM_PATH = @"D:\FirstRepository\ReportProgram2\System\SystemOption.sys";
+    public const String MAIN_PATH = @"D:\FirstRepository\ReportProgram";
+    public const String SYSTEM_PATH = @"D:\FirstRepository\ReportProgram\System\SystemOption.sys";
 
     // Form Index
     public const int FORM_MONITOR = 0;

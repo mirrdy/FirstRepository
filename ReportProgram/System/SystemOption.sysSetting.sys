@@ -1,0 +1,5 @@
+<Setting>
+  <Target_Count>1000</Target_Count>
+  <Info_DBConnection>MariaDB</Info_DBConnection>
+  <StartViewIndex>0</StartViewIndex>
+</Setting>
