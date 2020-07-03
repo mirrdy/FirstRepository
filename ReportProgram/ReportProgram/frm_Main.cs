@@ -16,22 +16,24 @@ namespace ReportProgram
         private frm_Monitor child_Monitor = null;
         private frm_DataManage child_DataManage = null;
         private frm_Set child_Set = null;
-
-        private string ConString = "dsn=MariaDB";
+        private xml_Setting mySetting = new xml_Setting();
 
         public frm_Main()
         {
             InitializeComponent();
         }
 
+        private void frm_Main_Load(object sender, EventArgs e)
+        {
+            mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
+
+            if (mySetting.StartViewIndex == Const.FORM_MONITOR) btn_Monitor.PerformClick();
+            else if(mySetting.StartViewIndex == Const.FORM_DATAMANAGE) btn_DataManage.PerformClick();
+            else btn_Monitor.PerformClick();
+        }
+
         private void btn_Monitor_Click(object sender, EventArgs e)
         {
-            /*if (Console.CapsLock)
-                MessageBox.Show("CapsLock ON", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-                MessageBox.Show("CapsLock OFF");*/
-
-
             if (child_Monitor != null)
             {
                 return;
@@ -49,19 +51,12 @@ namespace ReportProgram
                 child_Set = null;
             }
             
-
             child_Monitor = new frm_Monitor();
             child_Monitor.TopLevel = false;
             child_Monitor.TopMost = true;
-            child_Monitor.WindowState = FormWindowState.Maximized;
-            child_Monitor.StartPosition = FormStartPosition.CenterParent;
             child_Monitor.Parent = pnl_Center;
             child_Monitor.Show();
-            child_Monitor.Controls.Find("chart1", true);
-            
-            
-
-            
+            child_Monitor.Size = pnl_Center.Size;
         }
 
         private void btn_DataManage_Click(object sender, EventArgs e)
@@ -85,10 +80,9 @@ namespace ReportProgram
             child_DataManage = new frm_DataManage();
             child_DataManage.TopLevel = false;
             child_DataManage.TopMost = true;
-            child_DataManage.WindowState = FormWindowState.Maximized;
-            child_DataManage.StartPosition = FormStartPosition.CenterParent;
             child_DataManage.Parent = pnl_Center;
             child_DataManage.Show();
+            child_DataManage.Size = pnl_Center.Size;
         }
 
         private void btn_Set_Click(object sender, EventArgs e)
@@ -112,11 +106,25 @@ namespace ReportProgram
             child_Set = new frm_Set();
             child_Set.TopLevel = false;
             child_Set.TopMost = true;
-            child_Set.WindowState = FormWindowState.Maximized;
-            child_Set.StartPosition = FormStartPosition.CenterParent;
             child_Set.Parent = pnl_Center;
             child_Set.Show();
+            child_Set.Size = pnl_Center.Size;
         }
 
+        private void frm_Main_Resize(object sender, EventArgs e)
+        {
+            if (child_Monitor != null)
+            {
+                child_Monitor.Size = pnl_Center.Size;
+            }
+            else if (child_DataManage != null)
+            {
+                child_DataManage.Size = pnl_Center.Size;
+            }
+            else if (child_Set != null)
+            {
+                child_Set.Size = pnl_Center.Size;
+            }
+        }
     }
 }
