@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Set));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Apply = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,9 +41,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.cbb_StartViewIndex = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dgv_JobOrder_File_List = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModelPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.odlg_ImgFile = new System.Windows.Forms.OpenFileDialog();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbx_SlideShow_Time = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_JobOrder_File_List)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -132,6 +146,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "프로그램 옵션 설정";
             // 
+            // cbb_StartViewIndex
+            // 
+            this.cbb_StartViewIndex.FormattingEnabled = true;
+            this.cbb_StartViewIndex.Items.AddRange(new object[] {
+            "모니터링 화면",
+            "데이터 관리 화면",
+            "환경설정",
+            "작업지시서 화면"});
+            this.cbb_StartViewIndex.Location = new System.Drawing.Point(109, 189);
+            this.cbb_StartViewIndex.Name = "cbb_StartViewIndex";
+            this.cbb_StartViewIndex.Size = new System.Drawing.Size(179, 29);
+            this.cbb_StartViewIndex.TabIndex = 18;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -142,16 +169,115 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "시작 화면선택";
             // 
-            // cbb_StartViewIndex
+            // dgv_JobOrder_File_List
             // 
-            this.cbb_StartViewIndex.FormattingEnabled = true;
-            this.cbb_StartViewIndex.Items.AddRange(new object[] {
-            "모니터링 화면",
-            "데이터 관리 화면"});
-            this.cbb_StartViewIndex.Location = new System.Drawing.Point(109, 189);
-            this.cbb_StartViewIndex.Name = "cbb_StartViewIndex";
-            this.cbb_StartViewIndex.Size = new System.Drawing.Size(179, 29);
-            this.cbb_StartViewIndex.TabIndex = 18;
+            this.dgv_JobOrder_File_List.AllowUserToAddRows = false;
+            this.dgv_JobOrder_File_List.AllowUserToDeleteRows = false;
+            this.dgv_JobOrder_File_List.AllowUserToResizeColumns = false;
+            this.dgv_JobOrder_File_List.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgv_JobOrder_File_List.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_JobOrder_File_List.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_JobOrder_File_List.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_JobOrder_File_List.ColumnHeadersHeight = 25;
+            this.dgv_JobOrder_File_List.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv_JobOrder_File_List.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.No,
+            this.ModelPath});
+            this.dgv_JobOrder_File_List.EnableHeadersVisualStyles = false;
+            this.dgv_JobOrder_File_List.Location = new System.Drawing.Point(6, 64);
+            this.dgv_JobOrder_File_List.MultiSelect = false;
+            this.dgv_JobOrder_File_List.Name = "dgv_JobOrder_File_List";
+            this.dgv_JobOrder_File_List.ReadOnly = true;
+            this.dgv_JobOrder_File_List.RowHeadersVisible = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dgv_JobOrder_File_List.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_JobOrder_File_List.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dgv_JobOrder_File_List.RowTemplate.Height = 20;
+            this.dgv_JobOrder_File_List.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgv_JobOrder_File_List.Size = new System.Drawing.Size(393, 309);
+            this.dgv_JobOrder_File_List.TabIndex = 1;
+            this.dgv_JobOrder_File_List.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_JobOrder_File_List_CellDoubleClick);
+            this.dgv_JobOrder_File_List.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_JobOrder_File_List_KeyDown);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.tbx_SlideShow_Time);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.dgv_JobOrder_File_List);
+            this.groupBox2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.groupBox2.Location = new System.Drawing.Point(374, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(407, 409);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "작업지시서 설정";
+            // 
+            // No
+            // 
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.No.Width = 40;
+            // 
+            // ModelPath
+            // 
+            this.ModelPath.HeaderText = "작업지시서 경로";
+            this.ModelPath.Name = "ModelPath";
+            this.ModelPath.ReadOnly = true;
+            this.ModelPath.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ModelPath.Width = 250;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(6, 376);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(242, 26);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "* 이미지 파일만 등록 가능 (*.jpg, *.bmp, *.png)\r\n* 삭제 : \"Delete\"키";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(9, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 17);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "슬라이드 쇼 시간";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(228, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 17);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Sec";
+            // 
+            // tbx_SlideShow_Time
+            // 
+            this.tbx_SlideShow_Time.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbx_SlideShow_Time.Location = new System.Drawing.Point(124, 29);
+            this.tbx_SlideShow_Time.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbx_SlideShow_Time.Name = "tbx_SlideShow_Time";
+            this.tbx_SlideShow_Time.Size = new System.Drawing.Size(100, 25);
+            this.tbx_SlideShow_Time.TabIndex = 18;
             // 
             // frm_Set
             // 
@@ -159,6 +285,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1047, 501);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -167,8 +294,12 @@
             this.Name = "frm_Set";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frm_Set";
+            this.Load += new System.EventHandler(this.frm_Set_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_JobOrder_File_List)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -185,5 +316,14 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbb_StartViewIndex;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgv_JobOrder_File_List;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModelPath;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.OpenFileDialog odlg_ImgFile;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbx_SlideShow_Time;
     }
 }

@@ -35,7 +35,7 @@ namespace ReportProgram
         }
         private void loadMySetting()
         {
-            mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
+            mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
             targetCount = mySetting.Target_Count;
         }
 

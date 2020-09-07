@@ -37,7 +37,7 @@ namespace ReportProgram
         private void loadMySetting()
         {
             selectedDataView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("맑은 고딕", 10, FontStyle.Bold);
-            mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
+            mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
         }
 
         private void display_SelectedData(string queryString, string selModel)

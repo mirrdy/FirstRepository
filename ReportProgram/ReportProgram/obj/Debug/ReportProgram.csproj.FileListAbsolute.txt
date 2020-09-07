@@ -23,7 +23,6 @@ D:\FirstRepository\ReportProgram\ReportProgram\bin\Debug\NPOI.OpenXmlFormats.dll
 D:\FirstRepository\ReportProgram\ReportProgram\bin\Debug\BouncyCastle.Crypto.xml
 D:\FirstRepository\ReportProgram\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.pdb
 D:\FirstRepository\ReportProgram\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.xml
-D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csprojAssemblyReference.cache
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.ResolveComReference.cache
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_DataManage.resources
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_Main.resources
@@ -36,3 +35,6 @@ D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.Ge
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.CopyComplete
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.exe
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.pdb
+D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.CoreCompileInputs.cache
+D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_JobOrder.resources
+D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csprojAssemblyReference.cache

@@ -17,23 +17,33 @@ namespace ReportProgram
     public partial class frm_Set : Form
     {
         private xml_Setting mySetting = new xml_Setting();
+        private ConvertFunc myConvert = new ConvertFunc();
 
         private string conString;
 
         public frm_Set()
         {
             InitializeComponent();
-            loadMySetting();
         }
 
         private void loadMySetting()
         {
-            mySetting.Setting_Load_Xml(Const.SYSTEM_PATH);
+            mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
 
             targetInputBox.Text = mySetting.Target_Count.ToString();
             infoDBConInputBox.Text = mySetting.Info_DBConnection;
             cbb_StartViewIndex.SelectedIndex = mySetting.StartViewIndex;
             conString = mySetting.Info_DBConnection;
+
+            tbx_SlideShow_Time.Text = string.Format("{0:F3}", mySetting.JobOrder_SlideShow_Time);
+            // 작업지시서 파일 리스트
+            string[] tmpRow = { "", "" };
+            for (int i = 0; i < 100; i++)
+            {
+                dgv_JobOrder_File_List.Rows.Add(tmpRow);
+                dgv_JobOrder_File_List.Rows[i].Cells[0].Value = (i + 1).ToString();
+                dgv_JobOrder_File_List.Rows[i].Cells[1].Value = mySetting.JobOrder_File[i];
+            }
         }
 
         private void btn_Apply_Click(object sender, EventArgs e)
@@ -81,12 +91,45 @@ namespace ReportProgram
 
                 saveFile.Close();*/
             #endregion
-            mySetting.Target_Count = Convert.ToInt32(targetInputBox.Text);
+            mySetting.Target_Count = myConvert.StrToIntDef(targetInputBox.Text, 0);
             mySetting.Info_DBConnection = infoDBConInputBox.Text;
             mySetting.StartViewIndex = cbb_StartViewIndex.SelectedIndex;
 
-            mySetting.Setting_Save_Xml(Const.SYSTEM_PATH);
+            mySetting.JobOrder_SlideShow_Time = myConvert.StrToFlotDef(tbx_SlideShow_Time.Text, 0);
+            // 작업지시서 파일 리스트
+            for (int i = 0; i < 100; i++)
+            {
+                mySetting.JobOrder_File[i] = dgv_JobOrder_File_List.Rows[i].Cells[1].Value.ToString();
+            }
+
+            mySetting.Setting_Save_Xml(Const.SETTING_FILE_PATH);
             MessageBox.Show("저장 완료!");
+        }
+
+        private void dgv_JobOrder_File_List_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int tmpSelectRow = dgv_JobOrder_File_List.CurrentCell.RowIndex;
+
+            odlg_ImgFile.FileName = "";
+            odlg_ImgFile.Filter = "Image File (*.bmp;*.jpg;*.png)|*.bmp;*.jpg;*.png";
+
+            if (odlg_ImgFile.ShowDialog() == DialogResult.OK)
+            {
+                dgv_JobOrder_File_List.Rows[tmpSelectRow].Cells[1].Value = odlg_ImgFile.FileName;
+            }
+        }
+
+        private void frm_Set_Load(object sender, EventArgs e)
+        {
+            loadMySetting();
+        }
+
+        private void dgv_JobOrder_File_List_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                dgv_JobOrder_File_List.CurrentRow.Cells[1].Value = "";
+            }
         }
     }
 }

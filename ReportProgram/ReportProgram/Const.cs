@@ -12,12 +12,16 @@ static class Const
 {
     // Path
     public const String MAIN_PATH = @"D:\FirstRepository\ReportProgram";
-    public const String SYSTEM_PATH = @"D:\FirstRepository\ReportProgram\System\SystemOption.sys";
+    public const String SYSTEM_PATH = @"D:\FirstRepository\ReportProgram\System\";
+    public const String SETTING_FILE_PATH = @"D:\FirstRepository\ReportProgram\System\SystemOption.sys";
+    public const String PLAY_FILE_PATH = @"D:\FirstRepository\ReportProgram\System\iconmonstr-arrow-37-72.png";
+    public const String PAUSE_FILE_PATH = @"D:\FirstRepository\ReportProgram\System\iconmonstr-media-control-49-72.png";
 
     // Form Index
     public const int FORM_MONITOR = 0;
     public const int FORM_DATAMANAGE = 1;
     public const int FORM_SETTING = 2;
+    public const int FORM_JOBWORK = 3;
 
     // 전역 디파인
     public const int RESULT_READY = 1;

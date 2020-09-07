@@ -20,6 +20,9 @@ namespace ReportProgram
 
         public int StartViewIndex;
 
+        public double JobOrder_SlideShow_Time;
+        public string[] JobOrder_File = new string[100];
+
         public xml_Setting()
         {
             Setting_Init();
@@ -30,6 +33,11 @@ namespace ReportProgram
             Info_DBConnection = "MariaDB";
 
             StartViewIndex = 0;
+
+            for(int i = 0; i < JobOrder_File.Length; i++)
+            {
+                JobOrder_File[i] = "";
+            }
         }
         public void Setting_Save_Xml(string SettingPath)
         {
@@ -37,7 +45,7 @@ namespace ReportProgram
             XmlElement xmlSetting = doc.CreateElement("Setting");
 
             // 저장 경로에 폴더가 없으면 생성
-            DirectoryInfo di = new DirectoryInfo(SettingPath);
+            DirectoryInfo di = new DirectoryInfo(Const.SYSTEM_PATH);
             if (!di.Exists)
             {
                 di.Create();
@@ -57,6 +65,18 @@ namespace ReportProgram
             xmlSetting.AppendChild(el_Target_Count);
             xmlSetting.AppendChild(el_Info_DBConnection);
             xmlSetting.AppendChild(el_StartViewIndex);
+
+            XmlElement el_JobOrder_SlideShow_Time = doc.CreateElement("JobOrder_SlideShow_Time");
+            el_JobOrder_SlideShow_Time.InnerText = JobOrder_SlideShow_Time.ToString();
+            xmlSetting.AppendChild(el_JobOrder_SlideShow_Time);
+
+            // 작업지시서 파일 리스트
+            for (int i = 0; i < 100; i++)
+            {
+                XmlElement el_JobOrder_File = doc.CreateElement("JobOrder_File" + (i + 1).ToString());
+                el_JobOrder_File.InnerText = JobOrder_File[i];
+                xmlSetting.AppendChild(el_JobOrder_File);
+            }
 
             // 최상위 헤더를 문서에 넣음
             doc.AppendChild(xmlSetting);
@@ -93,6 +113,19 @@ namespace ReportProgram
             if (node_StartViewIndex != null)
             {
                 StartViewIndex = Convert.ToInt32(node_StartViewIndex.InnerText);
+            }
+
+            XmlNode node_JobOrder_SlideShow_Time = doc.SelectSingleNode("//Setting/JobOrder_SlideShow_Time");
+            if (node_JobOrder_SlideShow_Time != null) JobOrder_SlideShow_Time = Convert.ToInt32(node_JobOrder_SlideShow_Time.InnerText);
+
+            // 작업지시서 파일 리스트
+            for (int i = 0; i < 100; i++)
+            {
+                XmlNode node_JobOrder_File = doc.SelectSingleNode("//Setting/JobOrder_File" + (i + 1).ToString());
+                if (node_JobOrder_File != null)
+                {
+                    JobOrder_File[i] = node_JobOrder_File.InnerText;
+                }
             }
         }
     }

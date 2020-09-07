@@ -37,6 +37,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnl_Center = new System.Windows.Forms.Panel();
+            this.btn_JobOrder = new System.Windows.Forms.Button();
+            this.lbl_Title = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             this.btn_DataManage.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_DataManage.ImageIndex = 2;
             this.btn_DataManage.ImageList = this.imageList1;
-            this.btn_DataManage.Location = new System.Drawing.Point(114, 4);
+            this.btn_DataManage.Location = new System.Drawing.Point(225, 4);
             this.btn_DataManage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_DataManage.Name = "btn_DataManage";
             this.btn_DataManage.Size = new System.Drawing.Size(105, 60);
@@ -64,9 +66,11 @@
             this.imageList1.Images.SetKeyName(0, "iconmonstr-gear-2-48.png");
             this.imageList1.Images.SetKeyName(1, "iconmonstr-monitoring-6-48.png");
             this.imageList1.Images.SetKeyName(2, "iconmonstr-note-17-48.png");
+            this.imageList1.Images.SetKeyName(3, "iconmonstr-delivery-10-48.png");
             // 
             // btn_Monitor
             // 
+            this.btn_Monitor.BackColor = System.Drawing.Color.AliceBlue;
             this.btn_Monitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Monitor.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Monitor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -79,7 +83,7 @@
             this.btn_Monitor.TabIndex = 3;
             this.btn_Monitor.Text = "공정 모니터링";
             this.btn_Monitor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Monitor.UseVisualStyleBackColor = true;
+            this.btn_Monitor.UseVisualStyleBackColor = false;
             this.btn_Monitor.Click += new System.EventHandler(this.btn_Monitor_Click);
             // 
             // btn_Set
@@ -89,7 +93,7 @@
             this.btn_Set.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_Set.ImageIndex = 0;
             this.btn_Set.ImageList = this.imageList1;
-            this.btn_Set.Location = new System.Drawing.Point(225, 4);
+            this.btn_Set.Location = new System.Drawing.Point(336, 4);
             this.btn_Set.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Set.Name = "btn_Set";
             this.btn_Set.Size = new System.Drawing.Size(105, 60);
@@ -102,6 +106,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel1.Controls.Add(this.lbl_Title);
+            this.panel1.Controls.Add(this.btn_JobOrder);
             this.panel1.Controls.Add(this.btn_Monitor);
             this.panel1.Controls.Add(this.btn_Set);
             this.panel1.Controls.Add(this.btn_DataManage);
@@ -133,6 +139,34 @@
             this.pnl_Center.Size = new System.Drawing.Size(1227, 716);
             this.pnl_Center.TabIndex = 8;
             // 
+            // btn_JobOrder
+            // 
+            this.btn_JobOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_JobOrder.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_JobOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_JobOrder.ImageIndex = 3;
+            this.btn_JobOrder.ImageList = this.imageList1;
+            this.btn_JobOrder.Location = new System.Drawing.Point(114, 4);
+            this.btn_JobOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_JobOrder.Name = "btn_JobOrder";
+            this.btn_JobOrder.Size = new System.Drawing.Size(105, 60);
+            this.btn_JobOrder.TabIndex = 5;
+            this.btn_JobOrder.Text = "작업지시서";
+            this.btn_JobOrder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_JobOrder.UseVisualStyleBackColor = true;
+            this.btn_JobOrder.Click += new System.EventHandler(this.btn_JobOrder_Click);
+            // 
+            // lbl_Title
+            // 
+            this.lbl_Title.AutoSize = true;
+            this.lbl_Title.Font = new System.Drawing.Font("맑은 고딕", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lbl_Title.Location = new System.Drawing.Point(985, 12);
+            this.lbl_Title.Name = "lbl_Title";
+            this.lbl_Title.Size = new System.Drawing.Size(230, 45);
+            this.lbl_Title.TabIndex = 6;
+            this.lbl_Title.Text = "INNO REPORT";
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -142,6 +176,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -149,6 +184,7 @@
             this.Load += new System.EventHandler(this.frm_Main_Load);
             this.Resize += new System.EventHandler(this.frm_Main_Resize);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -161,6 +197,8 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnl_Center;
+        private System.Windows.Forms.Button btn_JobOrder;
+        private System.Windows.Forms.Label lbl_Title;
     }
 }
 
