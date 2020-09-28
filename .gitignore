@@ -1,4 +1,7 @@
 
+*.suo
+*.cashe
+
 MariaDB_Test/.vs/
 MariaDB_Test/MariaDB_Test/bin
 ReportProgram/.vs/
