@@ -37,4 +37,3 @@ D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.exe
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.pdb
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.CoreCompileInputs.cache
 D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_JobOrder.resources
-D:\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csprojAssemblyReference.cache

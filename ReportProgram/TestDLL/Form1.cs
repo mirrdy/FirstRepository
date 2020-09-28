@@ -36,5 +36,28 @@ namespace TestDLL
         {
             myDB.Add_TestData("CN7", "ABC", DateTime.Now, DateTime.Now.AddMinutes(0.5), SerialNumber++.ToString("0000"), "1231242314", "양품", "OK; OK;3.5;43.0;");
         }
+
+        private void btn_AddModel_Click(object sender, EventArgs e)
+        {
+            string tmpModelName = tbx_Model_Name.Text;
+            DateTime tmpUpdateDate = DateTime.Now;
+            string tmpUpdateUser = tbx_Model_UpdateUser.Text;
+            string tmpHeaderData = tbx_Model_Header.Text;
+
+            if(myDB.Add_Model(tmpModelName, tmpUpdateDate, tmpUpdateUser, tmpHeaderData) == InnoDB.ErrorCode.Suecces)
+            {
+                MessageBox.Show("\"" + tmpModelName + "\" 모델 추가 성공!");
+            }
+            else
+            {
+                MessageBox.Show("\"" + tmpModelName + "\" 모델 추가 실패! (" + myDB.Get_ErrorMessage() + ")");
+            }
+        }
+
+        private void btn_GetModelList_Click(object sender, EventArgs e)
+        {
+            cbb_ModelList.Items.Clear();
+            cbb_ModelList.Items.AddRange(myDB.Get_ModelList().ToArray());
+        }
     }
 }

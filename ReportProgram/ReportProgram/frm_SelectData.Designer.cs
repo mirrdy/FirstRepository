@@ -156,10 +156,10 @@ namespace ReportProgram
             this.rdb_NoSel.Checked = true;
             this.rdb_NoSel.Location = new System.Drawing.Point(145, 82);
             this.rdb_NoSel.Name = "rdb_NoSel";
-            this.rdb_NoSel.Size = new System.Drawing.Size(73, 19);
+            this.rdb_NoSel.Size = new System.Drawing.Size(45, 19);
             this.rdb_NoSel.TabIndex = 3;
             this.rdb_NoSel.TabStop = true;
-            this.rdb_NoSel.Text = "선택안함";
+            this.rdb_NoSel.Text = "ALL";
             this.rdb_NoSel.UseVisualStyleBackColor = true;
             // 
             // label3

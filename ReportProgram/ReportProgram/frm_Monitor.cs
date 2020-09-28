@@ -70,7 +70,7 @@ namespace ReportProgram
 
             try
             {
-                queryString = "select * from Test_Data order by Start_time asc;";
+                queryString = "select * from test_Data order by start_time asc;";
                 OdbcCommand command = new OdbcCommand(queryString);
                 using (OdbcConnection connection = new OdbcConnection(connectionString))
                 {
@@ -82,7 +82,7 @@ namespace ReportProgram
                         int tmpIndex = -1;
                         for (int i = 0; i < tmpDate.Count; i++)
                         {
-                            DateTime GetDate = Convert.ToDateTime(dr["Start_time"].ToString().Substring(0, 10));
+                            DateTime GetDate = Convert.ToDateTime(dr["start_time"].ToString().Substring(0, 10));
                             if (tmpDate[i] == GetDate)
                             {
                                 tmpIndex = i;
@@ -91,13 +91,13 @@ namespace ReportProgram
 
                         if (tmpIndex == -1)
                         {
-                            tmpDate.Add(Convert.ToDateTime(dr["Start_time"].ToString().Substring(0, 10)));
+                            tmpDate.Add(Convert.ToDateTime(dr["start_time"].ToString().Substring(0, 10)));
                             tmpOKCount.Add(0);
                             tmpNGCount.Add(0);
                             tmpIndex = tmpDate.Count - 1;
                         }
 
-                        if (dr["Total_result"].ToString().Equals("양품"))
+                        if (dr["total_result"].ToString().Equals("양품"))
                             tmpOKCount[tmpIndex]++;
                         else
                             tmpNGCount[tmpIndex]++;
@@ -183,9 +183,9 @@ namespace ReportProgram
                     {
                         for (int i = 0; i < modelCount; i++)
                         {
-                            if (model_Name[i].Equals(dr["Model_name"]))
+                            if (model_Name[i].Equals(dr["model_name"]))
                             {
-                                if (dr["Total_result"].ToString().Equals("양품"))
+                                if (dr["total_result"].ToString().Equals("양품"))
                                 {
                                     goodCount[i]++;
                                 }
