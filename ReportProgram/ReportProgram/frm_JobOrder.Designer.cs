@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_JobOrder));
             this.pnl_SlideShow_State = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbx_Control = new System.Windows.Forms.PictureBox();
             this.pbx_JobOrder = new System.Windows.Forms.PictureBox();
             this.tmr_JobOrder = new System.Windows.Forms.Timer(this.components);
-            this.pbx_Control = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_JobOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Control)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_JobOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_SlideShow_State
@@ -46,7 +46,7 @@
             this.pnl_SlideShow_State.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_SlideShow_State.Location = new System.Drawing.Point(0, 0);
             this.pnl_SlideShow_State.Name = "pnl_SlideShow_State";
-            this.pnl_SlideShow_State.Size = new System.Drawing.Size(800, 3);
+            this.pnl_SlideShow_State.Size = new System.Drawing.Size(800, 1);
             this.pnl_SlideShow_State.TabIndex = 13;
             // 
             // panel1
@@ -54,29 +54,10 @@
             this.panel1.Controls.Add(this.pbx_Control);
             this.panel1.Controls.Add(this.pbx_JobOrder);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 3);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 559);
+            this.panel1.Size = new System.Drawing.Size(800, 561);
             this.panel1.TabIndex = 14;
-            // 
-            // pbx_JobOrder
-            // 
-            this.pbx_JobOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbx_JobOrder.Image = global::ReportProgram.Properties.Resources.default_image;
-            this.pbx_JobOrder.Location = new System.Drawing.Point(0, 0);
-            this.pbx_JobOrder.Name = "pbx_JobOrder";
-            this.pbx_JobOrder.Size = new System.Drawing.Size(800, 559);
-            this.pbx_JobOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbx_JobOrder.TabIndex = 0;
-            this.pbx_JobOrder.TabStop = false;
-            this.pbx_JobOrder.Click += new System.EventHandler(this.pbx_JobOrder_Click);
-            this.pbx_JobOrder.MouseLeave += new System.EventHandler(this.pbx_JobOrder_MouseLeave);
-            this.pbx_JobOrder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbx_JobOrder_MouseMove);
-            // 
-            // tmr_JobOrder
-            // 
-            this.tmr_JobOrder.Interval = 10;
-            this.tmr_JobOrder.Tick += new System.EventHandler(this.tmr_JobOrder_Tick);
             // 
             // pbx_Control
             // 
@@ -92,6 +73,25 @@
             this.pbx_Control.Click += new System.EventHandler(this.pbx_JobOrder_Click);
             this.pbx_Control.MouseLeave += new System.EventHandler(this.pbx_JobOrder_MouseLeave);
             this.pbx_Control.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbx_JobOrder_MouseMove);
+            // 
+            // pbx_JobOrder
+            // 
+            this.pbx_JobOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbx_JobOrder.Image = global::ReportProgram.Properties.Resources.default_image;
+            this.pbx_JobOrder.Location = new System.Drawing.Point(0, 0);
+            this.pbx_JobOrder.Name = "pbx_JobOrder";
+            this.pbx_JobOrder.Size = new System.Drawing.Size(800, 561);
+            this.pbx_JobOrder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbx_JobOrder.TabIndex = 0;
+            this.pbx_JobOrder.TabStop = false;
+            this.pbx_JobOrder.Click += new System.EventHandler(this.pbx_JobOrder_Click);
+            this.pbx_JobOrder.MouseLeave += new System.EventHandler(this.pbx_JobOrder_MouseLeave);
+            this.pbx_JobOrder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbx_JobOrder_MouseMove);
+            // 
+            // tmr_JobOrder
+            // 
+            this.tmr_JobOrder.Interval = 10;
+            this.tmr_JobOrder.Tick += new System.EventHandler(this.tmr_JobOrder_Tick);
             // 
             // frm_JobOrder
             // 
@@ -111,8 +111,8 @@
             this.Load += new System.EventHandler(this.frm_JobOrder_Load);
             this.Resize += new System.EventHandler(this.frm_JobOrder_Resize);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbx_JobOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_Control)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_JobOrder)).EndInit();
             this.ResumeLayout(false);
 
         }

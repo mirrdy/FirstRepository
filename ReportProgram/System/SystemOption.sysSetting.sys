@@ -3,10 +3,9 @@
   <Info_DBConnection>MariaDB</Info_DBConnection>
   <StartViewIndex>3</StartViewIndex>
   <JobOrder_SlideShow_Time>5</JobOrder_SlideShow_Time>
-  <JobOrder_File1>C:\Users\GCW\Desktop\작업지시서\1.PNG</JobOrder_File1>
-  <JobOrder_File2>C:\Users\GCW\Desktop\작업지시서\2.PNG</JobOrder_File2>
-  <JobOrder_File3>
-  </JobOrder_File3>
+  <JobOrder_File1>D:\CN7_OHC_Lamp_tester\SYSTEM\NR ECALL 2BTN.png</JobOrder_File1>
+  <JobOrder_File2>D:\CN7_OHC_Lamp_tester\SYSTEM\NR ECALL.png</JobOrder_File2>
+  <JobOrder_File3>D:\CN7_OHC_Lamp_tester\SYSTEM\NR ETCS.png</JobOrder_File3>
   <JobOrder_File4>
   </JobOrder_File4>
   <JobOrder_File5>
