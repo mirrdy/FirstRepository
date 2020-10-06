@@ -1,0 +1,6 @@
+D:\FirstRepository\ReportProgram\InnoDB_DLL\bin\Release\InnoDB_DLL.dll
+D:\FirstRepository\ReportProgram\InnoDB_DLL\bin\Release\InnoDB_DLL.pdb
+D:\FirstRepository\ReportProgram\InnoDB_DLL\obj\Release\InnoDB_DLL.csprojAssemblyReference.cache
+D:\FirstRepository\ReportProgram\InnoDB_DLL\obj\Release\InnoDB_DLL.csproj.CoreCompileInputs.cache
+D:\FirstRepository\ReportProgram\InnoDB_DLL\obj\Release\InnoDB_DLL.dll
+D:\FirstRepository\ReportProgram\InnoDB_DLL\obj\Release\InnoDB_DLL.pdb

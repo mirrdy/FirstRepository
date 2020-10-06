@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*******************************************************************************
+ * 
+ * 테이블 네임 : model, test_data
+ * 
+ * ******************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,10 +24,14 @@ namespace InnoDB_DLL
             ER_Add_TestData = 3,
             ER_Delete_Model = 4,
             ER_Delete_TestData = 5,
+            ER_NOT_FIND_MODEL_TABLE = 6,
+            ER_NOT_FIND_TESTDATA_TABLE = 7,
             ER_Ect = 9999
         }
 
         private string DSN_Name = "";
+        private string TableName_Model = "model";
+        private string TableName_TestData = "test_data";
         private string ErrorMessage = "";
 
         public InnoDB()
@@ -33,7 +43,35 @@ namespace InnoDB_DLL
             ErrorCode R_Code = ErrorCode.ER_Ect;
 
             DSN_Name = "dsn=" + Name;
-            R_Code = ErrorCode.Suecces;
+
+            List<string> TableList = new List<string>();
+            string queryString = "show tables";
+            OdbcCommand command = new OdbcCommand(queryString);
+            try
+            {
+                ErrorMessage = "";
+                using (OdbcConnection connection = new OdbcConnection(DSN_Name))
+                {
+                    command.Connection = connection;
+                    connection.Open();
+                    OdbcDataReader dr = command.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        TableList.Add(dr[0].ToString());
+                    }
+                }
+
+                R_Code = ErrorCode.Suecces;
+                int tmpindex = TableList.FindIndex(x => x.CompareTo(TableName_Model) == 0);
+                if (tmpindex == -1) R_Code = ErrorCode.ER_NOT_FIND_MODEL_TABLE;
+                tmpindex = TableList.FindIndex(x => x.CompareTo(TableName_TestData) == 0);
+                if (tmpindex == -1) R_Code = ErrorCode.ER_NOT_FIND_TESTDATA_TABLE;
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+            }
 
             return R_Code;
         }
@@ -54,7 +92,7 @@ namespace InnoDB_DLL
 
             string tmpCreateDate = Update_Date.ToString("yyyy-MM-dd HH:mm:ss");
             string tmpValue = string.Format("'{0}','{1}','{2}','{3}'", Model_Name, tmpCreateDate, Update_User, Data_Header);
-            string queryString = "INSERT INTO model (name, update_date, update_user, data_header) Values(" + tmpValue + ")";
+            string queryString = "INSERT INTO " + TableName_Model + " (name, update_date, update_user, data_header) Values(" + tmpValue + ")";
 
             OdbcCommand command = new OdbcCommand(queryString);
             try
@@ -81,7 +119,7 @@ namespace InnoDB_DLL
         {
             ErrorCode R_Code = ErrorCode.ER_Ect;
 
-            string queryString = "DELETE FROM model WHERE name='" + Model_Name + "'";
+            string queryString = "DELETE FROM "+ TableName_Model + " WHERE name='" + Model_Name + "'";
 
             OdbcCommand command = new OdbcCommand(queryString);
             try
@@ -109,7 +147,7 @@ namespace InnoDB_DLL
         {
             List<string> ModelList = new List<string>();
 
-            string queryString = "select * from model order by name asc";
+            string queryString = "select * from " + TableName_Model + " order by name asc";
 
             OdbcCommand command = new OdbcCommand(queryString);
             try
@@ -142,7 +180,7 @@ namespace InnoDB_DLL
             string tmpStartTime = Start_Time.ToString("yyyy-MM-dd HH:mm:ss");
             string tmpEndTime = End_Time.ToString("yyyy-MM-dd HH:mm:ss");
             string tmpValue = string.Format("'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}'", Model_Name, Test_User, tmpStartTime, tmpEndTime, Serial_Number, BarcodeData, Total_Result, Test_Data);
-            string queryString = "INSERT INTO test_data (model_name, test_user, start_time, end_time, serial_number, barcode, total_result, test_Data) Values(" + tmpValue + ")";
+            string queryString = "INSERT INTO " + TableName_TestData + " (model_name, test_user, start_time, end_time, serial_number, barcode, total_result, test_Data) Values(" + tmpValue + ")";
 
             OdbcCommand command = new OdbcCommand(queryString);
             try
@@ -169,7 +207,7 @@ namespace InnoDB_DLL
         {
             ErrorCode R_Code = ErrorCode.ER_Ect;
 
-            string queryString = "DELETE FROM test_data where model_name='" + Model_Name + "'";
+            string queryString = "DELETE FROM " + TableName_TestData + " where model_name='" + Model_Name + "'";
 
             OdbcCommand command = new OdbcCommand(queryString);
             try
@@ -196,7 +234,7 @@ namespace InnoDB_DLL
         {
             ErrorCode R_Code = ErrorCode.ER_Ect;
 
-            string queryString = "DELETE FROM test_data where barcode='" + Barcode + "'";
+            string queryString = "DELETE FROM " + TableName_TestData + " where barcode='" + Barcode + "'";
 
             OdbcCommand command = new OdbcCommand(queryString);
             try
@@ -223,7 +261,7 @@ namespace InnoDB_DLL
         {
             ErrorCode R_Code = ErrorCode.ER_Ect;
 
-            string queryString = "DELETE FROM test_data where serial_number='" + SerialNumber + "'";
+            string queryString = "DELETE FROM " + TableName_TestData + " where serial_number='" + SerialNumber + "'";
 
             OdbcCommand command = new OdbcCommand(queryString);
             try

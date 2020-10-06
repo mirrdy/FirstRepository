@@ -1,0 +1,13 @@
+D:\FirstRepository\ReportProgram\TestDLL\bin\Release\TestDLL.exe.config
+D:\FirstRepository\ReportProgram\TestDLL\bin\Release\TestDLL.exe
+D:\FirstRepository\ReportProgram\TestDLL\bin\Release\TestDLL.pdb
+D:\FirstRepository\ReportProgram\TestDLL\bin\Release\InnoDB_DLL.dll
+D:\FirstRepository\ReportProgram\TestDLL\bin\Release\InnoDB_DLL.pdb
+D:\FirstRepository\ReportProgram\TestDLL\obj\Release\TestDLL.csprojAssemblyReference.cache
+D:\FirstRepository\ReportProgram\TestDLL\obj\Release\TestDLL.Form1.resources
+D:\FirstRepository\ReportProgram\TestDLL\obj\Release\TestDLL.Properties.Resources.resources
+D:\FirstRepository\ReportProgram\TestDLL\obj\Release\TestDLL.csproj.GenerateResource.cache
+D:\FirstRepository\ReportProgram\TestDLL\obj\Release\TestDLL.csproj.CoreCompileInputs.cache
+D:\FirstRepository\ReportProgram\TestDLL\obj\Release\TestDLL.csproj.CopyComplete
+D:\FirstRepository\ReportProgram\TestDLL\obj\Release\TestDLL.exe
+D:\FirstRepository\ReportProgram\TestDLL\obj\Release\TestDLL.pdb
