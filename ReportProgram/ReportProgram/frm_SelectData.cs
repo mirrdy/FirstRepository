@@ -15,7 +15,6 @@ namespace ReportProgram
     {
         private string conString = "";
         private xml_Setting mySetting = new xml_Setting();
-        private string settingSavePath = "D:\\SettingSaveFolder\\";
 
         //부모폼에게 데이터를 전달하기위한 delegate 이벤트 선언
         public delegate void sendSelectedDataDelegate(string data, string selModel);
@@ -24,15 +23,19 @@ namespace ReportProgram
         public frm_SelectData()
         {
             InitializeComponent();
+        }
+
+        private void frm_SelectData_Load(object sender, EventArgs e)
+        {
             loadMySetting();
             addComboBox(conString);
         }
 
         private void loadMySetting()
         {
-            mySetting.Setting_Load_Xml(settingSavePath);
+            mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
 
-            conString = mySetting.Info_DBConnection;
+            conString = "dsn=" + mySetting.Info_DBConnection;
         }
 
         private void addComboBox(string ConnectionString)
@@ -50,6 +53,8 @@ namespace ReportProgram
                 {
                     cbx_SelModel.Items.Add(dr["name"]);
                 }
+
+                if (cbx_SelModel.Items.Count > 0) cbx_SelModel.SelectedIndex = 0;
             }
             //MessageBox.Show(selectModelCB.Items[3].ToString());
         }
@@ -84,6 +89,7 @@ namespace ReportProgram
             queryString += "order by Start_time asc";
 
             this.sendData(queryString, cbx_SelModel.Text);
+            Close();
         }
 
         private void btn_CancleSelect_Click(object sender, EventArgs e)

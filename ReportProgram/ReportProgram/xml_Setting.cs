@@ -39,17 +39,15 @@ namespace ReportProgram
                 JobOrder_File[i] = "";
             }
         }
-        public void Setting_Save_Xml(string SettingPath)
+        public void Setting_Save_Xml(string FilePath)
         {
+            if(Directory.Exists(Path.GetDirectoryName(FilePath)) == false)
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(FilePath));
+            }
+
             XmlDocument doc = new XmlDocument();
             XmlElement xmlSetting = doc.CreateElement("Setting");
-
-            // 저장 경로에 폴더가 없으면 생성
-            DirectoryInfo di = new DirectoryInfo(Const.SYSTEM_PATH);
-            if (!di.Exists)
-            {
-                di.Create();
-            }
 
             // xml 문서에 들어갈 요소 생성
             XmlElement el_Target_Count = doc.CreateElement("Target_Count");
@@ -82,20 +80,20 @@ namespace ReportProgram
             doc.AppendChild(xmlSetting);
 
             // 저장
-            doc.Save(SettingPath + "Setting.sys");
+            doc.Save(FilePath);
         }
-        public void Setting_Load_Xml(string SettingPath)
+        public void Setting_Load_Xml(string FilePath)
         {
             Setting_Init();
 
-            if (System.IO.File.Exists(SettingPath + "Setting.sys") == false)
+            if (System.IO.File.Exists(FilePath) == false)
             {
                 MessageBox.Show("저장된 파일이 없습니다. 기본 설정이 적용됩니다.");
                 return;
             }
 
             XmlDocument doc = new XmlDocument();
-            doc.Load(SettingPath+"Setting.sys");
+            doc.Load(FilePath);
 
             // Daily
             XmlNode node_Target_Count = doc.SelectSingleNode("//Setting/Target_Count");

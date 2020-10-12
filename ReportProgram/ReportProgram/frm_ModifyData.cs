@@ -14,8 +14,7 @@ namespace ReportProgram
     public partial class frm_ModifyData : Form
     {
         private string conString = "";
-        private xml_Setting mySetting = new xml_Setting();
-        private string settingSavePath = "D:\\SettingSaveFolder\\";
+        private xml_Setting mySetting = new xml_Setting();        
 
         //부모폼에게 데이터를 전달하기위한 delegate 이벤트 선언
         public delegate void sendModifiedDataDelegate(string data, string selModel);
@@ -28,7 +27,7 @@ namespace ReportProgram
         }
         private void loadMySetting()
         {
-            mySetting.Setting_Load_Xml(settingSavePath);
+            mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
 
             conString = mySetting.Info_DBConnection;
         }
