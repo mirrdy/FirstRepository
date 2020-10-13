@@ -37,7 +37,6 @@
             this.pnl_Left = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.selectedDataView = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tester = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,8 @@
             this.Serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total_result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.sdlg_Excel = new System.Windows.Forms.SaveFileDialog();
             this.pnl_Left.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectedDataView)).BeginInit();
@@ -127,7 +128,7 @@
             this.selectedDataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Moccasin;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -150,15 +151,6 @@
             this.selectedDataView.RowTemplate.Height = 23;
             this.selectedDataView.Size = new System.Drawing.Size(1032, 932);
             this.selectedDataView.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1032, 3);
-            this.panel2.TabIndex = 17;
             // 
             // Model
             // 
@@ -197,6 +189,15 @@
             this.Total_result.Name = "Total_result";
             this.Total_result.Width = 120;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1032, 3);
+            this.panel2.TabIndex = 17;
+            // 
             // frm_DataManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -231,5 +232,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Serial_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_result;
+        private System.Windows.Forms.SaveFileDialog sdlg_Excel;
     }
 }

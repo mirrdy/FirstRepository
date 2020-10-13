@@ -156,318 +156,15 @@ namespace ReportProgram
 
         private void btn_ExportToExcel_Click(object sender, EventArgs e)
         {
-            string ExcelLogPath = "D:\\SavedExcelFolder\\"+DateTime.Now.ToString("yyyy-MM-dd HHmmss") + "_TestFile.xls";
-            int Step = 5;
-            SaveExcelFile(ExcelLogPath, Step);
+            sdlg_Excel.Filter = "Excel (*.xls) | *.xls";
+
+            if (sdlg_Excel.ShowDialog() == DialogResult.OK)
+            {
+                SaveExcelFile(sdlg_Excel.FileName);
+            }
         }
 
-        private void SaveExcelFile(string FilePath, int Step)
-        {
-            
-            SendDataToExcel(selectedDataView, "test_data");
-            
-            #region 엑셀 실패
-            /* var version = "xls";
-             // Workbook 생성
-             var workbook = CreateWorkbook(version);
-             HSSFWorkbook hssfwb;
-             using (FileStream Read_File = new FileStream("D:\\SavedExcelFolder\\ReportSample.xls", FileMode.Open, FileAccess.Read))
-             {
-                 hssfwb = new HSSFWorkbook(Read_File);
-             }
-             ISheet sheet = hssfwb.GetSheet("색출 방법");
-             // Workbook 안에 Sheet 생성
-
-             // Sheet에서 Cell 가져오기
-             var cell = GetCell(sheet, 0, 0);
-
-
-
-             WriteExcel(workbook, "D:\\SavedExcelFolder\\test1." + version);*/
-            #endregion
-            #region 엑셀 참고용 코드;
-            /*int[] FactorNGCount = {
-             * 0, 0, 0 };
-            bool[,] Factor_Freq_Result = new bool[selectedDataView.RowCount, selectedDataView.ColumnCount];
-            Array.Clear(Factor_Freq_Result, 0, Factor_Freq_Result.Length);
-
-
-            // 레포트 샘플 파일 읽어오기
-            HSSFWorkbook hssfwb;
-            using (FileStream Read_File = new FileStream("D:\\SavedExcelFolder\\ReportSample.xls", FileMode.Open, FileAccess.Read))
-            {
-                hssfwb = new HSSFWorkbook(Read_File);
-            }
-            ISheet sheet = hssfwb.GetSheet("색출 방법");
-
-            // 그리드 Row 갯수만큼 엑셀 파일 Row를 생성
-            int MaxCount = selectedDataView.RowCount - 1;
-            for (int i = 0; i < MaxCount; i++)
-            {
-                sheet.CopyRow(2, i + 3);
-                IRow tmpRow = sheet.GetRow(i + 3);
-                tmpRow.HeightInPoints = sheet.GetRow(2).HeightInPoints;
-            }
-            
-            ICellStyle NonActiveStyle = hssfwb.CreateCellStyle();
-            NonActiveStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
-            NonActiveStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
-            NonActiveStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
-            NonActiveStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
-            NonActiveStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            NonActiveStyle.FillForegroundColor = IndexedColors.White.Index;
-            NonActiveStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle ActiveStyle = hssfwb.CreateCellStyle();
-            ActiveStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
-            ActiveStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
-            ActiveStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
-            ActiveStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
-            ActiveStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            ActiveStyle.FillForegroundColor = IndexedColors.SkyBlue.Index;
-            ActiveStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle DefaultStyle = hssfwb.CreateCellStyle();
-            DefaultStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
-            DefaultStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
-            DefaultStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
-            DefaultStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
-            DefaultStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            DefaultStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            DefaultStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle TopLeftMediumStyle = hssfwb.CreateCellStyle();
-            TopLeftMediumStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
-            TopLeftMediumStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
-            TopLeftMediumStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
-            TopLeftMediumStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
-            TopLeftMediumStyle.BottomBorderColor = IndexedColors.Black.Index;
-            TopLeftMediumStyle.LeftBorderColor = IndexedColors.Red.Index;
-            TopLeftMediumStyle.RightBorderColor = IndexedColors.Black.Index;
-            TopLeftMediumStyle.TopBorderColor = IndexedColors.Red.Index;
-            TopLeftMediumStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            TopLeftMediumStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            TopLeftMediumStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle TopRightMediumStyle = hssfwb.CreateCellStyle();
-            TopRightMediumStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
-            TopRightMediumStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
-            TopRightMediumStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
-            TopRightMediumStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
-            TopRightMediumStyle.BottomBorderColor = IndexedColors.Black.Index;
-            TopRightMediumStyle.LeftBorderColor = IndexedColors.Black.Index;
-            TopRightMediumStyle.RightBorderColor = IndexedColors.Red.Index;
-            TopRightMediumStyle.TopBorderColor = IndexedColors.Red.Index;
-            TopRightMediumStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            TopRightMediumStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            TopRightMediumStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle BottomLeftMediumStyle = hssfwb.CreateCellStyle();
-            BottomLeftMediumStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
-            BottomLeftMediumStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
-            BottomLeftMediumStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
-            BottomLeftMediumStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
-            BottomLeftMediumStyle.BottomBorderColor = IndexedColors.Red.Index;
-            BottomLeftMediumStyle.LeftBorderColor = IndexedColors.Red.Index;
-            BottomLeftMediumStyle.RightBorderColor = IndexedColors.Black.Index;
-            BottomLeftMediumStyle.TopBorderColor = IndexedColors.Black.Index;
-            BottomLeftMediumStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            BottomLeftMediumStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            BottomLeftMediumStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle BottomRightMediumStyle = hssfwb.CreateCellStyle();
-            BottomRightMediumStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
-            BottomRightMediumStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
-            BottomRightMediumStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
-            BottomRightMediumStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
-            BottomRightMediumStyle.BottomBorderColor = IndexedColors.Red.Index;
-            BottomRightMediumStyle.LeftBorderColor = IndexedColors.Black.Index;
-            BottomRightMediumStyle.RightBorderColor = IndexedColors.Red.Index;
-            BottomRightMediumStyle.TopBorderColor = IndexedColors.Black.Index;
-            BottomRightMediumStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            BottomRightMediumStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            BottomRightMediumStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle TopMediumStyle = hssfwb.CreateCellStyle();
-            TopMediumStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
-            TopMediumStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
-            TopMediumStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
-            TopMediumStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
-            TopMediumStyle.BottomBorderColor = IndexedColors.Black.Index;
-            TopMediumStyle.LeftBorderColor = IndexedColors.Black.Index;
-            TopMediumStyle.RightBorderColor = IndexedColors.Black.Index;
-            TopMediumStyle.TopBorderColor = IndexedColors.Red.Index;
-            TopMediumStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            TopMediumStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            TopMediumStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle BottomMediumStyle = hssfwb.CreateCellStyle();
-            BottomMediumStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
-            BottomMediumStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
-            BottomMediumStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
-            BottomMediumStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
-            BottomMediumStyle.BottomBorderColor = IndexedColors.Red.Index;
-            BottomMediumStyle.LeftBorderColor = IndexedColors.Black.Index;
-            BottomMediumStyle.RightBorderColor = IndexedColors.Black.Index;
-            BottomMediumStyle.TopBorderColor = IndexedColors.Black.Index;
-            BottomMediumStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            BottomMediumStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            BottomMediumStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle LeftMediumStyle = hssfwb.CreateCellStyle();
-            LeftMediumStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
-            LeftMediumStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
-            LeftMediumStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
-            LeftMediumStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
-            LeftMediumStyle.BottomBorderColor = IndexedColors.Black.Index;
-            LeftMediumStyle.LeftBorderColor = IndexedColors.Red.Index;
-            LeftMediumStyle.RightBorderColor = IndexedColors.Black.Index;
-            LeftMediumStyle.TopBorderColor = IndexedColors.Black.Index;
-            LeftMediumStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            LeftMediumStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            LeftMediumStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle RightMediumStyle = hssfwb.CreateCellStyle();
-            RightMediumStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
-            RightMediumStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
-            RightMediumStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
-            RightMediumStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
-            RightMediumStyle.BottomBorderColor = IndexedColors.Black.Index;
-            RightMediumStyle.LeftBorderColor = IndexedColors.Black.Index;
-            RightMediumStyle.RightBorderColor = IndexedColors.Red.Index;
-            RightMediumStyle.TopBorderColor = IndexedColors.Black.Index;
-            RightMediumStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            RightMediumStyle.FillForegroundColor = IndexedColors.LightOrange.Index;
-            RightMediumStyle.FillPattern = FillPattern.SolidForeground;
-
-            ICellStyle NGStyle = hssfwb.CreateCellStyle();
-            NGStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
-            NGStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
-            NGStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
-            NGStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
-            NGStyle.BottomBorderColor = IndexedColors.Red.Index;
-            NGStyle.LeftBorderColor = IndexedColors.Red.Index;
-            NGStyle.RightBorderColor = IndexedColors.Red.Index;
-            NGStyle.TopBorderColor = IndexedColors.Red.Index;
-            NGStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            NGStyle.FillForegroundColor = IndexedColors.Red.Index;
-            NGStyle.FillPattern = FillPattern.SolidForeground;
-
-            // 데이터 넣기
-            for (int i = 0; i < selectedDataView.RowCount; i++)
-            {
-                IRow tmpRow = sheet.GetRow(i + 2);
-                for (int j = 0; j < selectedDataView.ColumnCount; j++)
-                {
-                    if (j == 0)
-                    {
-                        if ((i == selectedDataView.RowCount - 1) || (i == selectedDataView.RowCount - 2) || (i == selectedDataView.RowCount - 3) || (i == selectedDataView.RowCount - 4) || (i == selectedDataView.RowCount - 5))
-                        {
-                            tmpRow.Cells[j].SetCellValue(selectedDataView.Rows[i].HeaderCell.Value.ToString());
-                        }
-                        else
-                        {
-                            tmpRow.Cells[j].SetCellValue(myConvert.StrToFlotDef(selectedDataView.Rows[i].HeaderCell.Value.ToString(), 0));
-                        }
-                    }
-                    else if (j < selectedDataView.ColumnCount-1)
-                    {
-                        tmpRow.Cells[j].SetCellValue(myConvert.StrToFlotDef(selectedDataView[j, i].Value.ToString(), 0));
-
-                        // 검사 구간만 표시
-                       *//* if ((myConvert.StrToFlotDef(selectedDataView.Rows[i].HeaderCell.Value.ToString(), 0) > TSpec.Motor_Start_Time[Step]) &&
-                           (myConvert.StrToFlotDef(selectedDataView.Rows[i].HeaderCell.Value.ToString(), 0) <= TSpec.Motor_End_Time[Step]))
-                        {
-                            tmpRow.Cells[j].CellStyle = ActiveStyle;
-                        }
-                        else
-                        {
-                            tmpRow.Cells[j].CellStyle = NonActiveStyle;
-                        }*//*
-                    }
-                    else
-                    {
-                        tmpRow.Cells[j].SetCellValue("");
-                    }
-
-                    if (i == selectedDataView.RowCount - 5)
-                    {
-                        if (j == 0) tmpRow.Cells[j].CellStyle = TopLeftMediumStyle;
-                        else if (j == 37) tmpRow.Cells[j].CellStyle = TopRightMediumStyle;
-                        else tmpRow.Cells[j].CellStyle = TopMediumStyle;
-                    }
-                    else if (i == selectedDataView.RowCount - 1)
-                    {
-                        if (j == 0) tmpRow.Cells[j].CellStyle = BottomLeftMediumStyle;
-                        else if (j == 37) tmpRow.Cells[j].CellStyle = BottomRightMediumStyle;
-                        else tmpRow.Cells[j].CellStyle = BottomMediumStyle;
-                    }
-                    else if ((i == selectedDataView.RowCount - 2) || (i == selectedDataView.RowCount - 3) || (i == selectedDataView.RowCount - 4))
-                    {
-                        if (j == 0) tmpRow.Cells[j].CellStyle = LeftMediumStyle;
-                        else if (j == 37) tmpRow.Cells[j].CellStyle = RightMediumStyle;
-                        else tmpRow.Cells[j].CellStyle = DefaultStyle;
-                    }
-
-                    // 불량 부분 표시
-                    *//*if (j > 0 && j < 37)
-                    {
-                        if (i == selectedDataView.RowCount - 3)   // Sound Factor
-                        {
-                            if (Factor_Freq_Result[0, j] == false)
-                            {
-                                tmpRow.Cells[j].CellStyle = NGStyle;
-                                FactorNGCount[0]++;
-                            }
-                        }
-                        else if (i == selectedDataView.RowCount - 2)   // Crest Factor
-                        {
-                            if (Factor_Freq_Result[1, j] == false)
-                            {
-                                tmpRow.Cells[j].CellStyle = NGStyle;
-                                FactorNGCount[1]++;
-                            }
-                        }
-                        else if (i == selectedDataView.RowCount - 1)   // Modulation Factor
-                        {
-                            if (Factor_Freq_Result[2, j] == false)
-                            {
-                                tmpRow.Cells[j].CellStyle = NGStyle;
-                                FactorNGCount[2]++;
-                            }
-                        }
-                    }*//*
-                    else if (j == 37)
-                    {
-                        if (i == selectedDataView.RowCount - 3)   // Sound Factor
-                        {
-                            tmpRow.Cells[j].SetCellValue("불량 : " + FactorNGCount[0].ToString());
-                        }
-                        else if (i == selectedDataView.RowCount - 2)   // Crest Factor
-                        {
-                            tmpRow.Cells[j].SetCellValue("불량 : " + FactorNGCount[1].ToString());
-                        }
-                        else if (i == selectedDataView.RowCount - 1)   // Modulation Factor
-                        {
-                            tmpRow.Cells[j].SetCellValue("불량 : " + FactorNGCount[2].ToString());
-                        }
-                    }
-                }
-            }
-
-            // Declare one MemoryStream variable for write file in stream  
-            var stream = new MemoryStream();
-            hssfwb.Write(stream);
-
-            //Write to file using file stream  
-            FileStream file = new FileStream(FilePath, FileMode.Create, FileAccess.Write);
-            stream.WriteTo(file);
-            file.Close();
-            stream.Close();*/
-            #endregion
-        }
-
-        public void SendDataToExcel(DataGridView dgv, string sheetName)
+        private void SaveExcelFile(string FilePath)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -487,20 +184,46 @@ namespace ReportProgram
             headerFont.FontHeightInPoints = 11;
             headerFont.FontName = "맑은 고딕";
             headerFont.IsBold = true;
+            headerFont.Color = IndexedColors.White.Index;
 
             var dataFont = workbook.CreateFont();
             dataFont.FontHeightInPoints = 11;
+            dataFont.FontName = "맑은 고딕";
+            dataFont.IsBold = false;
+            dataFont.Color = IndexedColors.Black.Index;
+
+            ICellStyle HeaderStyle = workbook.CreateCellStyle();
+            HeaderStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Double;
+            HeaderStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
+            HeaderStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
+            HeaderStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
+            HeaderStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
+            HeaderStyle.FillForegroundColor = IndexedColors.DarkBlue.Index;
+            HeaderStyle.FillPattern = FillPattern.SolidForeground;
+            HeaderStyle.SetFont(headerFont);
+
+            ICellStyle DefaultStyle_Odd = workbook.CreateCellStyle();
+            DefaultStyle_Odd.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
+            DefaultStyle_Odd.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
+            DefaultStyle_Odd.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
+            DefaultStyle_Odd.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
+            DefaultStyle_Odd.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
+            DefaultStyle_Odd.FillForegroundColor = IndexedColors.White.Index;
+            DefaultStyle_Odd.FillPattern = FillPattern.SolidForeground;
+            DefaultStyle_Odd.SetFont(dataFont);
+
+            ICellStyle DefaultStyle_Even = workbook.CreateCellStyle();
+            DefaultStyle_Even.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
+            DefaultStyle_Even.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
+            DefaultStyle_Even.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
+            DefaultStyle_Even.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
+            DefaultStyle_Even.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
+            DefaultStyle_Even.FillForegroundColor = IndexedColors.Grey25Percent.Index;
+            DefaultStyle_Even.FillPattern = FillPattern.SolidForeground;
+            DefaultStyle_Even.SetFont(dataFont);
 
 
-            ICellStyle cellStyle_Header = workbook.CreateCellStyle();
-            cellStyle_Header.BorderBottom = NPOI.SS.UserModel.BorderStyle.None;
-            cellStyle_Header.FillForegroundColor = IndexedColors.BrightGreen.Index;
-            cellStyle_Header.FillPattern = FillPattern.SolidForeground;
-            cellStyle_Header.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
-            cellStyle_Header.SetFont(headerFont);
-
-
-
+            /*
             ICellStyle cellStyle1 = workbook.CreateCellStyle();
             cellStyle1.FillForegroundColor = IndexedColors.White.Index;
             cellStyle1.FillPattern = FillPattern.SolidForeground;
@@ -512,33 +235,34 @@ namespace ReportProgram
             cellStyle2.FillPattern = FillPattern.SolidForeground;
             cellStyle2.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
             cellStyle2.SetFont(dataFont);
+            */
 
             //Below loop is create header  
-            for (int i = 0; i < dgv.ColumnCount; i++)
+            for (int i = 0; i < selectedDataView.ColumnCount; i++)
             {
                 var cell = headerRow.CreateCell(i);
-                cell.SetCellValue(dgv.Columns[i].HeaderText);
-                cell.CellStyle = cellStyle_Header;
+                cell.SetCellValue(selectedDataView.Columns[i].HeaderText);
+                cell.CellStyle = HeaderStyle;
             }
 
             //Below loop is fill content  
-            for (int i = 0; i < dgv.RowCount; i++)
+            for (int i = 0; i < selectedDataView.RowCount; i++)
             {
-                var row = sheet.CreateRow(i+1);
+                var row = sheet.CreateRow(i + 1);
 
-                for (int j = 0; j < dgv.ColumnCount; j++)
+                for (int j = 0; j < selectedDataView.ColumnCount; j++)
                 {
                     var cell = row.CreateCell(j);
-                    cell.SetCellValue(dgv.Rows[i].Cells[j].Value.ToString());
+                    cell.SetCellValue(selectedDataView.Rows[i].Cells[j].Value.ToString());
                     if (i % 2 == 0)
-                        cell.CellStyle = cellStyle1;
+                        cell.CellStyle = DefaultStyle_Even;
                     else
-                        cell.CellStyle = cellStyle2;
+                        cell.CellStyle = DefaultStyle_Odd;
                 }
             }
-            
+
             // 셀 크기 조정
-            for(int i=0; i<dgv.ColumnCount; i++)
+            for (int i = 0; i < selectedDataView.ColumnCount; i++)
             {
                 // 너비 자동조정
                 sheet.AutoSizeColumn(i);
@@ -551,12 +275,9 @@ namespace ReportProgram
                 sheet.GetRow(i).Height = 300;
             }*/
 
-
             // Declare one MemoryStream variable for write file in stream  
             var stream = new MemoryStream();
             workbook.Write(stream);
-
-            string FilePath = @"D:\ABC.xls";
 
             //Write to file using file stream  
             FileStream file = new FileStream(FilePath, FileMode.Create, FileAccess.Write);
@@ -719,6 +440,7 @@ namespace ReportProgram
             System.Runtime.InteropServices.Marshal.FinalReleaseComObject(app);*/
             #endregion
         }
+
         //Here is how to set the column Width
         public void SetHeaderBold(Excel.Worksheet worksheet, int row)
         {
