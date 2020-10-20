@@ -142,6 +142,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.searchedDataView);
             this.Name = "frm_ModifyData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frm_ModifyData";
             ((System.ComponentModel.ISupportInitialize)(this.searchedDataView)).EndInit();
             this.panel1.ResumeLayout(false);

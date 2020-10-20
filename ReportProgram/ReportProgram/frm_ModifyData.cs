@@ -24,6 +24,7 @@ namespace ReportProgram
         {
             InitializeComponent();
             loadMySetting();
+            this.CenterToParent(); // 부모 폼의 중앙에 띄움       
         }
         private void loadMySetting()
         {

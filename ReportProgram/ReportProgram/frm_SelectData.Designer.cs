@@ -199,6 +199,7 @@ namespace ReportProgram
             this.ClientSize = new System.Drawing.Size(672, 308);
             this.Controls.Add(this.groupBox1);
             this.Name = "frm_SelectData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.frm_SelectData_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

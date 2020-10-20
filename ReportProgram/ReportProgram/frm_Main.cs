@@ -29,7 +29,7 @@ namespace ReportProgram
             mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
             //화면 크기/위치 조정
             Set_Form_Size_Pos();
-
+            this.WindowState = FormWindowState.Maximized;
             if (mySetting.StartViewIndex == Const.FORM_MONITOR) btn_Monitor.PerformClick();
             else if (mySetting.StartViewIndex == Const.FORM_DATAMANAGE) btn_DataManage.PerformClick();
             else if (mySetting.StartViewIndex == Const.FORM_JOBWORK) btn_JobOrder.PerformClick();

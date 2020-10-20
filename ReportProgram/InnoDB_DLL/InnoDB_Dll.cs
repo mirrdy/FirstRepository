@@ -203,6 +203,35 @@ namespace InnoDB_DLL
             return R_Code;
         }
 
+        public ErrorCode Add_TestData(string Model_Name, string Test_User, string Start_Time, string End_Time, string Serial_Number, string BarcodeData, string Total_Result, string Test_Data)
+        {
+            ErrorCode R_Code = ErrorCode.ER_Ect;
+
+            string tmpValue = string.Format("'{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}'", Model_Name, Test_User, Start_Time, End_Time, Serial_Number, BarcodeData, Total_Result, Test_Data);
+            string queryString = "INSERT INTO " + TableName_TestData + " (model_name, test_user, start_time, end_time, serial_number, barcode, total_result, test_Data) Values(" + tmpValue + ")";
+
+            OdbcCommand command = new OdbcCommand(queryString);
+            try
+            {
+                ErrorMessage = "";
+                using (OdbcConnection connection = new OdbcConnection(DSN_Name))
+                {
+                    command.Connection = connection;
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    R_Code = ErrorCode.Suecces;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+                R_Code = ErrorCode.ER_Add_TestData;
+            }
+
+            return R_Code;
+        }
+
+
         public ErrorCode Delete_TestData_by_model_name(string Model_Name)
         {
             ErrorCode R_Code = ErrorCode.ER_Ect;

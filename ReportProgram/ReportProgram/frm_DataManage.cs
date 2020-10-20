@@ -1,5 +1,4 @@
-﻿// 엑셀 관련
-using Excel = Microsoft.Office.Interop.Excel;
+﻿using Excel = Microsoft.Office.Interop.Excel;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
@@ -73,10 +72,15 @@ namespace ReportProgram
                     {
                         List<string> parsedStrings = new List<string>();
                         parsedStrings.AddRange(dr["Test_Data"].ToString().Split(';'));
-                        parsedStrings.Remove("");
+
 
                         foreach (string parsedStr in parsedStrings)
-                            readRow.Add(parsedStr);
+                        {
+                            if (parsedStr.Equals(""))
+                                readRow.Add("-");
+                            else
+                                readRow.Add(parsedStr);
+                        }
                     }
                         selectedDataView.Rows.Add(readRow.ToArray());
                 }
@@ -99,8 +103,8 @@ namespace ReportProgram
         {
             selectedDataView.Columns.Add("Model", "모델");
             selectedDataView.Columns.Add("Tester", "작업자");
-            selectedDataView.Columns.Add("Start_time", "시작시간");
-            selectedDataView.Columns.Add("End_time", "종료시간");
+            selectedDataView.Columns.Add("Start_time", "작업 날짜"); // 은성 임시 수정
+            selectedDataView.Columns.Add("End_time", "작업 시각"); //은성 임시 수정
             selectedDataView.Columns.Add("Serial_number", "시리얼 번호");
             selectedDataView.Columns.Add("Barcode", "바코드");
             selectedDataView.Columns.Add("Total_result", "최종 결과");
@@ -441,6 +445,7 @@ namespace ReportProgram
             #endregion
         }
 
+        /*
         //Here is how to set the column Width
         public void SetHeaderBold(Excel.Worksheet worksheet, int row)
         {
@@ -467,6 +472,7 @@ namespace ReportProgram
                 return new XSSFWorkbook();
             throw new NotSupportedException();
         }
+        */
         private IRow GetRow(ISheet sheet, int rownum)
         {
             var row = sheet.GetRow(rownum);
