@@ -43,6 +43,7 @@ namespace ReportProgram
             string querystring = "select * from model order by name asc";
             OdbcCommand command = new OdbcCommand(querystring);
 
+            cbx_SelModel.Items.Clear();
             using (OdbcConnection connection = new OdbcConnection(ConnectionString))
             {
                 command.Connection = connection;
