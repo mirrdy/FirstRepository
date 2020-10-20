@@ -30,6 +30,11 @@ namespace ReportProgram
         {
             mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
 
+            tbx_Location_X.Text = mySetting.Location_X.ToString();
+            tbx_Location_Y.Text = mySetting.Location_Y.ToString();
+            tbx_Size_W.Text = mySetting.Size_W.ToString();
+            tbx_Size_H.Text = mySetting.Size_H.ToString();
+
             targetInputBox.Text = mySetting.Target_Count.ToString();
             infoDBConInputBox.Text = mySetting.Info_DBConnection;
             cbb_StartViewIndex.SelectedIndex = mySetting.StartViewIndex;
@@ -91,6 +96,12 @@ namespace ReportProgram
 
                 saveFile.Close();*/
             #endregion
+
+            mySetting.Location_X = myConvert.StrToIntDef(tbx_Location_X.Text, 0);
+            mySetting.Location_Y = myConvert.StrToIntDef(tbx_Location_Y.Text, 0);
+            mySetting.Size_W = myConvert.StrToIntDef(tbx_Size_W.Text, 0);
+            mySetting.Size_H = myConvert.StrToIntDef(tbx_Size_H.Text, 0);
+
             mySetting.Target_Count = myConvert.StrToIntDef(targetInputBox.Text, 0);
             mySetting.Info_DBConnection = infoDBConInputBox.Text;
             mySetting.StartViewIndex = cbb_StartViewIndex.SelectedIndex;

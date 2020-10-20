@@ -15,6 +15,12 @@ namespace ReportProgram
 {
     class xml_Setting
     {
+        public int Location_X;
+        public int Location_Y;
+
+        public int Size_W;
+        public int Size_H;
+
         public int Target_Count;
         public string Info_DBConnection;
 
@@ -29,6 +35,12 @@ namespace ReportProgram
         }
         public void Setting_Init()
         {
+            Location_X = 0;
+            Location_Y = 0;
+
+            Size_W = 0;
+            Size_H = 0;
+
             Target_Count = 0;
             Info_DBConnection = "MariaDB";
 
@@ -48,6 +60,22 @@ namespace ReportProgram
 
             XmlDocument doc = new XmlDocument();
             XmlElement xmlSetting = doc.CreateElement("Setting");
+
+            XmlElement el_Location_X = doc.CreateElement("Location_X");
+            el_Location_X.InnerText = Location_X.ToString();
+            xmlSetting.AppendChild(el_Location_X);
+
+            XmlElement el_Location_Y = doc.CreateElement("Location_Y");
+            el_Location_Y.InnerText = Location_Y.ToString();
+            xmlSetting.AppendChild(el_Location_Y);
+
+            XmlElement el_Size_W = doc.CreateElement("Size_W");
+            el_Size_W.InnerText = Size_W.ToString();
+            xmlSetting.AppendChild(el_Size_W);
+
+            XmlElement el_Size_H = doc.CreateElement("Size_H");
+            el_Size_H.InnerText = Size_H.ToString();
+            xmlSetting.AppendChild(el_Size_H);
 
             // xml 문서에 들어갈 요소 생성
             XmlElement el_Target_Count = doc.CreateElement("Target_Count");
@@ -94,6 +122,27 @@ namespace ReportProgram
 
             XmlDocument doc = new XmlDocument();
             doc.Load(FilePath);
+
+            XmlNode el_Location_X = doc.SelectSingleNode("//Setting/Location_X");
+            if (el_Location_X != null)
+            {
+                Location_X = Convert.ToInt32(el_Location_X.InnerText);
+            }
+            XmlNode el_Location_Y = doc.SelectSingleNode("//Setting/Location_Y");
+            if (el_Location_Y != null)
+            {
+                Location_Y = Convert.ToInt32(el_Location_Y.InnerText);
+            }
+            XmlNode el_Size_W = doc.SelectSingleNode("//Setting/Size_W");
+            if (el_Size_W != null)
+            {
+                Size_W = Convert.ToInt32(el_Size_W.InnerText);
+            }
+            XmlNode el_Size_H = doc.SelectSingleNode("//Setting/Size_H");
+            if (el_Size_H != null)
+            {
+                Size_H = Convert.ToInt32(el_Size_H.InnerText);
+            }
 
             // Daily
             XmlNode node_Target_Count = doc.SelectSingleNode("//Setting/Target_Count");

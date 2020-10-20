@@ -27,11 +27,28 @@ namespace ReportProgram
         private void frm_Main_Load(object sender, EventArgs e)
         {
             mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
+            //화면 크기/위치 조정
+            Set_Form_Size_Pos();
 
             if (mySetting.StartViewIndex == Const.FORM_MONITOR) btn_Monitor.PerformClick();
             else if (mySetting.StartViewIndex == Const.FORM_DATAMANAGE) btn_DataManage.PerformClick();
             else if (mySetting.StartViewIndex == Const.FORM_JOBWORK) btn_JobOrder.PerformClick();
             else btn_Monitor.PerformClick();
+        }
+
+        private void Set_Form_Size_Pos()
+        {
+            int tmp_W = 1280;
+            int tmp_H = 983;
+
+            // 프로그램 위치
+            this.Location = new Point(mySetting.Location_X-3, mySetting.Location_Y-3);
+
+            // 프로그램 크기
+            if (mySetting.Size_W != 0) tmp_W = mySetting.Size_W;
+            if (mySetting.Size_H != 0) tmp_H = mySetting.Size_H;
+            this.Size = new Size(tmp_W, tmp_H);
+
         }
 
         private void btn_Monitor_Click(object sender, EventArgs e)
