@@ -29,8 +29,7 @@ namespace ReportProgram
         {
             InitializeComponent();
             loadMySetting();
-            frmSelectData.sendData += new frm_SelectData.sendSelectedDataDelegate(display_SelectedData);
-            
+            frmSelectData.sendData += new frm_SelectData.sendSelectedDataDelegate(display_SelectedData);           
         }
 
         private void loadMySetting()
