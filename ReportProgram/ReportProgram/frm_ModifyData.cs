@@ -30,7 +30,7 @@ namespace ReportProgram
         {
             mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
 
-            conString = mySetting.Info_DBConnection;
+            conString = "dsn=" + mySetting.Info_DBConnection;
         }
         private void modifyData(string ConnectionString, string serialNum)
         {
@@ -172,7 +172,7 @@ namespace ReportProgram
                     //Rows.Add() 인자 배열을 넣어야 원하는 결과가 나옴. 리스트 넣으면 값이 안들어감
                     searchedDataView.Rows.Add(readRow.ToArray());
 
-                    modifyData(conString, dr["Model_name"].ToString());
+                    //modifyData(conString, dr["Model_name"].ToString());
                 }
             }
             int rowNumber = 1;
