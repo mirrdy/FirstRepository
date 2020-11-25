@@ -87,7 +87,7 @@ namespace ReportProgram
             if (cbx_SelModel.Text != "")
                 queryString += "and model_name='" + cbx_SelModel.Text + "'";
 
-            queryString += "order by Start_time asc";
+            queryString += "order by Start_time asc, End_time asc"; // 은성 수정사항
 
             this.sendData(queryString, cbx_SelModel.Text);
             Close();
