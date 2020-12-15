@@ -1,4 +1,4 @@
-﻿using Excel = Microsoft.Office.Interop.Excel;
+﻿//using Excel = Microsoft.Office.Interop.Excel;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Org.BouncyCastle.Bcpg;
 using System.Collections.Concurrent;
-using Microsoft.Office.Interop.Excel;
+//using Microsoft.Office.Interop.Excel;
 using System.Globalization;
 using System.Diagnostics;
 using NPOI.SS.Formula.Functions;
@@ -51,15 +51,17 @@ namespace ReportProgram
                 command.Connection = connection;
                 connection.Open();
                 OdbcDataReader dr = command.ExecuteReader();
+                int tmpCount = 1;
                 while (dr.Read())
                 {
                     List<string> readRow = new List<string>();
 
+                    readRow.Add(tmpCount++.ToString());
                     readRow.Add(dr["Model_name"].ToString());
                     readRow.Add(dr["Test_user"].ToString());
                     readRow.Add(dr["Start_time"].ToString());
                     readRow.Add(dr["End_time"].ToString());
-                    readRow.Add(dr["Serial_number"].ToString());
+                    //readRow.Add(dr["Serial_number"].ToString());
                     readRow.Add(dr["Barcode"].ToString());
                     readRow.Add(dr["Total_result"].ToString());
 
@@ -72,7 +74,6 @@ namespace ReportProgram
                         List<string> parsedStrings = new List<string>();
                         parsedStrings.AddRange(dr["Test_Data"].ToString().Split(';'));
 
-
                         foreach (string parsedStr in parsedStrings)
                         {
                             if (parsedStr.Equals(""))
@@ -81,10 +82,12 @@ namespace ReportProgram
                                 readRow.Add(parsedStr);
                         }
                     }
-                        selectedDataView.Rows.Add(readRow.ToArray());
+                    selectedDataView.Rows.Add(readRow.ToArray());
+                    if (readRow[6].Equals("양품")) selectedDataView[6, selectedDataView.Rows.Count - 1].Style.BackColor = Color.Lime;
                 }
             }
             selectedDataView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("맑은 고딕", 10, FontStyle.Bold);
+
 
             // 행번호 붙이기
             int rowNumber = 1;
@@ -95,26 +98,38 @@ namespace ReportProgram
                 row.HeaderCell.Value = rowNumber.ToString();
                 rowNumber = rowNumber + 1;
             }
-            selectedDataView.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
+            /*selectedDataView.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
+            selectedDataView.AutoResizeColumns();
+            selectedDataView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);*/
         }
 
         private void create_SelectedDgv(string ConnectionString, string model_name)
         {
+            selectedDataView.Columns.Add("Number", "번호");
             selectedDataView.Columns.Add("Model", "모델");
             selectedDataView.Columns.Add("Tester", "작업자");
-            selectedDataView.Columns.Add("Start_time", "작업 날짜"); // 은성 임시 수정
-            selectedDataView.Columns.Add("End_time", "작업 시각"); //은성 임시 수정
-            selectedDataView.Columns.Add("Serial_number", "시리얼 번호");
+            selectedDataView.Columns.Add("Start_time", "작업날짜"); // 은성 임시 수정
+            selectedDataView.Columns.Add("End_time", "시작시각"); //은성 임시 수정
+            //selectedDataView.Columns.Add("Serial_number", "시리얼 번호"); // ETT28 기준 바코드에 LOT정보가 있어서 시리얼과 중복됨
             selectedDataView.Columns.Add("Barcode", "바코드");
-            selectedDataView.Columns.Add("Total_result", "최종 결과");
+            selectedDataView.Columns.Add("Total_result", "최종결과");
 
-            selectedDataView.Columns[0].Width = 100;
-            selectedDataView.Columns[1].Width = 80;
-            selectedDataView.Columns[2].Width = 130;
-            selectedDataView.Columns[3].Width = 130;
-            selectedDataView.Columns[4].Width = 110;
+            selectedDataView.Columns[0].Width = 50;
+            selectedDataView.Columns[1].Width = 160;
+            selectedDataView.Columns[2].Width = 60;
+            selectedDataView.Columns[3].Width = 80;
+            selectedDataView.Columns[4].Width = 75;
             selectedDataView.Columns[5].Width = 100;
-            selectedDataView.Columns[6].Width = 100;
+            selectedDataView.Columns[6].Width = 70;
+            //selectedDataView.Columns[7].Width = 70;
+
+            selectedDataView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             string queryString = "Select * from model";
             List<string> parsingData = new List<string>();
@@ -152,8 +167,23 @@ namespace ReportProgram
                 foreach (string parsingStr in parsingData)
                 {
                     selectedDataView.Columns.Add(parsingStr, parsingStr);
+                    selectedDataView.Columns[selectedDataView.Columns.Count - 1].Width = 70;
+                    selectedDataView.Columns[selectedDataView.Columns.Count - 1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 }
             }
+            // 열 너비 맞춤
+            selectedDataView.Columns[7].Width = 50;
+            selectedDataView.Columns[8].Width = 50;
+            selectedDataView.Columns[13].Width = 90;
+            selectedDataView.ColumnHeadersHeight = 40;
+
+            // 특정 열 가운데정렬
+            selectedDataView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[22].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            //selectedDataView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
         
 
