@@ -84,6 +84,7 @@ namespace ReportProgram
                     }
                     selectedDataView.Rows.Add(readRow.ToArray());
                     if (readRow[6].Equals("양품")) selectedDataView[6, selectedDataView.Rows.Count - 1].Style.BackColor = Color.Lime;
+                    //else if (readRow[6].Equals("불량")) selectedDataView[6, selectedDataView.Rows.Count - 1].Style.BackColor = Color.Red;
                 }
             }
             selectedDataView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("맑은 고딕", 10, FontStyle.Bold);
