@@ -30,10 +30,120 @@ namespace ReportProgram
             //화면 크기/위치 조정
             Set_Form_Size_Pos();
             this.WindowState = FormWindowState.Maximized;
+
+            // Odbc 연결 후 테이블 생성이 안되어있으면 자동 생성
+            Check_TableExist("dsn=" + mySetting.Info_DBConnection);
+
             if (mySetting.StartViewIndex == Const.FORM_MONITOR) btn_Monitor.PerformClick();
             else if (mySetting.StartViewIndex == Const.FORM_DATAMANAGE) btn_DataManage.PerformClick();
             else if (mySetting.StartViewIndex == Const.FORM_JOBWORK) btn_JobOrder.PerformClick();
             else btn_Monitor.PerformClick();
+        }
+        private void Check_TableExist(string connectionString)
+        {
+            // model 테이블 체크
+            string queryString = "SHOW TABLES LIKE 'model'";
+            OdbcCommand command = new OdbcCommand(queryString);
+            try
+            {
+                using (OdbcConnection connection = new OdbcConnection(connectionString))
+                {
+                    command.Connection = connection;
+                    connection.Open();
+
+                    OdbcDataReader dr = command.ExecuteReader();
+
+                    dr.Read();
+                    // 테이블 생성시 무조건 Column을 하나 이상 포함해야 하기 때문에 0번이 없으면 해당 테이블이 존재하지 않음
+                    if (dr[0] != DBNull.Value)
+                    {
+                        // Table이 존재함
+                    }
+                    dr.Close();
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Table이 없음
+                MessageBox.Show("model 테이블이 존재하지 않습니다. 테이블을 생성합니다.\n\n" + ex.ToString());
+
+                queryString = "CREATE TABLE `model` ( " +
+                    "`No` INT(10) NOT NULL AUTO_INCREMENT," +
+                    "`name` VARCHAR(1024) NOT NULL," +
+                    "`update_date` VARCHAR(128) NULL DEFAULT NULL," +
+                    "`update_user` VARCHAR(32) NULL DEFAULT NULL," +
+                    "`data_header` TEXT NULL DEFAULT NULL," +
+                    "PRIMARY KEY(`No`)" +
+                ")" +
+                "COLLATE = 'utf8_general_ci';";
+
+                command.CommandText = queryString;
+
+                using (OdbcConnection connection = new OdbcConnection(connectionString))
+                {    
+                    command.Connection = connection;
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB 연결 중 오류가 발생했습니다. \n\n" + e.ToString());
+            }
+
+            // Test_Data 테이블 체크
+            queryString = "SHOW TABLES LIKE 'Test_Data'";
+            command.CommandText = queryString;
+            try
+            {
+                using (OdbcConnection connection = new OdbcConnection(connectionString))
+                {
+                    command.Connection = connection;
+                    connection.Open();
+
+                    OdbcDataReader dr = command.ExecuteReader();
+
+                    dr.Read();
+                    // 테이블 생성시 무조건 Column을 하나 이상 포함해야 하기 때문에 0번이 없으면 해당 테이블이 존재하지 않음
+                    if (dr[0] != DBNull.Value)
+                    {
+                        // Table이 존재함
+                    }
+                    dr.Close();
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Table이 없음
+                MessageBox.Show("Test_Data 테이블이 존재하지 않습니다. 테이블을 생성합니다.\n\n" + ex.ToString());
+
+                queryString = "CREATE TABLE `Test_Data` ( " +
+                    "`No` INT(10) NOT NULL AUTO_INCREMENT," +
+                    "`Model_name` VARCHAR(1024) NOT NULL," +
+                    "`Test_user` VARCHAR(32) NULL DEFAULT NULL," +
+                    "`Start_time` VARCHAR(128) NULL DEFAULT NULL," +
+                    "`End_time` VARCHAR(128) NULL DEFAULT NULL," +
+                    "`Serial_number` VARCHAR(2048) NULL DEFAULT NULL," +
+                    "`Barcode` VARCHAR(2048) NULL DEFAULT NULL," +
+                    "`Total_result` VARCHAR(32) NULL DEFAULT NULL," +
+                    "`Test_Data` TEXT NULL DEFAULT NULL," +
+                    "PRIMARY KEY(`No`)" +
+                ")" +
+                "COLLATE = 'utf8_general_ci';";
+
+                command.CommandText = queryString;
+
+                using (OdbcConnection connection = new OdbcConnection(connectionString))
+                {
+                    command.Connection = connection;
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("DB 연결 중 오류가 발생했습니다. \n\n" + e.ToString());
+            }
         }
 
         private void Set_Form_Size_Pos()

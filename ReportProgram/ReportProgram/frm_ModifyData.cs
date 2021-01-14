@@ -96,7 +96,6 @@ namespace ReportProgram
                 {
                     string[] dataHeader = dr["data_header"].ToString().Split(';');
 
-
                     for (int i = 0; i < dataHeader.Length; i++)
                     {
                         if (parsingData.Contains(dataHeader[i]))
@@ -106,8 +105,6 @@ namespace ReportProgram
                         else
                             parsingData.Add(dataHeader[i]);
                     }
-
-
                 }
                 foreach (string parsingStr in parsingData)
                 {
