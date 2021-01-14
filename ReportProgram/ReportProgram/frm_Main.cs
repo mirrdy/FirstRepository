@@ -65,7 +65,7 @@ namespace ReportProgram
             catch (InvalidOperationException ex)
             {
                 // Table이 없음
-                MessageBox.Show("model 테이블이 존재하지 않습니다. 테이블을 생성합니다.\n\n" + ex.ToString());
+                //MessageBox.Show("model 테이블이 존재하지 않습니다. 테이블을 생성합니다.\n\n" + ex.ToString());
 
                 queryString = "CREATE TABLE `model` ( " +
                     "`No` INT(10) NOT NULL AUTO_INCREMENT," +
@@ -115,7 +115,7 @@ namespace ReportProgram
             catch (InvalidOperationException ex)
             {
                 // Table이 없음
-                MessageBox.Show("Test_Data 테이블이 존재하지 않습니다. 테이블을 생성합니다.\n\n" + ex.ToString());
+                //MessageBox.Show("Test_Data 테이블이 존재하지 않습니다. 테이블을 생성합니다.\n\n" + ex.ToString());
 
                 queryString = "CREATE TABLE `Test_Data` ( " +
                     "`No` INT(10) NOT NULL AUTO_INCREMENT," +
