@@ -106,31 +106,43 @@ namespace ReportProgram
 
         private void create_SelectedDgv(string ConnectionString, string model_name)
         {
-            selectedDataView.Columns.Add("Number", "번호");
-            selectedDataView.Columns.Add("Model", "모델");
-            selectedDataView.Columns.Add("Tester", "작업자");
-            selectedDataView.Columns.Add("Start_time", "작업날짜"); // 은성 임시 수정
-            selectedDataView.Columns.Add("End_time", "종료시각"); //은성 임시 수정
-            //selectedDataView.Columns.Add("Serial_number", "시리얼 번호"); // ETT28 기준 바코드에 LOT정보가 있어서 시리얼과 중복됨
-            selectedDataView.Columns.Add("Barcode", "바코드");
-            selectedDataView.Columns.Add("Total_result", "최종결과");
+            for(int i=0; i<8; i++)
+            {
+                if (mySetting.HeaderDisplay[i] == false) continue;
 
-            selectedDataView.Columns[0].Width = 50;
-            selectedDataView.Columns[1].Width = 160;
-            selectedDataView.Columns[2].Width = 60;
-            selectedDataView.Columns[3].Width = 80;
-            selectedDataView.Columns[4].Width = 75;
-            selectedDataView.Columns[5].Width = 100;
-            selectedDataView.Columns[6].Width = 70;
-            //selectedDataView.Columns[7].Width = 70;
+                switch (i)
+                {
+                    case 0:
+                        selectedDataView.Columns.Add("Number", mySetting.HeaderName[i]);
+                        break;
+                    case 1:
+                        selectedDataView.Columns.Add("Model", mySetting.HeaderName[i]);
+                        break;
+                    case 2:
+                        selectedDataView.Columns.Add("Tester", mySetting.HeaderName[i]);
+                        break;
+                    case 3:
+                        selectedDataView.Columns.Add("Start_time", mySetting.HeaderName[i]);
+                        break;
+                    case 4:
+                        selectedDataView.Columns.Add("End_time", mySetting.HeaderName[i]);
+                        break;
+                    case 5:
+                        selectedDataView.Columns.Add("Serial_number", mySetting.HeaderName[i]);
+                        break;
+                    case 6:
+                        selectedDataView.Columns.Add("Barcode", mySetting.HeaderName[i]);
+                        break;
+                    case 7:
+                        selectedDataView.Columns.Add("Total_result", mySetting.HeaderName[i]);
+                        break;
+                }
 
-            selectedDataView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                int tmpColumnCount = selectedDataView.Columns.Count - 1;
+
+                selectedDataView.Columns[tmpColumnCount].Width = mySetting.HeaderWidth[tmpColumnCount];
+                selectedDataView.Columns[tmpColumnCount].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
 
             string queryString = "Select * from model";
             List<string> parsingData = new List<string>();
@@ -168,23 +180,10 @@ namespace ReportProgram
                 foreach (string parsingStr in parsingData)
                 {
                     selectedDataView.Columns.Add(parsingStr, parsingStr);
-                    selectedDataView.Columns[selectedDataView.Columns.Count - 1].Width = 70;
+                    selectedDataView.Columns[selectedDataView.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                     selectedDataView.Columns[selectedDataView.Columns.Count - 1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 }
             }
-            // 열 너비 맞춤
-            selectedDataView.Columns[7].Width = 50;
-            selectedDataView.Columns[8].Width = 50;
-            selectedDataView.Columns[13].Width = 90;
-            selectedDataView.ColumnHeadersHeight = 40;
-
-            // 특정 열 가운데정렬
-            selectedDataView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[23].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            //selectedDataView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
         
 

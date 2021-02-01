@@ -204,4 +204,28 @@
   </JobOrder_File99>
   <JobOrder_File100>
   </JobOrder_File100>
+  <HeaderDisplay1>True</HeaderDisplay1>
+  <HeaderWidth1>70</HeaderWidth1>
+  <HeaderName1>Number</HeaderName1>
+  <HeaderDisplay2>True</HeaderDisplay2>
+  <HeaderWidth2>70</HeaderWidth2>
+  <HeaderName2>Model</HeaderName2>
+  <HeaderDisplay3>True</HeaderDisplay3>
+  <HeaderWidth3>70</HeaderWidth3>
+  <HeaderName3>Tester</HeaderName3>
+  <HeaderDisplay4>True</HeaderDisplay4>
+  <HeaderWidth4>70</HeaderWidth4>
+  <HeaderName4>Start_time</HeaderName4>
+  <HeaderDisplay5>True</HeaderDisplay5>
+  <HeaderWidth5>70</HeaderWidth5>
+  <HeaderName5>End_time</HeaderName5>
+  <HeaderDisplay6>False</HeaderDisplay6>
+  <HeaderWidth6>70</HeaderWidth6>
+  <HeaderName6>Serial_number</HeaderName6>
+  <HeaderDisplay7>True</HeaderDisplay7>
+  <HeaderWidth7>70</HeaderWidth7>
+  <HeaderName7>Barcode</HeaderName7>
+  <HeaderDisplay8>True</HeaderDisplay8>
+  <HeaderWidth8>70</HeaderWidth8>
+  <HeaderName8>Total_result</HeaderName8>
 </Setting>

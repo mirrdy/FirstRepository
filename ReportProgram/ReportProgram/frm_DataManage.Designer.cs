@@ -37,8 +37,6 @@
             this.pnl_Left = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.selectedDataView = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.sdlg_Excel = new System.Windows.Forms.SaveFileDialog();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tester = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +45,8 @@
             this.Serial_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total_result = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.sdlg_Excel = new System.Windows.Forms.SaveFileDialog();
             this.pnl_Left.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectedDataView)).BeginInit();
@@ -135,6 +135,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.selectedDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.selectedDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.selectedDataView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Number,
             this.Model,
@@ -153,15 +154,6 @@
             this.selectedDataView.RowTemplate.Height = 23;
             this.selectedDataView.Size = new System.Drawing.Size(1090, 932);
             this.selectedDataView.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1090, 3);
-            this.panel2.TabIndex = 17;
             // 
             // Number
             // 
@@ -218,6 +210,15 @@
             this.Total_result.HeaderText = "최종 결과";
             this.Total_result.Name = "Total_result";
             this.Total_result.Width = 83;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1090, 3);
+            this.panel2.TabIndex = 17;
             // 
             // frm_DataManage
             // 

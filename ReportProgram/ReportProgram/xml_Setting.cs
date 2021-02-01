@@ -29,6 +29,10 @@ namespace ReportProgram
         public double JobOrder_SlideShow_Time;
         public string[] JobOrder_File = new string[100];
 
+        public bool[] HeaderDisplay = new bool[8];
+        public int[] HeaderWidth = new int[8];
+        public string[] HeaderName = { "Number", "Model", "Tester", "Start_time", "End_time", "Serial_number", "Barcode", "Total_result" };
+
         public xml_Setting()
         {
             Setting_Init();
@@ -49,6 +53,12 @@ namespace ReportProgram
             for(int i = 0; i < JobOrder_File.Length; i++)
             {
                 JobOrder_File[i] = "";
+            }
+
+            for(int i =0; i<8; i++)
+            {
+                HeaderDisplay[i] = true;
+                HeaderWidth[i] = 70;
             }
         }
         public void Setting_Save_Xml(string FilePath)
@@ -102,6 +112,22 @@ namespace ReportProgram
                 XmlElement el_JobOrder_File = doc.CreateElement("JobOrder_File" + (i + 1).ToString());
                 el_JobOrder_File.InnerText = JobOrder_File[i];
                 xmlSetting.AppendChild(el_JobOrder_File);
+            }
+
+            // 기본 데이터 표시 정보
+            for (int i = 0; i < 8; i++)
+            {
+                XmlElement el_HeaderDisplay = doc.CreateElement("HeaderDisplay" + (i + 1).ToString());
+                el_HeaderDisplay.InnerText = HeaderDisplay[i].ToString();
+                xmlSetting.AppendChild(el_HeaderDisplay);
+
+                XmlElement el_HeaderWidth = doc.CreateElement("HeaderWidth" + (i + 1).ToString());
+                el_HeaderWidth.InnerText = HeaderWidth[i].ToString();
+                xmlSetting.AppendChild(el_HeaderWidth);
+
+                XmlElement el_HeaderName = doc.CreateElement("HeaderName" + (i + 1).ToString());
+                el_HeaderName.InnerText = HeaderName[i];
+                xmlSetting.AppendChild(el_HeaderName);
             }
 
             // 최상위 헤더를 문서에 넣음
@@ -172,6 +198,26 @@ namespace ReportProgram
                 if (node_JobOrder_File != null)
                 {
                     JobOrder_File[i] = node_JobOrder_File.InnerText;
+                }
+            }
+
+            // 기본 데이터 표시 정보
+            for (int i=0; i<8; i++)
+            {
+                XmlNode node_HeaderDisplay = doc.SelectSingleNode("//Setting/HeaderDisplay" + (i + 1).ToString());
+                if(node_HeaderDisplay != null)
+                {
+                    HeaderDisplay[i] = Convert.ToBoolean(node_HeaderDisplay.InnerText);
+                }
+                XmlNode node_HeaderWidth = doc.SelectSingleNode("//Setting/HeaderWidth" + (i + 1).ToString());
+                if(node_HeaderWidth != null)
+                {
+                    HeaderWidth[i] = Convert.ToInt32(node_HeaderWidth.InnerText);
+                }
+                XmlNode node_HeaderName = doc.SelectSingleNode("//Setting/HeaderName" + (i + 1).ToString());
+                if(node_HeaderName != null)
+                {
+                    HeaderName[i] = node_HeaderName.InnerText;
                 }
             }
         }

@@ -49,6 +49,12 @@ namespace ReportProgram
                 dgv_JobOrder_File_List.Rows[i].Cells[0].Value = (i + 1).ToString();
                 dgv_JobOrder_File_List.Rows[i].Cells[1].Value = mySetting.JobOrder_File[i];
             }
+
+            // 기본 데이터 표시 설정
+            for (int i=0; i<8; i++)
+            {
+                dgv_BasicDisplay.Rows.Add(mySetting.HeaderDisplay[i], mySetting.HeaderWidth[i], mySetting.HeaderName[i]);
+            }
         }
 
         private void btn_Apply_Click(object sender, EventArgs e)
@@ -111,6 +117,14 @@ namespace ReportProgram
             for (int i = 0; i < 100; i++)
             {
                 mySetting.JobOrder_File[i] = dgv_JobOrder_File_List.Rows[i].Cells[1].Value.ToString();
+            }
+
+            // 기본 데이터 표시 정보
+            for (int i = 0; i < 8; i++)
+            {
+                mySetting.HeaderDisplay[i] = Convert.ToBoolean(dgv_BasicDisplay.Rows[i].Cells[0].Value.ToString());
+                mySetting.HeaderWidth[i] = myConvert.StrToIntDef(dgv_BasicDisplay.Rows[i].Cells[1].Value.ToString(), 70);
+                mySetting.HeaderName[i] = dgv_BasicDisplay.Rows[i].Cells[2].Value.ToString();
             }
 
             mySetting.Setting_Save_Xml(Const.SETTING_FILE_PATH);

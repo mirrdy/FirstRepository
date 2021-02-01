@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Apply = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +42,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbx_Size_H = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbx_Size_W = new System.Windows.Forms.TextBox();
+            this.tbx_Location_Y = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbx_Location_X = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.cbb_StartViewIndex = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgv_JobOrder_File_List = new System.Windows.Forms.DataGridView();
@@ -52,19 +63,16 @@
             this.tbx_SlideShow_Time = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.odlg_ImgFile = new System.Windows.Forms.OpenFileDialog();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbx_Size_H = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tbx_Size_W = new System.Windows.Forms.TextBox();
-            this.tbx_Location_Y = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbx_Location_X = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgv_BasicDisplay = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_JobOrder_File_List)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_BasicDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +104,7 @@
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(49, 192);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 23);
+            this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "목표 수량";
             // 
@@ -106,7 +114,7 @@
             this.targetInputBox.Location = new System.Drawing.Point(148, 188);
             this.targetInputBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.targetInputBox.Name = "targetInputBox";
-            this.targetInputBox.Size = new System.Drawing.Size(100, 29);
+            this.targetInputBox.Size = new System.Drawing.Size(100, 25);
             this.targetInputBox.TabIndex = 9;
             // 
             // infoDBConInputBox
@@ -115,7 +123,7 @@
             this.infoDBConInputBox.Location = new System.Drawing.Point(148, 221);
             this.infoDBConInputBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.infoDBConInputBox.Name = "infoDBConInputBox";
-            this.infoDBConInputBox.Size = new System.Drawing.Size(100, 29);
+            this.infoDBConInputBox.Size = new System.Drawing.Size(100, 25);
             this.infoDBConInputBox.TabIndex = 14;
             // 
             // label4
@@ -124,7 +132,7 @@
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(49, 225);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 23);
+            this.label4.Size = new System.Drawing.Size(88, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "DB 연결 정보";
             // 
@@ -134,7 +142,7 @@
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(252, 192);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 23);
+            this.label3.Size = new System.Drawing.Size(24, 17);
             this.label3.TabIndex = 16;
             this.label3.Text = "EA";
             // 
@@ -166,6 +174,98 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "프로그램 옵션 설정";
             // 
+            // tbx_Size_H
+            // 
+            this.tbx_Size_H.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbx_Size_H.Location = new System.Drawing.Point(182, 142);
+            this.tbx_Size_H.Name = "tbx_Size_H";
+            this.tbx_Size_H.Size = new System.Drawing.Size(73, 21);
+            this.tbx_Size_H.TabIndex = 44;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(160, 143);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 17);
+            this.label13.TabIndex = 43;
+            this.label13.Text = "H";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label14.Location = new System.Drawing.Point(26, 143);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(21, 17);
+            this.label14.TabIndex = 42;
+            this.label14.Text = "W";
+            // 
+            // tbx_Size_W
+            // 
+            this.tbx_Size_W.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbx_Size_W.Location = new System.Drawing.Point(53, 142);
+            this.tbx_Size_W.Name = "tbx_Size_W";
+            this.tbx_Size_W.Size = new System.Drawing.Size(73, 21);
+            this.tbx_Size_W.TabIndex = 41;
+            // 
+            // tbx_Location_Y
+            // 
+            this.tbx_Location_Y.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbx_Location_Y.Location = new System.Drawing.Point(182, 75);
+            this.tbx_Location_Y.Name = "tbx_Location_Y";
+            this.tbx_Location_Y.Size = new System.Drawing.Size(73, 21);
+            this.tbx_Location_Y.TabIndex = 40;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(160, 76);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(16, 17);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "Y";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(26, 76);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(16, 17);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "X";
+            // 
+            // tbx_Location_X
+            // 
+            this.tbx_Location_X.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbx_Location_X.Location = new System.Drawing.Point(53, 75);
+            this.tbx_Location_X.Name = "tbx_Location_X";
+            this.tbx_Location_X.Size = new System.Drawing.Size(73, 21);
+            this.tbx_Location_X.TabIndex = 37;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Location = new System.Drawing.Point(10, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(91, 17);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "프로그램 크기";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(10, 47);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(122, 17);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "프로그램 시작 위치";
+            // 
             // cbb_StartViewIndex
             // 
             this.cbb_StartViewIndex.FormattingEnabled = true;
@@ -176,7 +276,7 @@
             "작업지시서 화면"});
             this.cbb_StartViewIndex.Location = new System.Drawing.Point(109, 313);
             this.cbb_StartViewIndex.Name = "cbb_StartViewIndex";
-            this.cbb_StartViewIndex.Size = new System.Drawing.Size(179, 36);
+            this.cbb_StartViewIndex.Size = new System.Drawing.Size(179, 29);
             this.cbb_StartViewIndex.TabIndex = 18;
             // 
             // label5
@@ -185,7 +285,7 @@
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(10, 319);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 23);
+            this.label5.Size = new System.Drawing.Size(91, 17);
             this.label5.TabIndex = 18;
             this.label5.Text = "시작 화면선택";
             // 
@@ -268,7 +368,7 @@
             this.label7.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.Location = new System.Drawing.Point(9, 33);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 23);
+            this.label7.Size = new System.Drawing.Size(109, 17);
             this.label7.TabIndex = 17;
             this.label7.Text = "슬라이드 쇼 시간";
             // 
@@ -278,7 +378,7 @@
             this.label8.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.Location = new System.Drawing.Point(228, 33);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 23);
+            this.label8.Size = new System.Drawing.Size(28, 17);
             this.label8.TabIndex = 19;
             this.label8.Text = "Sec";
             // 
@@ -288,7 +388,7 @@
             this.tbx_SlideShow_Time.Location = new System.Drawing.Point(124, 29);
             this.tbx_SlideShow_Time.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbx_SlideShow_Time.Name = "tbx_SlideShow_Time";
-            this.tbx_SlideShow_Time.Size = new System.Drawing.Size(100, 29);
+            this.tbx_SlideShow_Time.Size = new System.Drawing.Size(100, 25);
             this.tbx_SlideShow_Time.TabIndex = 18;
             // 
             // label6
@@ -298,108 +398,68 @@
             this.label6.ForeColor = System.Drawing.Color.Red;
             this.label6.Location = new System.Drawing.Point(6, 376);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(302, 38);
+            this.label6.Size = new System.Drawing.Size(242, 26);
             this.label6.TabIndex = 2;
             this.label6.Text = "* 이미지 파일만 등록 가능 (*.jpg, *.bmp, *.png)\r\n* 삭제 : \"Delete\"키";
             // 
-            // label9
+            // groupBox3
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(10, 47);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(158, 23);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "프로그램 시작 위치";
+            this.groupBox3.Controls.Add(this.dgv_BasicDisplay);
+            this.groupBox3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.Location = new System.Drawing.Point(803, 15);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(510, 567);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "기본 데이터 표시";
             // 
-            // label10
+            // dgv_BasicDisplay
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(10, 116);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 23);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "프로그램 크기";
+            this.dgv_BasicDisplay.AllowUserToAddRows = false;
+            this.dgv_BasicDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_BasicDisplay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_BasicDisplay.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_BasicDisplay.Location = new System.Drawing.Point(6, 26);
+            this.dgv_BasicDisplay.Name = "dgv_BasicDisplay";
+            this.dgv_BasicDisplay.RowHeadersWidth = 30;
+            this.dgv_BasicDisplay.RowTemplate.Height = 23;
+            this.dgv_BasicDisplay.Size = new System.Drawing.Size(481, 533);
+            this.dgv_BasicDisplay.TabIndex = 0;
             // 
-            // tbx_Size_H
+            // Column1
             // 
-            this.tbx_Size_H.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbx_Size_H.Location = new System.Drawing.Point(182, 142);
-            this.tbx_Size_H.Name = "tbx_Size_H";
-            this.tbx_Size_H.Size = new System.Drawing.Size(73, 25);
-            this.tbx_Size_H.TabIndex = 44;
+            this.Column1.HeaderText = "표시";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 50;
             // 
-            // label13
+            // Column2
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(160, 143);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(23, 23);
-            this.label13.TabIndex = 43;
-            this.label13.Text = "H";
+            this.Column2.HeaderText = "너비";
+            this.Column2.Name = "Column2";
             // 
-            // label14
+            // Column3
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(26, 143);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(27, 23);
-            this.label14.TabIndex = 42;
-            this.label14.Text = "W";
-            // 
-            // tbx_Size_W
-            // 
-            this.tbx_Size_W.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbx_Size_W.Location = new System.Drawing.Point(53, 142);
-            this.tbx_Size_W.Name = "tbx_Size_W";
-            this.tbx_Size_W.Size = new System.Drawing.Size(73, 25);
-            this.tbx_Size_W.TabIndex = 41;
-            // 
-            // tbx_Location_Y
-            // 
-            this.tbx_Location_Y.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbx_Location_Y.Location = new System.Drawing.Point(182, 75);
-            this.tbx_Location_Y.Name = "tbx_Location_Y";
-            this.tbx_Location_Y.Size = new System.Drawing.Size(73, 25);
-            this.tbx_Location_Y.TabIndex = 40;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(160, 76);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(20, 23);
-            this.label11.TabIndex = 39;
-            this.label11.Text = "Y";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(26, 76);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(21, 23);
-            this.label12.TabIndex = 38;
-            this.label12.Text = "X";
-            // 
-            // tbx_Location_X
-            // 
-            this.tbx_Location_X.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tbx_Location_X.Location = new System.Drawing.Point(53, 75);
-            this.tbx_Location_X.Name = "tbx_Location_X";
-            this.tbx_Location_X.Size = new System.Drawing.Size(73, 25);
-            this.tbx_Location_X.TabIndex = 37;
+            this.Column3.HeaderText = "이름";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 140;
             // 
             // frm_Set
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1047, 501);
+            this.ClientSize = new System.Drawing.Size(1421, 594);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -415,6 +475,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_JobOrder_File_List)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_BasicDisplay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -450,5 +512,10 @@
         private System.Windows.Forms.TextBox tbx_Location_X;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgv_BasicDisplay;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
