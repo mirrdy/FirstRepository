@@ -110,7 +110,7 @@ namespace ReportProgram
             selectedDataView.Columns.Add("Model", "모델");
             selectedDataView.Columns.Add("Tester", "작업자");
             selectedDataView.Columns.Add("Start_time", "작업날짜"); // 은성 임시 수정
-            selectedDataView.Columns.Add("End_time", "시작시각"); //은성 임시 수정
+            selectedDataView.Columns.Add("End_time", "종료시각"); //은성 임시 수정
             //selectedDataView.Columns.Add("Serial_number", "시리얼 번호"); // ETT28 기준 바코드에 LOT정보가 있어서 시리얼과 중복됨
             selectedDataView.Columns.Add("Barcode", "바코드");
             selectedDataView.Columns.Add("Total_result", "최종결과");
@@ -182,7 +182,7 @@ namespace ReportProgram
             selectedDataView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             selectedDataView.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             selectedDataView.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            selectedDataView.Columns[22].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            selectedDataView.Columns[23].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             //selectedDataView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }

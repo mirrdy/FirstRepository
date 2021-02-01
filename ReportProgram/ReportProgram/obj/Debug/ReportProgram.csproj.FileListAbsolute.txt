@@ -65,3 +65,30 @@ C:\Users\oldma\Desktop\dev\ReportProgram\ReportProgram\bin\Debug\BouncyCastle.Cr
 C:\Users\oldma\Desktop\dev\ReportProgram\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.pdb
 C:\Users\oldma\Desktop\dev\ReportProgram\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.xml
 C:\Users\oldma\Desktop\dev\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.CopyComplete
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\ReportProgram.exe.config
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\ReportProgram.exe
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\ReportProgram.pdb
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\BouncyCastle.Crypto.dll
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\NPOI.dll
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\NPOI.OOXML.dll
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\NPOI.OpenXml4Net.dll
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\BouncyCastle.Crypto.xml
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.pdb
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\bin\Debug\ICSharpCode.SharpZipLib.xml
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csprojAssemblyReference.cache
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.ResolveComReference.cache
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_DataManage.resources
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_JobOrder.resources
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_Main.resources
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_ModifyData.resources
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_Monitor.resources
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_SelectData.resources
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.frm_Set.resources
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.Properties.Resources.resources
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.GenerateResource.cache
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.CoreCompileInputs.cache
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.csproj.CopyComplete
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.exe
+D:\FirstRepository - 20201222 현장 최종\FirstRepository\ReportProgram\ReportProgram\obj\Debug\ReportProgram.pdb
