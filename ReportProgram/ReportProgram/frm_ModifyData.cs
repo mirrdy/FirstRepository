@@ -16,16 +16,40 @@ namespace ReportProgram
         private string conString = "";
         private xml_Setting mySetting = new xml_Setting();        
 
-        //부모폼에게 데이터를 전달하기위한 delegate 이벤트 선언
-        public delegate void sendModifiedDataDelegate(string data, string selModel);
-        public event sendModifiedDataDelegate sendData;
-
         public frm_ModifyData()
         {
             InitializeComponent();
-            loadMySetting();
             this.CenterToParent(); // 부모 폼의 중앙에 띄움       
         }
+
+        private void frm_ModifyData_Load(object sender, EventArgs e)
+        {
+            loadMySetting();
+            addComboBox(conString);
+        }
+
+        private void addComboBox(string ConnectionString)
+        {
+            string querystring = "select * from model order by name asc";
+            OdbcCommand command = new OdbcCommand(querystring);
+
+            cbx_SelModel.Items.Clear();
+            using (OdbcConnection connection = new OdbcConnection(ConnectionString))
+            {
+                command.Connection = connection;
+                connection.Open();
+                OdbcDataReader dr = command.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    cbx_SelModel.Items.Add(dr["name"]);
+                }
+
+                if (cbx_SelModel.Items.Count > 0) cbx_SelModel.SelectedIndex = 0;
+            }
+            //MessageBox.Show(selectModelCB.Items[3].ToString());
+        }
+
         private void loadMySetting()
         {
             mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
@@ -225,5 +249,47 @@ namespace ReportProgram
                 // the end of the Using block.
             }
         }
+
+        private void btn_ConfirmDelete_Click(object sender, EventArgs e)
+        {
+            string queryString = "delete from Test_Data where ";
+
+            string dateFormat = "yyyy-MM-dd";
+
+            string start_Date = dtp_StartDate.Value.ToString(dateFormat);
+            string end_Date = dtp_EndDate.Value.AddDays(1).ToString(dateFormat);
+
+            //queryString += "Start_time >= " + start_Date + " and Start_time < " + end_Date;
+            queryString += "Start_time >= '" + start_Date + "' and Start_time < '" + end_Date + "'";
+
+            if (MessageBox.Show("정말 데이터를 삭제하시겠습니까?",
+                    "데이터 삭제", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+
+            string tmpDSN = "dsn=" + mySetting.Info_DBConnection;
+
+            OdbcCommand command = new OdbcCommand(queryString);
+
+            using (OdbcConnection connection = new OdbcConnection(tmpDSN))
+            {
+                command.Connection = connection;
+                connection.Open();
+                command.ExecuteNonQuery();
+
+                // The connection is automatically closed at
+                // the end of the Using block.
+            }
+
+            Close();
+        }
+
+        private void btn_CancleDelete_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        
     }
 }

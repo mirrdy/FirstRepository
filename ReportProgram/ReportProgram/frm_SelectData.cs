@@ -63,6 +63,7 @@ namespace ReportProgram
         private void btn_ConfirmSelect_Click(object sender, EventArgs e)
         {
             string queryString = "select * from Test_Data where ";
+
             string dateFormat = "yyyy-MM-dd";
 
             string start_Date = dtp_StartDate.Value.ToString(dateFormat);

@@ -154,6 +154,7 @@
             this.selectedDataView.RowTemplate.Height = 23;
             this.selectedDataView.Size = new System.Drawing.Size(1090, 932);
             this.selectedDataView.TabIndex = 3;
+            this.selectedDataView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.selectedDataView_KeyDown);
             // 
             // Number
             // 

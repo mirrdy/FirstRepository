@@ -542,5 +542,49 @@ namespace ReportProgram
         {
             frmModifyData.ShowDialog();
         }
+
+        private void selectedDataView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (MessageBox.Show("정말 데이터를 삭제하시겠습니까?",
+                        "데이터 삭제", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    return;
+                }
+
+                string tmpStartTime;
+
+                DataGridView tmpDgv = (sender as DataGridView);
+                try
+                {
+                    tmpStartTime = tmpDgv.CurrentRow.Cells[tmpDgv.Columns["Start_time"].Index].Value.ToString();
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show("시작 시간이 미표기상태입니다.");
+                    return;
+                }
+
+                string queryString = "delete from Test_Data where ";
+                queryString += "Start_time = '" + tmpStartTime + "'";
+
+                string tmpDSN = "dsn=" + mySetting.Info_DBConnection;
+
+                OdbcCommand command = new OdbcCommand(queryString);
+
+                using (OdbcConnection connection = new OdbcConnection(tmpDSN))
+                {
+                    command.Connection = connection;
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                    // The connection is automatically closed at
+                    // the end of the Using block.
+                }
+
+                tmpDgv.Rows.Remove(tmpDgv.Rows[tmpDgv.CurrentRow.Index]);
+            }
+        }
     }
 }

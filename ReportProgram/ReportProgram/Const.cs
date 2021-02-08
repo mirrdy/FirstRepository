@@ -24,13 +24,9 @@ static class Const
     public const int FORM_JOBWORK = 3;
 
     // 전역 디파인
-    public const int RESULT_READY = 1;
-    public const int RESULT_TEST = 2;
-    public const int RESULT_GOOD = 3;
-    public const int RESULT_NG = 4;
-    public const int RESULT_STOP = 5;
-    public const int RESULT_NOTEST = 6;
-    public const int RESULT_MASTER = 7;
+    public const int SELECT = 0;
+    public const int DELETE = 1;
+
 
     // 아스키 코드
     public const string END_CRLF = "\r\n";

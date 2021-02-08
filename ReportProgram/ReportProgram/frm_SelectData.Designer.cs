@@ -36,7 +36,6 @@ namespace ReportProgram
             this.dtp_StartDate = new System.Windows.Forms.DateTimePicker();
             this.btn_CancleSelect = new System.Windows.Forms.Button();
             this.btn_ConfirmSelect = new System.Windows.Forms.Button();
-            this.btn_InputBarcode = new System.Windows.Forms.Button();
             this.cbx_SelModel = new System.Windows.Forms.ComboBox();
             this.rdb_SelNg = new System.Windows.Forms.RadioButton();
             this.rdb_SelOk = new System.Windows.Forms.RadioButton();
@@ -54,7 +53,6 @@ namespace ReportProgram
             this.groupBox1.Controls.Add(this.dtp_StartDate);
             this.groupBox1.Controls.Add(this.btn_CancleSelect);
             this.groupBox1.Controls.Add(this.btn_ConfirmSelect);
-            this.groupBox1.Controls.Add(this.btn_InputBarcode);
             this.groupBox1.Controls.Add(this.cbx_SelModel);
             this.groupBox1.Controls.Add(this.rdb_SelNg);
             this.groupBox1.Controls.Add(this.rdb_SelOk);
@@ -112,15 +110,6 @@ namespace ReportProgram
             this.btn_ConfirmSelect.Text = "확인";
             this.btn_ConfirmSelect.UseVisualStyleBackColor = true;
             this.btn_ConfirmSelect.Click += new System.EventHandler(this.btn_ConfirmSelect_Click);
-            // 
-            // btn_InputBarcode
-            // 
-            this.btn_InputBarcode.Location = new System.Drawing.Point(28, 172);
-            this.btn_InputBarcode.Name = "btn_InputBarcode";
-            this.btn_InputBarcode.Size = new System.Drawing.Size(86, 23);
-            this.btn_InputBarcode.TabIndex = 7;
-            this.btn_InputBarcode.Text = "바코드 입력";
-            this.btn_InputBarcode.UseVisualStyleBackColor = true;
             // 
             // cbx_SelModel
             // 
@@ -215,7 +204,6 @@ namespace ReportProgram
         private System.Windows.Forms.DateTimePicker dtp_StartDate;
         private System.Windows.Forms.Button btn_CancleSelect;
         private System.Windows.Forms.Button btn_ConfirmSelect;
-        private System.Windows.Forms.Button btn_InputBarcode;
         private System.Windows.Forms.ComboBox cbx_SelModel;
         private System.Windows.Forms.RadioButton rdb_SelNg;
         private System.Windows.Forms.RadioButton rdb_SelOk;
