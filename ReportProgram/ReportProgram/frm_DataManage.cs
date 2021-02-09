@@ -23,7 +23,7 @@ namespace ReportProgram
         frm_SelectData frmSelectData = new frm_SelectData();
         frm_ModifyData frmModifyData = new frm_ModifyData();
         private ConvertFunc myConvert = new ConvertFunc();
-        private xml_Setting mySetting = new xml_Setting(); 
+        private xml_Setting mySetting = new xml_Setting();
 
         public frm_DataManage()
         {
@@ -585,6 +585,12 @@ namespace ReportProgram
 
                 tmpDgv.Rows.Remove(tmpDgv.Rows[tmpDgv.CurrentRow.Index]);
             }
+        }
+
+        private void selectedDataView_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            new frm_DetailData(selectedDataView).ShowDialog();
+
         }
     }
 }
