@@ -91,7 +91,6 @@ namespace ReportProgram
             queryString += "order by Start_time asc, End_time asc"; // 은성 수정사항
 
             this.sendData(queryString, cbx_SelModel.Text);
-            Close();
         }
 
         private void btn_CancleSelect_Click(object sender, EventArgs e)

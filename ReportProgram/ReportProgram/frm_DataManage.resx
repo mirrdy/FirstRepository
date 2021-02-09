@@ -158,6 +158,15 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btn_DetailData.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAACGSURBVFhH7ZRBCoBADAP7Lh/iQ/yWj9St4KWIOQztIjaQ
+        SweSgLL2FW3De7DfyuSFR7DfytQDekAPUAPS3wkPfBugOFYPSB+wDK/BfruVPoAWKC5FCxSXogWKS9EC
+        xaVogeJStIByHEA5DqAcB1COAyiXT3E2/7nit6n247HS19840zNldgJRfH9GQJymugAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <metadata name="Number.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

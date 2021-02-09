@@ -47,6 +47,7 @@
             this.Total_result = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sdlg_Excel = new System.Windows.Forms.SaveFileDialog();
+            this.btn_DetailData = new System.Windows.Forms.Button();
             this.pnl_Left.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectedDataView)).BeginInit();
@@ -58,7 +59,7 @@
             this.btn_DeleteData.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Bold);
             this.btn_DeleteData.Image = ((System.Drawing.Image)(resources.GetObject("btn_DeleteData.Image")));
             this.btn_DeleteData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_DeleteData.Location = new System.Drawing.Point(3, 58);
+            this.btn_DeleteData.Location = new System.Drawing.Point(3, 63);
             this.btn_DeleteData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_DeleteData.Name = "btn_DeleteData";
             this.btn_DeleteData.Size = new System.Drawing.Size(162, 51);
@@ -88,7 +89,7 @@
             this.btn_ExportToExcel.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold);
             this.btn_ExportToExcel.Image = ((System.Drawing.Image)(resources.GetObject("btn_ExportToExcel.Image")));
             this.btn_ExportToExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ExportToExcel.Location = new System.Drawing.Point(3, 111);
+            this.btn_ExportToExcel.Location = new System.Drawing.Point(3, 122);
             this.btn_ExportToExcel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_ExportToExcel.Name = "btn_ExportToExcel";
             this.btn_ExportToExcel.Size = new System.Drawing.Size(162, 51);
@@ -100,6 +101,7 @@
             // pnl_Left
             // 
             this.pnl_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.pnl_Left.Controls.Add(this.btn_DetailData);
             this.pnl_Left.Controls.Add(this.btn_DeleteData);
             this.pnl_Left.Controls.Add(this.btn_SelectData);
             this.pnl_Left.Controls.Add(this.btn_ExportToExcel);
@@ -154,7 +156,6 @@
             this.selectedDataView.RowTemplate.Height = 23;
             this.selectedDataView.Size = new System.Drawing.Size(1090, 932);
             this.selectedDataView.TabIndex = 3;
-            this.selectedDataView.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.selectedDataView_ColumnHeaderMouseDoubleClick);
             this.selectedDataView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.selectedDataView_KeyDown);
             // 
             // Number
@@ -222,6 +223,21 @@
             this.panel2.Size = new System.Drawing.Size(1090, 3);
             this.panel2.TabIndex = 17;
             // 
+            // btn_DetailData
+            // 
+            this.btn_DetailData.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_DetailData.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Bold);
+            this.btn_DetailData.Image = ((System.Drawing.Image)(resources.GetObject("btn_DetailData.Image")));
+            this.btn_DetailData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DetailData.Location = new System.Drawing.Point(3, 181);
+            this.btn_DetailData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_DetailData.Name = "btn_DetailData";
+            this.btn_DetailData.Size = new System.Drawing.Size(162, 51);
+            this.btn_DetailData.TabIndex = 3;
+            this.btn_DetailData.Text = "       데이터 상세보기";
+            this.btn_DetailData.UseVisualStyleBackColor = false;
+            this.btn_DetailData.Click += new System.EventHandler(this.btn_DetailData_Click);
+            // 
             // frm_DataManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -258,5 +274,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Serial_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_result;
+        private System.Windows.Forms.Button btn_DetailData;
     }
 }

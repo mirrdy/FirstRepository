@@ -61,16 +61,19 @@ namespace ReportProgram
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(42, 55);
+            this.groupBox1.Location = new System.Drawing.Point(11, 8);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(593, 213);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(538, 223);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "데이터 조회";
             // 
             // dtp_EndDate
             // 
-            this.dtp_EndDate.Location = new System.Drawing.Point(328, 34);
+            this.dtp_EndDate.Location = new System.Drawing.Point(321, 28);
+            this.dtp_EndDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtp_EndDate.Name = "dtp_EndDate";
             this.dtp_EndDate.Size = new System.Drawing.Size(200, 23);
             this.dtp_EndDate.TabIndex = 12;
@@ -78,7 +81,7 @@ namespace ReportProgram
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(308, 40);
+            this.label4.Location = new System.Drawing.Point(301, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(16, 15);
             this.label4.TabIndex = 11;
@@ -86,45 +89,53 @@ namespace ReportProgram
             // 
             // dtp_StartDate
             // 
-            this.dtp_StartDate.Location = new System.Drawing.Point(102, 34);
+            this.dtp_StartDate.Location = new System.Drawing.Point(95, 28);
+            this.dtp_StartDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtp_StartDate.Name = "dtp_StartDate";
             this.dtp_StartDate.Size = new System.Drawing.Size(200, 23);
             this.dtp_StartDate.TabIndex = 10;
             // 
             // btn_CancleSelect
             // 
-            this.btn_CancleSelect.Location = new System.Drawing.Point(518, 184);
+            this.btn_CancleSelect.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_CancleSelect.Location = new System.Drawing.Point(275, 163);
+            this.btn_CancleSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_CancleSelect.Name = "btn_CancleSelect";
-            this.btn_CancleSelect.Size = new System.Drawing.Size(75, 23);
+            this.btn_CancleSelect.Size = new System.Drawing.Size(246, 47);
             this.btn_CancleSelect.TabIndex = 9;
-            this.btn_CancleSelect.Text = "취소";
+            this.btn_CancleSelect.Text = "닫 기";
             this.btn_CancleSelect.UseVisualStyleBackColor = true;
             this.btn_CancleSelect.Click += new System.EventHandler(this.btn_CancleSelect_Click);
             // 
             // btn_ConfirmSelect
             // 
-            this.btn_ConfirmSelect.Location = new System.Drawing.Point(442, 184);
+            this.btn_ConfirmSelect.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_ConfirmSelect.Location = new System.Drawing.Point(18, 163);
+            this.btn_ConfirmSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_ConfirmSelect.Name = "btn_ConfirmSelect";
-            this.btn_ConfirmSelect.Size = new System.Drawing.Size(75, 23);
+            this.btn_ConfirmSelect.Size = new System.Drawing.Size(246, 47);
             this.btn_ConfirmSelect.TabIndex = 8;
-            this.btn_ConfirmSelect.Text = "확인";
+            this.btn_ConfirmSelect.Text = "조 회";
             this.btn_ConfirmSelect.UseVisualStyleBackColor = true;
             this.btn_ConfirmSelect.Click += new System.EventHandler(this.btn_ConfirmSelect_Click);
             // 
             // cbx_SelModel
             // 
             this.cbx_SelModel.FormattingEnabled = true;
-            this.cbx_SelModel.Location = new System.Drawing.Point(127, 131);
+            this.cbx_SelModel.Location = new System.Drawing.Point(120, 114);
+            this.cbx_SelModel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbx_SelModel.Name = "cbx_SelModel";
-            this.cbx_SelModel.Size = new System.Drawing.Size(121, 23);
+            this.cbx_SelModel.Size = new System.Drawing.Size(401, 23);
             this.cbx_SelModel.TabIndex = 6;
             // 
             // rdb_SelNg
             // 
             this.rdb_SelNg.AutoSize = true;
-            this.rdb_SelNg.Location = new System.Drawing.Point(442, 82);
+            this.rdb_SelNg.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rdb_SelNg.Location = new System.Drawing.Point(435, 70);
+            this.rdb_SelNg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdb_SelNg.Name = "rdb_SelNg";
-            this.rdb_SelNg.Size = new System.Drawing.Size(49, 19);
+            this.rdb_SelNg.Size = new System.Drawing.Size(60, 25);
             this.rdb_SelNg.TabIndex = 5;
             this.rdb_SelNg.Text = "불량";
             this.rdb_SelNg.UseVisualStyleBackColor = true;
@@ -132,9 +143,11 @@ namespace ReportProgram
             // rdb_SelOk
             // 
             this.rdb_SelOk.AutoSize = true;
-            this.rdb_SelOk.Location = new System.Drawing.Point(289, 82);
+            this.rdb_SelOk.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rdb_SelOk.Location = new System.Drawing.Point(282, 70);
+            this.rdb_SelOk.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdb_SelOk.Name = "rdb_SelOk";
-            this.rdb_SelOk.Size = new System.Drawing.Size(49, 19);
+            this.rdb_SelOk.Size = new System.Drawing.Size(60, 25);
             this.rdb_SelOk.TabIndex = 4;
             this.rdb_SelOk.Text = "양품";
             this.rdb_SelOk.UseVisualStyleBackColor = true;
@@ -143,9 +156,11 @@ namespace ReportProgram
             // 
             this.rdb_NoSel.AutoSize = true;
             this.rdb_NoSel.Checked = true;
-            this.rdb_NoSel.Location = new System.Drawing.Point(145, 82);
+            this.rdb_NoSel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rdb_NoSel.Location = new System.Drawing.Point(138, 70);
+            this.rdb_NoSel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdb_NoSel.Name = "rdb_NoSel";
-            this.rdb_NoSel.Size = new System.Drawing.Size(45, 19);
+            this.rdb_NoSel.Size = new System.Drawing.Size(55, 25);
             this.rdb_NoSel.TabIndex = 3;
             this.rdb_NoSel.TabStop = true;
             this.rdb_NoSel.Text = "ALL";
@@ -155,7 +170,7 @@ namespace ReportProgram
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(26, 133);
+            this.label3.Location = new System.Drawing.Point(18, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 25);
             this.label3.TabIndex = 2;
@@ -165,7 +180,7 @@ namespace ReportProgram
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(26, 82);
+            this.label2.Location = new System.Drawing.Point(18, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 1;
@@ -175,7 +190,7 @@ namespace ReportProgram
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 13F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(25, 34);
+            this.label1.Location = new System.Drawing.Point(18, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 25);
             this.label1.TabIndex = 0;
@@ -183,12 +198,15 @@ namespace ReportProgram
             // 
             // frm_SelectData
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 308);
+            this.ClientSize = new System.Drawing.Size(560, 239);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_SelectData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "데이터 조회";
             this.Load += new System.EventHandler(this.frm_SelectData_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

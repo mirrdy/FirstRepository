@@ -587,10 +587,9 @@ namespace ReportProgram
             }
         }
 
-        private void selectedDataView_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btn_DetailData_Click(object sender, EventArgs e)
         {
             new frm_DetailData(selectedDataView).ShowDialog();
-
         }
     }
 }

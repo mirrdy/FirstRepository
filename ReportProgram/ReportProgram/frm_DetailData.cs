@@ -18,11 +18,6 @@ namespace ReportProgram
 
         private int dataStartIndex;
 
-        public frm_DetailData()
-        {
-            InitializeComponent();
-        }
-
         public frm_DetailData(DataGridView dgv)
         {
             InitializeComponent();
@@ -32,13 +27,10 @@ namespace ReportProgram
             calcDetailData();
         }
 
-        private void loadMySetting()
-        {
-            mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
-        }
-
         private void frm_DetailData_Load(object sender, EventArgs e)
         {
+            lbl_GraphData.Text = "";
+                
             cht_DetailData.ChartAreas[0].CursorX.IsUserEnabled = true;
             cht_DetailData.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
             cht_DetailData.ChartAreas[0].CursorY.IsUserEnabled = true;
@@ -66,6 +58,11 @@ namespace ReportProgram
                 cht_DetailData.Series[0].Points.AddXY(tmpX, tmpRand.NextDouble());
                 //cht_DetailData.Series[1].Points.AddXY(tmpX, tmpRand.NextDouble());
             }*/
+        }
+
+        private void loadMySetting()
+        {
+            mySetting.Setting_Load_Xml(Const.SETTING_FILE_PATH);
         }
 
         private void calcDetailData()
@@ -106,33 +103,31 @@ namespace ReportProgram
 
         private void cht_DetailData_MouseMove(object sender, MouseEventArgs e)
         {
-            Point mousePoint = new Point(e.X, e.Y);
-
-            cht_DetailData.ChartAreas[0].CursorX.SetCursorPixelPosition(mousePoint, true);
-            //chart_AIData.ChartAreas[0].CursorY.SetCursorPixelPosition(mousePoint, true);
-
-            double tmpXValue = cht_DetailData.ChartAreas[0].CursorX.Position;
-            int tmpIndex = (int)(tmpXValue);
-
-            if ((cht_DetailData.Series[0].Points.Count > tmpIndex) && (tmpIndex > -1))
+            if(cht_DetailData.Series.Count > 0)
             {
-                double tmpX = cht_DetailData.Series[0].Points[tmpIndex].GetValueByName("X");
-                label1.Text = tmpX.ToString();
+                Point mousePoint = new Point(e.X, e.Y);
 
-                for (int i = 0; i < cht_DetailData.Series.Count; i++)
+                cht_DetailData.ChartAreas[0].CursorX.SetCursorPixelPosition(mousePoint, true);
+                //chart_AIData.ChartAreas[0].CursorY.SetCursorPixelPosition(mousePoint, true);
+
+                double tmpXValue = cht_DetailData.ChartAreas[0].CursorX.Position;
+                int tmpIndex = (int)(tmpXValue);
+
+                if ((cht_DetailData.Series[0].Points.Count > tmpIndex) && (tmpIndex > -1))
                 {
-                    double tmpY = cht_DetailData.Series[i].Points[tmpIndex].GetValueByName("Y");
-                    label1.Text += ", " + tmpY.ToString();
+                    double tmpX = cht_DetailData.Series[0].Points[tmpIndex].GetValueByName("X");
+                    lbl_GraphData.Text = tmpX.ToString();
+
+                    for (int i = 0; i < cht_DetailData.Series.Count; i++)
+                    {
+                        double tmpY = cht_DetailData.Series[i].Points[tmpIndex].GetValueByName("Y");
+                        lbl_GraphData.Text += ", " + tmpY.ToString();
+                    }
                 }
             }
         }
 
         private void dgv_DetailData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void dgv_DetailData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             cht_DetailData.Series.Clear();
 
@@ -150,7 +145,11 @@ namespace ReportProgram
                     }
                 }
             }
+        }
 
+        private void dgv_DetailData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgv_DetailData.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
     }
 }
