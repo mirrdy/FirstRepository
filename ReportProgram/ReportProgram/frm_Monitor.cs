@@ -70,7 +70,7 @@ namespace ReportProgram
 
             try
             {
-                queryString = "select * from test_Data order by start_time asc;";
+                queryString = "select * from Test_Data order by start_time asc;";
                 OdbcCommand command = new OdbcCommand(queryString);
                 using (OdbcConnection connection = new OdbcConnection(connectionString))
                 {
